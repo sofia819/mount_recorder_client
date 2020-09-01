@@ -1,8 +1,9 @@
 import React, {useState} from "react";
+import { Button } from '@material-ui/core';
+import { inputUser as insertUser} from '../services/userServices';
 
 const InputUser = () => 
 {
-
     const [username, setUsername] = useState("");
 
     const onSubmitForm = async e =>
@@ -10,13 +11,21 @@ const InputUser = () =>
         e.preventDefault();
         try 
         {
-            const body = { username };
-            const response = await fetch("http://localhost:5000/users", 
-            {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(body)
-            });
+            const inputUser = async (userdata) => {
+                insertUser(userdata)
+                .then(() => {
+                    
+                })
+                .catch((err) => console.log(err));
+            };
+
+            // const body = { username };
+            // const response = await fetch("http://localhost:5000/users", 
+            // {
+            //     method: "POST",
+            //     headers: { "Content-Type": "application/json" },
+            //     body: JSON.stringify(body)
+            // });
 
             window.location = "/";
         } 
@@ -34,7 +43,10 @@ const InputUser = () =>
                 className="form-control" 
                 value={username}
                 onChange={e => setUsername(e.target.value)} />
-                <button className="btn btn-success">Add</button>
+                <Button 
+                    variant="contained" 
+                    color="primary">Add
+                </Button>
             </form>
         </>
     );
