@@ -1,32 +1,18 @@
 import React, { useEffect, useState } from "react";
-import wretch from "wretch";
+import { deleteUserService, getUsersService } from "../services/user-services";
 
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
 
-  //delete user function
-  const deleteUser = async (id) => {
-    try {
-      await fetch(`http://localhost:5000/users/${id}`, {
-        method: "DELETE",
-      });
+  const deleteUser = (id) =>
+    deleteUserService(id)
+      .then(() => setUsers(users.filter((user) => user.user_id !== id)))
+      .catch((err) => console.error(err));
 
-      setUsers(users.filter((user) => user.user_id !== id));
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
-  const getUsers = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/users"); //Need to change for heroku
-      const jsonData = await response.json();
-
-      setUsers(jsonData);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
+  const getUsers = () =>
+    getUsersService()
+      .then((res) => setUsers(res))
+      .catch((err) => console.log(err));
 
   useEffect(() => {
     getUsers();

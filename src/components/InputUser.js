@@ -1,43 +1,31 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { addUserService } from "../services/user-services";
 
-const InputUser = () => 
-{
+const InputUser = () => {
+  const [username, setUsername] = useState("");
 
-    const [username, setUsername] = useState("");
+  const onAddUser = () => {
+    addUserService(username)
+      .then(() => setUsername(""))
+      .catch((err) => console.log(err));
+  };
 
-    const onSubmitForm = async e =>
-    {
-        e.preventDefault();
-        try 
-        {
-            const body = { username };
-            const response = await fetch("http://localhost:5000/users", 
-            {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(body)
-            });
+  const onChangeInput = (e) => setUsername(e.target.value);
 
-            window.location = "/";
-        } 
-        catch (err) 
-        {
-            console.error(err.message);
-        }
-    }
-
-    return (
-        <>
-            <h1 className="text-center mt-5">Input User</h1>
-            <form className="d-flex mt-5" onSubmit={onSubmitForm}>
-                <input type="text" 
-                className="form-control" 
-                value={username}
-                onChange={e => setUsername(e.target.value)} />
-                <button className="btn btn-success">Add</button>
-            </form>
-        </>
-    );
+  return (
+    <>
+      <h1 className="text-center mt-5">Input User</h1>
+      <input
+        type="text"
+        className="form-control"
+        value={username}
+        onChange={onChangeInput}
+      />
+      <button className="btn btn-success" onClick={onAddUser}>
+        Add
+      </button>
+    </>
+  );
 };
 
 export default InputUser;
