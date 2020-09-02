@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { deleteUser as delUser, getUsers as retrieveUser } from "../services/userServices";
+import { deleteUserService, getUsersService } from "../services/userServices";
 import { UserTable } from "./UserTable";
 
 const ListUsers = () => {
@@ -7,7 +7,7 @@ const ListUsers = () => {
 
   //delete user function
   const deleteUser = async (id) => {
-      delUser(id)
+      deleteUserService(id)
         .then(() => {
           setUsers(users.filter((user) => user.user_id !== id));
         })
@@ -16,7 +16,7 @@ const ListUsers = () => {
 
   //it's what it sounds like
   const getUsers = () => {
-    retrieveUser()
+    getUsersService()
       .then((res) => {
         setUsers(res);
       })
