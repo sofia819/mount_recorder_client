@@ -1,7 +1,10 @@
 import wretch from "wretch";
 
-export const deleteUserService = id => wretch(`https://mount-recorder-server.herokuapp.com/users/${id}`).delete().res()
+export const deleteUserService = id => wretch(`http://localhost:5000/users/${id}`).delete().res()
 
-export const inputUserService = userdata => wretch(`https://mount-recorder-server.herokuapp.com/users`).post({ "username": userdata }).res()
+export const inputUserService = userdata => wretch(`http://localhost:5000/users`).post({ "username": userdata }).res()
 
-export const getUsersService = () => wretch(`https://mount-recorder-server.herokuapp.com/users`).get().json()
+export const getUsersService = () => wretch(`http://localhost:5000/users`).get().json()
+
+//for heroku https://mount-recorder-server.herokuapp.com
+//instead of http://localhost:5000

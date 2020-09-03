@@ -18,6 +18,7 @@ const ListUsers = () => {
   const getUsers = () => {
     getUsersService()
       .then((res) => {
+        console.log(res);
         setUsers(res);
       })
       .catch((err) => console.log(err));

@@ -6,7 +6,7 @@ export const DeleteUserButton = props => {
       <Button
         variant="contained"
         color="secondary"
-        onClick={() => props.deleteUser(props.user_id)}
+        onClick={() => props.deleteUser(props.userId)}
       >
         Delete
       </Button>

@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { DeleteUserButton } from './DeleteUserButton';
+import { EditUserModal } from './EditUserModal';
 
 const StyledTableCell = withStyles((theme) => ({
         head: {
@@ -52,11 +53,16 @@ export const UserTable = (props) =>  {
                 <StyledTableCell component="th" scope="row">
                   {row.username}
                 </StyledTableCell>
-                <StyledTableCell align="left">edit</StyledTableCell>
+                <StyledTableCell align="left">
+                  <EditUserModal
+                    username={row.username}
+                    userId={row.user_id}
+                  />
+                </StyledTableCell>
                 <StyledTableCell align="left">
                   <DeleteUserButton
                     deleteUser={props.deleteUser}
-                    user_id={row.user_id}
+                    userId={row.user_id}
                   />
                 </StyledTableCell>
               </StyledTableRow>
