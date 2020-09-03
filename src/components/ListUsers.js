@@ -6,20 +6,20 @@ const ListUsers = () => {
   const [users, setUsers] = useState([]);
 
   //delete user function
-  const deleteUser = async (id) => {
-      deleteUserService(id)
-        .then(() => {
-          setUsers(users.filter((user) => user.user_id !== id));
-        })
-        .catch((err) => console.log(err));
+  const deleteUser = async (id) => 
+  {
+    deleteUserService(id)
+      .then(() => {
+        setUsers(users.filter((user) => user.user_id !== id));
+      })
+      .catch((err) => console.log(err));
   };
 
   //it's what it sounds like
   const getUsers = () => {
     getUsersService()
       .then((res) => {
-        console.log(res);
-        setUsers(res);
+        setUsers(res.sort((a, b) => a.username.localeCompare(b.username)));
       })
       .catch((err) => console.log(err));
   }

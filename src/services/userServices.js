@@ -6,5 +6,7 @@ export const inputUserService = userdata => wretch(`http://localhost:5000/users`
 
 export const getUsersService = () => wretch(`http://localhost:5000/users`).get().json()
 
+export const updateUserService = (id, userdata) => wretch(`http://localhost:5000/users/${id}`).json({ "username": userdata }).put().res()
+
 //for heroku https://mount-recorder-server.herokuapp.com
 //instead of http://localhost:5000

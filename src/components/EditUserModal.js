@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { Modal } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, TextField } from '@material-ui/core';
+import { updateUserService} from '../services/userServices';
 
 function getModalStyle() {
     const top = 50;
@@ -29,6 +30,19 @@ const useStyles = makeStyles((theme) =>
 export const EditUserModal = props => 
 {
     const [username, setUsername] = useState(props.username);
+    const [userId] = useState(props.userId);
+
+    //edit username function
+    const updateUser = async(e) =>
+    {
+        e.preventDefault();
+        updateUserService(userId, username)
+          .then(() => {
+            //console.log(Response);
+            window.location = "/users";
+          })
+          .catch((err) => console.log(err));
+    };
 
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
@@ -40,28 +54,28 @@ export const EditUserModal = props =>
 
     const handleClose = () => {
         setOpen(false);
+        setUsername(props.username);
     };
 
+    const handleSetUsername = (e) => setUsername(e.target.value);
+
     const body = (
-    <div style={modalStyle} className={classes.paper}>
-    <h2 id="simple-modal-title">Editing Mode</h2>
-    <TextField
-        variant="outlined"
-        defaultValue={username}
-      />
-    <Button
-    variant="contained"
-    color="primary"
-    >
-    Edit
-    </Button>
-    <Button
-    variant="contained"
-    color="default"
-    >
-    close
-    </Button>
-    </div>
+      <div style={modalStyle} className={classes.paper}>
+        <h2 id="simple-modal-title">Editing Mode</h2>
+        <TextField variant="outlined" 
+        defaultValue={username} 
+        onChange={handleSetUsername}/>
+        <Button variant="contained" 
+        color="primary"
+        onClick={e => updateUser(e)}>
+          Edit
+        </Button>
+        <Button variant="contained" 
+        color="default"
+        onClick={handleClose}>
+          close
+        </Button>
+      </div>
     );
 
     return (
