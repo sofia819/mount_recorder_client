@@ -1,96 +1,95 @@
-import React, {useState} from "react";
-import { Modal } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import { Button, TextField } from '@material-ui/core';
-import { updateUserService} from '../services/userServices';
+import React, { useState } from "react";
+import { Modal } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { Button, TextField } from "@material-ui/core";
+import { updateUserService } from "../services/userServices";
 
 function getModalStyle() {
-    const top = 50;
-    const left = 50 ;
-  
-    return {
-      top: `${top}%`,
-      left: `${left}%`,
-      transform: `translate(-${top}%, -${left}%)`,
-    };
-  }
+  const top = 50;
+  const left = 50;
 
-const useStyles = makeStyles((theme) => 
-({
-    paper: {
-      position: 'absolute',
-      width: 400,
-      backgroundColor: theme.palette.background.paper,
-      border: '2px solid #000',
-      boxShadow: theme.shadows[5],
-      padding: theme.spacing(2, 4, 3),
-    },
-  }));
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
 
-export const EditUserModal = props => 
-{
-    const [username, setUsername] = useState(props.username);
-    const [userId] = useState(props.userId);
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    position: "absolute",
+    width: 400,
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
 
-    //edit username function
-    const updateUser = async(e) =>
-    {
-        e.preventDefault();
-        updateUserService(userId, username)
-          .then(() => {
-            //console.log(Response);
-            window.location = "/users";
-          })
-          .catch((err) => console.log(err));
-    };
+export const EditUserModal = (props) => {
+  const [username, setUsername] = useState(props.username);
+  const [userId] = useState(props.userId);
 
-    const classes = useStyles();
-    const [modalStyle] = React.useState(getModalStyle);
-    const [open, setOpen] = React.useState(false);
+  //edit username function
+  const updateUser = async (e) => {
+    e.preventDefault();
+    updateUserService(userId, username)
+      .then(() => {
+        //console.log(Response);
+        window.location = "/users";
+      })
+      .catch((err) => console.log(err));
+  };
 
-    const handleOpen = () => {
-        setOpen(true);
-    };
+  const classes = useStyles();
+  const [modalStyle] = React.useState(getModalStyle);
+  const [open, setOpen] = React.useState(false);
 
-    const handleClose = () => {
-        setOpen(false);
-        setUsername(props.username);
-    };
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
-    const handleSetUsername = (e) => setUsername(e.target.value);
+  const handleClose = () => {
+    setOpen(false);
+    setUsername(props.username);
+  };
 
-    const body = (
-      <div style={modalStyle} className={classes.paper}>
-        <h2 id="simple-modal-title">Editing Mode</h2>
-        <TextField variant="outlined" 
-        defaultValue={username} 
-        onChange={handleSetUsername}/>
-        <Button variant="contained" 
+  const handleSetUsername = (e) => setUsername(e.target.value);
+
+  const body = (
+    <div style={modalStyle} className={classes.paper}>
+      <h2 id="simple-modal-title">Editing Mode</h2>
+      <TextField
+        variant="outlined"
+        defaultValue={username}
+        onChange={handleSetUsername}
+      />
+      <Button
+        variant="contained"
         color="primary"
-        onClick={e => updateUser(e)}>
-          Edit
-        </Button>
-        <Button variant="contained" 
-        color="default"
-        onClick={handleClose}>
-          close
-        </Button>
-      </div>
-    );
+        onClick={updateUser}
+      >
+        Edit
+      </Button>
+      <Button variant="contained" color="default" onClick={handleClose}>
+        close
+      </Button>
+    </div>
+  );
 
-    return (
-        <>
-        <button type="button" onClick={handleOpen}>
+  return (
+    <>
+      <button type="button" onClick={handleOpen}>
         Edit User
-        </button>
-        <Modal
+      </button>
+      <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
-        >
+      >
         {body}
-        </Modal>
-        </>
-    )
+      </Modal>
+    </>
+  );
 };
