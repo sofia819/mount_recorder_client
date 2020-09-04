@@ -3,8 +3,9 @@ import { Modal } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, TextField } from "@material-ui/core";
 import { updateUserService } from "../services/userServices";
+import { EDIT_NAME_HEADING, EDIT_BUTTON, CLOSE_BUTTON } from "../utils/constants";
 
-function getModalStyle() {
+const getModalStyle = () => {
   const top = 50;
   const left = 50;
 
@@ -13,7 +14,7 @@ function getModalStyle() {
     left: `${left}%`,
     transform: `translate(-${top}%, -${left}%)`,
   };
-}
+};
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -30,12 +31,10 @@ export const EditUserModal = (props) => {
   const [username, setUsername] = useState(props.username);
   const [userId] = useState(props.userId);
 
-  //edit username function
-  const updateUser = async (e) => {
-    e.preventDefault();
+  // Edit username
+  const updateUser = () => {
     updateUserService(userId, username)
       .then(() => {
-        //console.log(Response);
         window.location = "/users";
       })
       .catch((err) => console.log(err));
@@ -58,21 +57,17 @@ export const EditUserModal = (props) => {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Editing Mode</h2>
+      <h2 id="simple-modal-title">{EDIT_NAME_HEADING}</h2>
       <TextField
         variant="outlined"
         defaultValue={username}
         onChange={handleSetUsername}
       />
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={updateUser}
-      >
-        Edit
+      <Button variant="contained" color="primary" onClick={updateUser}>
+        {EDIT_BUTTON}
       </Button>
       <Button variant="contained" color="default" onClick={handleClose}>
-        close
+        {CLOSE_BUTTON}
       </Button>
     </div>
   );
@@ -80,7 +75,7 @@ export const EditUserModal = (props) => {
   return (
     <>
       <button type="button" onClick={handleOpen}>
-        Edit User
+        {EDIT_BUTTON}
       </button>
       <Modal
         open={open}

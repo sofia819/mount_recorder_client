@@ -1,12 +1,17 @@
 import wretch from "wretch";
+import { END_POINT_URL } from "../utils/constants";
 
-export const deleteUserService = id => wretch(`http://localhost:5000/users/${id}`).delete().res()
+export const deleteUserService = (id) =>
+  wretch(`${END_POINT_URL}users/${id}`).delete().res();
 
-export const inputUserService = userdata => wretch(`http://localhost:5000/users`).post({ "username": userdata }).res()
+export const inputUserService = (userdata) =>
+  wretch(`${END_POINT_URL}users`).post({ username: userdata }).res();
 
-export const getUsersService = () => wretch(`http://localhost:5000/users`).get().json()
+export const getUsersService = () =>
+  wretch(`${END_POINT_URL}users`).get().json();
 
-export const updateUserService = (id, userdata) => wretch(`http://localhost:5000/users/${id}`).json({ "username": userdata }).put().res()
-
-//for heroku https://mount-recorder-server.herokuapp.com
-//instead of http://localhost:5000
+export const updateUserService = (id, userdata) =>
+  wretch(`${END_POINT_URL}users/${id}`)
+    .json({ username: userdata })
+    .put()
+    .res();

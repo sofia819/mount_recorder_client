@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { Button, TextField } from "@material-ui/core";
 import { inputUserService } from "../services/userServices";
+import {
+  INPUT_USER_HEADING,
+  ADD_BUTTON,
+  MIN_USERNAME_LEN,
+} from "../utils/constants";
 
-const InputUser = () => {
+export const InputUser = () => {
   const [username, setUsername] = useState("");
 
-  const inputUser = async (e) => {
-    if (username.length > 2) {
+  const inputUser = () => {
+    if (username.length >= MIN_USERNAME_LEN) {
       inputUserService(username)
         .then(() => {
           window.location = "/users";
@@ -17,18 +22,16 @@ const InputUser = () => {
 
   return (
     <>
-      <h1>Input User</h1>
+      <h1>{INPUT_USER_HEADING}</h1>
       <TextField
         label="username"
         variant="outlined"
         value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        onChange={setUsername}
       />
       <Button onClick={inputUser} variant="contained" color="primary">
-        Add
+        {ADD_BUTTON}
       </Button>
     </>
   );
 };
-
-export default InputUser;

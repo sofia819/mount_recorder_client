@@ -1,14 +1,10 @@
 import React from "react";
 
-//components
+// Components
 import { NavigationBar } from "./components/NavigationBar";
 
-function App() {
-  return (
-    <>
-      <NavigationBar />
-    </>
-  );
-}
-
-export default App;
+export const App = () => (
+  <>
+    <NavigationBar />
+  </>
+);
