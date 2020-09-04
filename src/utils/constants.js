@@ -24,6 +24,8 @@ export const CLOSE_BUTTON = "Close";
 
 export const MIN_USERNAME_LEN = 3;
 
+export const MOUNT_COLUMN = "Mount";
+
 // Heroku https://mount-recorder-server.herokuapp.com
 // Local http://localhost:5000
 export const END_POINT_URL = "http://localhost:5000/";

@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { InputUser } from "./InputUser";
 import { ListUsers } from "./ListUsers";
+import { ListMounts } from "./ListMounts";
 import { HOME_NAV, USER_NAV, MOUNTS_NAV } from "../utils/constants";
 
 export const NavigationBar = () => (
@@ -32,7 +33,7 @@ export const NavigationBar = () => (
           <ListUsers />
         </Route>
         <Route path="/mounts" exact>
-          <div>{MOUNTS_NAV}</div>
+          <ListMounts />
         </Route>
       </Switch>
     </div>
