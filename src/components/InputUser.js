@@ -27,7 +27,7 @@ export const InputUser = () => {
         label="username"
         variant="outlined"
         value={username}
-        onChange={setUsername}
+        onChange={(e) => setUsername(e.target.value)}
       />
       <Button onClick={inputUser} variant="contained" color="primary">
         {ADD_BUTTON}

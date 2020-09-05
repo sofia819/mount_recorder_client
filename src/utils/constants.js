@@ -26,6 +26,12 @@ export const MIN_USERNAME_LEN = 3;
 
 export const MOUNT_COLUMN = "Mount";
 
+export const USERNAME_TEXT = "Username";
+
+export const PASSWORD_TEXT = "Password";
+
+export const LOGIN_BUTTON = "Login";
+
 // Heroku https://mount-recorder-server.herokuapp.com
 // Local http://localhost:5000
 export const END_POINT_URL = "http://localhost:5000/";

@@ -1,21 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { getMountsService } from "../services/mountServices";
+import React from "react";
 import { MountTable } from "./MountTable";
+import PropTypes from "prop-types";
 
-export const ListMounts = () => {
-  const [mounts, setMounts] = useState([]);
+export const ListMounts = (props) => <MountTable mounts={props.mounts} />;
 
-  // Get all mounts
-  const getMounts = () => {
-    getMountsService()
-      .then((res) => {
-          setMounts(res);
-      })
-      .catch((err) => console.log(err));
-  };
-  useEffect(() => {
-    getMounts();
-  }, []);
-
-  return <MountTable mounts={mounts} />;
+ListMounts.propTypes = {
+  mounts: PropTypes.array,
 };
