@@ -48,7 +48,7 @@ export const NavigationBar = () => {
             <div>{HOME_NAV}</div>
           </Route>
           <Route path="/users" exact>
-            <InputUser />
+            <InputUser users={users} setUsers={setUsers} />
             <ListUsers users={users} setUsers={setUsers} />
           </Route>
           <Route path="/mounts" exact>

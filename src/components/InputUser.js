@@ -6,16 +6,16 @@ import {
   ADD_BUTTON,
   MIN_USERNAME_LEN,
 } from "../utils/constants";
+import PropTypes from "prop-types";
 
-export const InputUser = () => {
+export const InputUser = (props) => {
   const [username, setUsername] = useState("");
 
   const inputUser = () => {
     if (username.length >= MIN_USERNAME_LEN) {
       inputUserService(username)
-        .then(() => {
-          window.location = "/users";
-        })
+        .then((res) => props.setUsers([...props.users, res]))
+        .then(() => setUsername(""))
         .catch((err) => console.log(err));
     }
   };
@@ -34,4 +34,9 @@ export const InputUser = () => {
       </Button>
     </>
   );
+};
+
+InputUser.propTypes = {
+  setUsers: PropTypes.func,
+  users: PropTypes.array,
 };
