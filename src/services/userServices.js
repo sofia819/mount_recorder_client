@@ -14,4 +14,4 @@ export const updateUserService = (id, userdata) =>
   wretch(`${END_POINT_URL}users/${id}`)
     .json({ username: userdata })
     .put()
-    .res();
+    .json();

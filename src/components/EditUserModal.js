@@ -6,32 +6,39 @@ import {
   EDIT_NAME_HEADING,
   EDIT_BUTTON,
   CLOSE_BUTTON,
+  MIN_USERNAME_LEN,
 } from "../utils/constants";
 import PropTypes from "prop-types";
 import "./EditUserModal.scss";
 
 export const EditUserModal = (props) => {
-  const [username, setUsername] = useState(props.username);
-  const [userId] = useState(props.userId);
+  const [username, setUsername] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setUsername(props.username);
+  };
 
   // Edit username
   const updateUser = () => {
-    updateUserService(userId, username)
-      .then(() => {
-        window.location = "/users";
-      })
-      .catch((err) => console.log(err));
-  };
-
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    setUsername(props.username);
+    if (username.length >= MIN_USERNAME_LEN && props.username !== username) {
+      updateUserService(props.userId, username)
+        .then((res) => {
+          props.setUsers((prevState) => [
+            ...prevState.filter((user) => user.user_id !== props.userId),
+            res,
+          ]);
+          handleCloseModal();
+        })
+        .catch((err) => {
+          console.log(err);
+          handleCloseModal();
+        });
+    } else {
+      setIsModalOpen(false);
+    }
   };
 
   const handleSetUsername = (e) => setUsername(e.target.value);
@@ -41,13 +48,13 @@ export const EditUserModal = (props) => {
       <h2 id="simple-modal-title">{EDIT_NAME_HEADING}</h2>
       <TextField
         variant="outlined"
-        defaultValue={username}
+        defaultValue={props.username}
         onChange={handleSetUsername}
       />
       <Button variant="contained" color="primary" onClick={updateUser}>
         {EDIT_BUTTON}
       </Button>
-      <Button variant="contained" color="default" onClick={handleClose}>
+      <Button variant="contained" color="default" onClick={handleCloseModal}>
         {CLOSE_BUTTON}
       </Button>
     </Card>
@@ -57,15 +64,15 @@ export const EditUserModal = (props) => {
     <>
       <Button
         type="button"
-        onClick={handleOpen}
+        onClick={handleOpenModal}
         variant="contained"
         color="primary"
       >
         {EDIT_BUTTON}
       </Button>
       <Modal
-        open={open}
-        onClose={handleClose}
+        open={isModalOpen}
+        onClose={handleCloseModal}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >

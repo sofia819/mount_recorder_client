@@ -24,6 +24,8 @@ export const CLOSE_BUTTON = "Close";
 
 export const MIN_USERNAME_LEN = 3;
 
+export const MIN_PASSWORD_LEN = 3;
+
 export const MOUNT_COLUMN = "Mount";
 
 export const USERNAME_TEXT = "Username";

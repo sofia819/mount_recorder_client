@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { InputUser } from "./InputUser";
-import { ListUsers } from "./ListUsers";
+import { UserTable } from "./UserTable";
 import { ListMounts } from "./ListMounts";
 import { HOME_NAV, USER_NAV, MOUNTS_NAV } from "../utils/constants";
 import { getMountsService } from "../services/mountServices";
@@ -19,7 +18,7 @@ export const NavigationBar = () => {
       .catch((err) => console.log(err));
     getUsersService()
       .then((res) => {
-        setUsers(res.sort((a, b) => a.username.localeCompare(b.username)));
+        setUsers(res);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -48,8 +47,7 @@ export const NavigationBar = () => {
             <div>{HOME_NAV}</div>
           </Route>
           <Route path="/users" exact>
-            <InputUser users={users} setUsers={setUsers} />
-            <ListUsers users={users} setUsers={setUsers} />
+            <UserTable users={users} setUsers={setUsers} />
           </Route>
           <Route path="/mounts" exact>
             <ListMounts mounts={mounts} />

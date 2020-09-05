@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 import { USERNAME_TEXT, LOGIN_BUTTON, PASSWORD_TEXT } from "../utils/constants";
 import {
   Button,
@@ -11,7 +11,7 @@ import {
 import PropTypes from "prop-types";
 import "./AdminLogin.scss";
 
-export const AdminLogin = (props) => {
+export const AdminLogin = forwardRef((props, ref) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -20,7 +20,7 @@ export const AdminLogin = (props) => {
   };
 
   return (
-    <Card className="modal" outlined>
+    <Card tabIndex={-1} ref={ref} className="modal" outlined="true">
       <CardContent>
         <Grid>
           <Grid item>
@@ -45,7 +45,7 @@ export const AdminLogin = (props) => {
       </CardActions>
     </Card>
   );
-};
+});
 
 AdminLogin.propTypes = {
   deleteUser: PropTypes.func,
