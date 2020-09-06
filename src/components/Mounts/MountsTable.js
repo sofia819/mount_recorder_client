@@ -6,16 +6,21 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { MOUNT_COLUMN } from "../utils/constants";
+import {
+  MOUNT_COLUMN,
+  EXPANSION_COLUMN,
+  EXPANSION_MAP,
+} from "../../utils/constants";
 import PropTypes from "prop-types";
-import "./Table.scss";
+import "../Table.scss";
 
-export const MountTable = (props) => (
+export const MountsTable = (props) => (
   <TableContainer component={Paper}>
     <Table className="table" aria-label="customized table">
       <TableHead className="table-head">
         <TableRow>
           <TableCell>{MOUNT_COLUMN}</TableCell>
+          <TableCell>{EXPANSION_COLUMN}</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -24,6 +29,9 @@ export const MountTable = (props) => (
             <TableCell component="th" scope="row">
               {row.mount_name}
             </TableCell>
+            <TableCell component="th" scope="row">
+              {EXPANSION_MAP[row.expansion]}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
@@ -31,6 +39,6 @@ export const MountTable = (props) => (
   </TableContainer>
 );
 
-MountTable.propTypes = {
+MountsTable.propTypes = {
   mounts: PropTypes.array,
 };

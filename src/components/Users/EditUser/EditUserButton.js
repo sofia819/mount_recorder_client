@@ -1,17 +1,11 @@
-import React, { useState } from "react";
-import { Modal, Card } from "@material-ui/core";
-import { Button, TextField } from "@material-ui/core";
-import { updateUserService } from "../services/userServices";
-import {
-  EDIT_NAME_HEADING,
-  EDIT_BUTTON,
-  CLOSE_BUTTON,
-  MIN_USERNAME_LEN,
-} from "../utils/constants";
+import React, { useState, createRef } from "react";
+import { Modal, Button } from "@material-ui/core";
+import { updateUserService } from "../../../services/userServices";
+import { EDIT_BUTTON, MIN_USERNAME_LEN } from "../../../utils/constants";
+import { EditUserForm } from "./EditUserForm";
 import PropTypes from "prop-types";
-import "./EditUserModal.scss";
 
-export const EditUserModal = (props) => {
+export const EditUserButton = (props) => {
   const [username, setUsername] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -43,23 +37,6 @@ export const EditUserModal = (props) => {
 
   const handleSetUsername = (e) => setUsername(e.target.value);
 
-  const body = (
-    <Card className="modal">
-      <h2 id="simple-modal-title">{EDIT_NAME_HEADING}</h2>
-      <TextField
-        variant="outlined"
-        defaultValue={props.username}
-        onChange={handleSetUsername}
-      />
-      <Button variant="contained" color="primary" onClick={updateUser}>
-        {EDIT_BUTTON}
-      </Button>
-      <Button variant="contained" color="default" onClick={handleCloseModal}>
-        {CLOSE_BUTTON}
-      </Button>
-    </Card>
-  );
-
   return (
     <>
       <Button
@@ -76,13 +53,17 @@ export const EditUserModal = (props) => {
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
-        {body}
+        <EditUserForm
+          ref={createRef()}
+          onSetUsername={handleSetUsername}
+          onEditUsername={updateUser}
+        />
       </Modal>
     </>
   );
 };
 
-EditUserModal.propTypes = {
+EditUserButton.propTypes = {
   username: PropTypes.string,
   userId: PropTypes.number,
 };

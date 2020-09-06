@@ -34,6 +34,18 @@ export const PASSWORD_TEXT = "Password";
 
 export const LOGIN_BUTTON = "Login";
 
+export const ADD_USER_BUTTON = "Add User";
+
+export const EXPANSION_COLUMN = "Expansion"
+
+export const EXPANSION_MAP = {
+  0: "Misc.",
+  2: "A Realm Reborn",
+  3: "Heavensward",
+  4: "Stormblood",
+  5: "Shadowbringers",
+};
+
 // Heroku https://mount-recorder-server.herokuapp.com
 // Local http://localhost:5000
 export const END_POINT_URL = "http://localhost:5000/";
