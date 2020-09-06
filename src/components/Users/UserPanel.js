@@ -26,13 +26,17 @@ export const UserPanel = (props) => {
         ? user.username.toLowerCase().includes(searchUsername.toLowerCase())
         : true
     )
-    .sort((a, b) => a.username.localeCompare(b.username))
-    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+    .sort((a, b) => a.username.localeCompare(b.username));
 
   return (
     <Grid container>
       <Grid item xs={12}>
-        <UsersTable users={filteredUsers} setUsers={props.setUsers} />
+        <UsersTable
+          users={filteredUsers.slice(
+            page * rowsPerPage,
+            page * rowsPerPage + rowsPerPage
+          )}
+        />
       </Grid>
       <Grid item xs={12} align="center">
         <UserActionsPanel
@@ -45,6 +49,8 @@ export const UserPanel = (props) => {
           onChangeRowsPerPage={handleChangeRowsPerPage}
           onChangeSearchUsername={handleChangeUsername}
           searchUsername={searchUsername}
+          users={props.users}
+          setUsers={props.setUsers}
         />
       </Grid>
     </Grid>
