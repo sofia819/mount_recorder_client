@@ -19,9 +19,9 @@ export const AddUserButton = (props) => {
     if (username.length >= MIN_USERNAME_LEN) {
       inputUserService(username)
         .then((res) => {
+          handleCloseModal();
           props.setUsers([...props.users, res]);
           setUsername("");
-          handleCloseModal();
         })
         .catch((err) => console.log(err));
     }

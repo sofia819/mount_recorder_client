@@ -26,16 +26,23 @@ export const UserPanel = (props) => {
         ? user.username.toLowerCase().includes(searchUsername.toLowerCase())
         : true
     )
-    .sort((a, b) => a.username.localeCompare(b.username))
-    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+    .sort((a, b) => a.username.localeCompare(b.username));
 
   return (
     <Grid container>
       <Grid item xs={12}>
-        <UsersTable users={filteredUsers} setUsers={props.setUsers} />
+        <UsersTable
+          users={filteredUsers.slice(
+            page * rowsPerPage,
+            page * rowsPerPage + rowsPerPage
+          )}
+          setUsers={props.setUsers}
+        />
       </Grid>
       <Grid item xs={12} align="center">
         <UserActionsPanel
+          users={props.users}
+          setUsers={props.setUsers}
           rowsPerPageOptions={ROWS_PER_PAGE_OPTIONS}
           component="div"
           count={filteredUsers.length}

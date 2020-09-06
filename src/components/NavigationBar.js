@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { UserPanel } from "./Users/UserPanel";
 import { MountsPanel } from "./Mounts/MountsPanel";
+import { UserMountsPanel } from "./UserMounts/UserMountsPanel";
 import { getMountsService } from "../services/mountServices";
 import { getUsersService } from "../services/userServices";
+import { getUserMountsService } from "../services/userMountsServices";
 import { Tabs, Tab, AppBar, Paper } from "@material-ui/core/";
 import { PAGES_NAV } from "../utils/constants";
 import "./NaviagtionBar.scss";
@@ -11,11 +13,12 @@ import "./NaviagtionBar.scss";
 export const NavigationBar = () => {
   const [users, setUsers] = useState([]);
   const [mounts, setMounts] = useState([]);
+  const [userMounts, setUserMounts] = useState([]);
   const [selectedTab, setSelectedTab] = useState(() => {
     const currentPage = Object.keys(PAGES_NAV).find((page) =>
       window.location.pathname.includes(PAGES_NAV[page])
     );
-    return currentPage ? PAGES_NAV[currentPage] : PAGES_NAV.HOME_NAV;
+    return currentPage ? PAGES_NAV[currentPage] : PAGES_NAV.USER_MOUNTS_NAV;
   });
 
   useEffect(() => {
@@ -27,6 +30,11 @@ export const NavigationBar = () => {
     getUsersService()
       .then((res) => {
         setUsers(res);
+      })
+      .catch((err) => console.log(err));
+    getUserMountsService()
+      .then((res) => {
+        setUserMounts(res);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -45,11 +53,11 @@ export const NavigationBar = () => {
           className="tabs"
         >
           <Tab
-            label={PAGES_NAV.HOME_NAV}
+            label={PAGES_NAV.USER_MOUNTS_NAV}
             component={Link}
             to={`/`}
-            value={PAGES_NAV.HOME_NAV}
-            onClick={() => onSelectTab(PAGES_NAV.HOME_NAV)}
+            value={PAGES_NAV.USER_MOUNTS_NAV}
+            onClick={() => onSelectTab(PAGES_NAV.USER_MOUNTS_NAV)}
           />
           <Tab
             label={PAGES_NAV.USERS_NAV}
@@ -69,7 +77,11 @@ export const NavigationBar = () => {
       </AppBar>
       <Switch>
         <Route path="/" exact>
-          <div>{PAGES_NAV.HOME_NAV}</div>
+          <UserMountsPanel 
+          userMounts={userMounts}
+          users={users}
+          mounts={mounts}
+          />
         </Route>
         <Route path="/users" exact>
           <UserPanel

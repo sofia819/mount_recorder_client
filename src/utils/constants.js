@@ -3,7 +3,7 @@ export const DELETE_COLUMN = "Delete";
 export const DELETE_BUTTON = "Delete";
 
 export const PAGES_NAV = {
-  HOME_NAV: "Home",
+  USER_MOUNTS_NAV: "User Mounts",
   USERS_NAV: "Users",
   MOUNTS_NAV: "Mounts",
 };
