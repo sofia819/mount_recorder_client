@@ -14,9 +14,13 @@ export const EditUserForm = forwardRef((props, ref) => (
     <TextField
       variant="outlined"
       defaultValue={props.username}
-      onChange={props.onSetUsername}
+      onChange={props.onChangeInput}
     />
-    <Button variant="contained" color="primary" onClick={props.onUpdateUser}>
+    <Button
+      variant="contained"
+      color="primary"
+      onClick={props.onUpdateUsername}
+    >
       {EDIT_BUTTON}
     </Button>
     <Button variant="contained" color="default" onClick={props.onCloseModal}>
@@ -26,7 +30,8 @@ export const EditUserForm = forwardRef((props, ref) => (
 ));
 
 EditUserForm.propTypes = {
-  onSetUsername: PropTypes.func,
-  onUpdateUser: PropTypes.func,
+  username: PropTypes.string,
+  onChangeInput: PropTypes.func,
+  onUpdateUsername: PropTypes.func,
   onCloseModal: PropTypes.func,
 };

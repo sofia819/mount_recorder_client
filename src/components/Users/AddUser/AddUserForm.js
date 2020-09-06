@@ -31,5 +31,6 @@ export const AddUserForm = forwardRef((props, ref) => (
 
 AddUserForm.propTypes = {
   onAddUser: PropTypes.func,
+  setUsername: PropTypes.func,
   username: PropTypes.string,
 };

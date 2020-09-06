@@ -2,11 +2,11 @@ export const DELETE_COLUMN = "Delete";
 
 export const DELETE_BUTTON = "Delete";
 
-export const HOME_NAV = "Home";
-
-export const USERS_NAV = "Users";
-
-export const MOUNTS_NAV = "Mounts";
+export const PAGES_NAV = {
+  HOME_NAV: "Home",
+  USERS_NAV: "Users",
+  MOUNTS_NAV: "Mounts",
+};
 
 export const EDIT_NAME_HEADING = "Editing Mode";
 
@@ -36,7 +36,7 @@ export const LOGIN_BUTTON = "Login";
 
 export const ADD_USER_BUTTON = "Add User";
 
-export const EXPANSION_COLUMN = "Expansion"
+export const EXPANSION_COLUMN = "Expansion";
 
 export const EXPANSION_MAP = {
   0: "Misc.",
@@ -45,6 +45,8 @@ export const EXPANSION_MAP = {
   4: "Stormblood",
   5: "Shadowbringers",
 };
+
+export const ROWS_PER_PAGE_OPTIONS = [5, 10, 15];
 
 // Heroku https://mount-recorder-server.herokuapp.com
 // Local http://localhost:5000

@@ -18,8 +18,11 @@ export const AddUserButton = (props) => {
   const handleAddUser = () => {
     if (username.length >= MIN_USERNAME_LEN) {
       inputUserService(username)
-        .then((res) => props.setUsers([...props.users, res]))
-        .then(() => setUsername(""))
+        .then((res) => {
+          props.setUsers([...props.users, res]);
+          setUsername("");
+          handleCloseModal();
+        })
         .catch((err) => console.log(err));
     }
   };
@@ -43,6 +46,7 @@ export const AddUserButton = (props) => {
         <AddUserForm
           ref={createRef()}
           onAddUser={handleAddUser}
+          setUsername={setUsername}
         />
       </Modal>
     </>

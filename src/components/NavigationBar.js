@@ -5,13 +5,18 @@ import { MountsPanel } from "./Mounts/MountsPanel";
 import { getMountsService } from "../services/mountServices";
 import { getUsersService } from "../services/userServices";
 import { Tabs, Tab, AppBar, Paper } from "@material-ui/core/";
-import { HOME_NAV, USERS_NAV, MOUNTS_NAV } from "../utils/constants";
-import './NaviagtionBar.scss'
+import { PAGES_NAV } from "../utils/constants";
+import "./NaviagtionBar.scss";
 
 export const NavigationBar = () => {
   const [users, setUsers] = useState([]);
   const [mounts, setMounts] = useState([]);
-  const [selectedTab, setSelectedTab] = useState(HOME_NAV);
+  const [selectedTab, setSelectedTab] = useState(() => {
+    const currentPage = Object.keys(PAGES_NAV).find((page) =>
+      window.location.pathname.includes(PAGES_NAV[page])
+    );
+    return currentPage ? PAGES_NAV[currentPage] : PAGES_NAV.HOME_NAV;
+  });
 
   useEffect(() => {
     getMountsService()
@@ -40,37 +45,41 @@ export const NavigationBar = () => {
           className="tabs"
         >
           <Tab
-            label={HOME_NAV}
+            label={PAGES_NAV.HOME_NAV}
             component={Link}
             to={`/`}
-            value={HOME_NAV}
-            onClick={() => onSelectTab(HOME_NAV)}
+            value={PAGES_NAV.HOME_NAV}
+            onClick={() => onSelectTab(PAGES_NAV.HOME_NAV)}
           />
           <Tab
-            label={USERS_NAV}
+            label={PAGES_NAV.USERS_NAV}
             component={Link}
-            to={`/${USERS_NAV}`}
-            value={USERS_NAV}
-            onClick={() => onSelectTab(USERS_NAV)}
+            to={`/${PAGES_NAV.USERS_NAV}`}
+            value={PAGES_NAV.USERS_NAV}
+            onClick={() => onSelectTab(PAGES_NAV.USERS_NAV)}
           />
           <Tab
-            label={MOUNTS_NAV}
+            label={PAGES_NAV.MOUNTS_NAV}
             component={Link}
-            to={`/${MOUNTS_NAV}`}
-            value={MOUNTS_NAV}
-            onClick={() => onSelectTab(MOUNTS_NAV)}
+            to={`/${PAGES_NAV.MOUNTS_NAV}`}
+            value={PAGES_NAV.MOUNTS_NAV}
+            onClick={() => onSelectTab(PAGES_NAV.MOUNTS_NAV)}
           />
         </Tabs>
       </AppBar>
       <Switch>
         <Route path="/" exact>
-          <div>{HOME_NAV}</div>
+          <div>{PAGES_NAV.HOME_NAV}</div>
         </Route>
         <Route path="/users" exact>
-          <UserPanel users={users} setUsers={setUsers} />
+          <UserPanel
+            users={users}
+            setUsers={setUsers}
+            setSelectedTab={setSelectedTab}
+          />
         </Route>
         <Route path="/mounts" exact>
-          <MountsPanel mounts={mounts} />
+          <MountsPanel mounts={mounts} setSelectedTab={setSelectedTab} />
         </Route>
       </Switch>
     </Router>

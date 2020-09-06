@@ -6,14 +6,15 @@ import { EditUserForm } from "./EditUserForm";
 import PropTypes from "prop-types";
 
 export const EditUserButton = (props) => {
-  const [username, setUsername] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setUsername(props.username);
   };
+
+  const [username, setUsername] = useState(props.username);
+  const handleSetUsername = (e) => setUsername(e.target.value);
 
   // Edit username
   const updateUser = () => {
@@ -24,7 +25,7 @@ export const EditUserButton = (props) => {
             ...prevState.filter((user) => user.user_id !== props.userId),
             res,
           ]);
-          handleCloseModal();
+          setIsModalOpen(false);
         })
         .catch((err) => {
           console.log(err);
@@ -34,8 +35,6 @@ export const EditUserButton = (props) => {
       setIsModalOpen(false);
     }
   };
-
-  const handleSetUsername = (e) => setUsername(e.target.value);
 
   return (
     <>
@@ -54,9 +53,11 @@ export const EditUserButton = (props) => {
         aria-describedby="simple-modal-description"
       >
         <EditUserForm
+          username={username}
           ref={createRef()}
-          onSetUsername={handleSetUsername}
-          onEditUsername={updateUser}
+          onChangeInput={handleSetUsername}
+          onUpdateUsername={updateUser}
+          onCloseModal={handleCloseModal}
         />
       </Modal>
     </>
