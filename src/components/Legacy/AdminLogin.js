@@ -22,7 +22,7 @@ export const AdminLogin = forwardRef((props, ref) => {
   return (
     <Card tabIndex={-1} ref={ref} className="modal" outlined="true">
       <CardContent>
-        <Grid>
+        <Grid container>
           <Grid item>
             <TextField
               label={USERNAME_TEXT}

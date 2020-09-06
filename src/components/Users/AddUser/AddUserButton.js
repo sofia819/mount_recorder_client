@@ -1,5 +1,5 @@
 import React, { useState, createRef } from "react";
-import { Modal, Button } from "@material-ui/core";
+import { Modal, Button, Box } from "@material-ui/core";
 import { AddUserForm } from "./AddUserForm";
 import PropTypes from "prop-types";
 import { inputUserService } from "../../../services/userServices";
@@ -28,7 +28,7 @@ export const AddUserButton = (props) => {
   };
 
   return (
-    <>
+    <Box m={1}>
       <Button
         type="button"
         onClick={handleOpenModal}
@@ -49,9 +49,8 @@ export const AddUserButton = (props) => {
           setUsername={setUsername}
         />
       </Modal>
-    </>
+    </Box>
   );
-  // return
 };
 
 AddUserButton.propTypes = {
