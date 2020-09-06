@@ -24,7 +24,6 @@ export const DeleteUserButton = (props) => {
       deleteUserService(id, auth)
         .then(({ response }) => {
           if (response) {
-            console.log(auth);
             handleCloseModal();
             props.setUsers((prevState) =>
               prevState.filter((user) => user.user_id !== id)
