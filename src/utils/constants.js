@@ -4,7 +4,7 @@ export const DELETE_BUTTON = "Delete";
 
 export const HOME_NAV = "Home";
 
-export const USER_NAV = "Users";
+export const USERS_NAV = "Users";
 
 export const MOUNTS_NAV = "Mounts";
 
