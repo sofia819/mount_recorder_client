@@ -36,7 +36,6 @@ export const UserPanel = (props) => {
             page * rowsPerPage,
             page * rowsPerPage + rowsPerPage
           )}
-          setUsers={props.setUsers}
         />
       </Grid>
       <Grid item xs={12} align="center">
