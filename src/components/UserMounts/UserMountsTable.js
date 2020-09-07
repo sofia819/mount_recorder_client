@@ -16,9 +16,6 @@ import PropTypes from "prop-types";
 import "../Table.scss";
 
 export const UserMountsTable = (props) => {
-  const CellSize = 80 / (props.mounts.length + 1);
-  const setCellSize = CellSize.toString + "%";
-
   return (
     <TableContainer component={Paper}>
       <Table className="table" aria-label="customized table">
