@@ -1,6 +1,6 @@
 import React from "react";
-import { ROWS_PER_PAGE_OPTIONS, USERNAME_TEXT } from "../../utils/constants";
-import { Grid, TablePagination, TextField, Box } from "@material-ui/core";
+import { ROWS_PER_PAGE_OPTIONS, SEARCH_USER } from "../../utils/constants";
+import { Grid, TablePagination, TextField, Box, Tooltip } from "@material-ui/core";
 import { AddUserButton } from "./AddUser/AddUserButton";
 import PropTypes from "prop-types";
 
@@ -9,12 +9,14 @@ export const UserActionsPanel = (props) => (
     <Grid container align="center">
       <Grid item xs={1} />
       <Grid item xs={5} align="center">
-        <TextField
-          value={props.searchUsername}
-          label={USERNAME_TEXT}
-          fullWidth
-          onChange={props.onChangeSearchUsername}
-        />
+        <Tooltip title="Min 3 chars">
+          <TextField
+            value={props.searchUsername}
+            label={SEARCH_USER}
+            fullWidth
+            onChange={props.onChangeSearchUsername}
+          />
+        </Tooltip>
       </Grid>
       <Grid item xs={1} />
       <Grid item xs={5}>

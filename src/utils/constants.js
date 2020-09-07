@@ -32,6 +32,8 @@ export const MOUNT_COLUMN = "Mount";
 
 export const USERNAME_TEXT = "Username";
 
+export const SEARCH_USER = "Search";
+
 export const PASSWORD_TEXT = "Password";
 
 export const LOGIN_BUTTON = "Login";

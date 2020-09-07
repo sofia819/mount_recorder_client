@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { UserMountsTable } from "./UserMountsTable";
 import { EXPANSION_MAP } from "../../utils/constants";
-import { Tabs, Tab, AppBar, Paper } from "@material-ui/core";
+import { Tabs, Tab } from "@material-ui/core";
 
 export const UserMountsTablePanel = (props) => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -12,6 +12,10 @@ export const UserMountsTablePanel = (props) => {
   const filteredUserMounts = props.userMounts.filter(
     (userMount) => userMount.expansion === selectedTab
   );
+
+  const filteredMounts = props.mounts.filter(
+    (mount) => mount.expansion === selectedTab
+  ); 
 
   return (
     <>
@@ -49,7 +53,7 @@ export const UserMountsTablePanel = (props) => {
         />
       </Tabs>
       <UserMountsTable
-        mounts={props.mounts.filter((mount) => mount.expansion === selectedTab)}
+        mounts={filteredMounts}
         users={props.users}
         userMounts={filteredUserMounts}
       />
