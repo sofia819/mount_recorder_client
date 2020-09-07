@@ -15,10 +15,6 @@ export const UserMountsTablePanel = (props) => {
     setSelectedExpansion(expansion);
   };
 
-  const filteredUserMounts = props.userMounts.filter(
-    (userMount) => userMount.expansion === selectedExpansion
-  );
-
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(ROWS_PER_PAGE_OPTIONS[0]);
   const handleChangePage = (e, newPage) => {
@@ -40,6 +36,20 @@ export const UserMountsTablePanel = (props) => {
     )
     .sort((a, b) => a.username.localeCompare(b.username));
 
+  const filteredMounts = props.mounts.filter(selectedExpansion !== 1 ? (
+    (mount) => mount.expansion === selectedExpansion
+    ) : (
+      (mount) => mount
+    )
+  );
+
+  const filteredUserMounts = props.userMounts.filter(selectedExpansion !== 1 ? (
+    (userMount) => userMount.expansion === selectedExpansion
+    ) : (
+      (userMount) => userMount
+    )
+  );
+
   return (
     <>
       <Tabs
@@ -53,6 +63,11 @@ export const UserMountsTablePanel = (props) => {
           onClick={() => changeSelectedTab(0)}
           label={EXPANSION_MAP[0]}
           value={0}
+        />
+        <Tab
+          onClick={() => changeSelectedTab(1)}
+          label={EXPANSION_MAP[1]}
+          value={1}
         />
         <Tab
           onClick={() => changeSelectedTab(2)}
@@ -76,9 +91,7 @@ export const UserMountsTablePanel = (props) => {
         />
       </Tabs>
       <UserMountsTable
-        mounts={props.mounts.filter(
-          (mount) => mount.expansion === selectedExpansion
-        )}
+        mounts={filteredMounts}
         users={filteredUsers.slice(
           page * rowsPerPage,
           page * rowsPerPage + rowsPerPage

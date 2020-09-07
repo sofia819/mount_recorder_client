@@ -44,6 +44,7 @@ export const EXPANSION_COLUMN = "Expansion";
 
 export const EXPANSION_MAP = {
   0: "Misc.",
+  1: "All",
   2: "A Realm Reborn",
   3: "Heavensward",
   4: "Stormblood",
