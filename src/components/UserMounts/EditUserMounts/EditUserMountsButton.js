@@ -58,7 +58,9 @@ export const EditUserMountsButton = (props) => {
   useEffect(() => setUserMounts(props.userMounts), [props.userMounts]);
 
   return (
-    <Button onClick={handleOpenModal}>
+    <Button variant="outlined"
+    color="primary"
+    onClick={handleOpenModal}>
       {props.username}
       <Modal
         open={isModalOpen}

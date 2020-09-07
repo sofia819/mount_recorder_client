@@ -16,6 +16,9 @@ import PropTypes from "prop-types";
 import "../Table.scss";
 
 export const UserMountsTable = (props) => {
+  const CellSize = 80 / (props.mounts.length + 1);
+  const setCellSize = CellSize.toString + "%";
+
   return (
     <TableContainer component={Paper}>
       <Table className="table" aria-label="customized table">
@@ -38,7 +41,7 @@ export const UserMountsTable = (props) => {
               );
               return (
                 <TableRow key={row.user_id} className="table-row">
-                  <TableCell align="center" component="th" scope="row">
+                  <TableCell width="10%" align="center" component="th" scope="row">
                     <EditUserMountsButton
                       userId={row.user_id}
                       allUserMounts={props.allUserMounts}
@@ -49,7 +52,7 @@ export const UserMountsTable = (props) => {
                     />
                   </TableCell>
                   {filteredUserMounts.map((userMount) => (
-                    <TableCell align="center" key={userMount.mount_id}>
+                    <TableCell width="5%" align="center" key={userMount.mount_id}>
                       {userMount.owned ? (
                         <CheckIcon color="primary" />
                       ) : (
