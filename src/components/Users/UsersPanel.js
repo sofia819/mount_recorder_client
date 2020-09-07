@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Grid } from "@material-ui/core";
 import { UsersTable } from "./UsersTable";
-import { UserActionsPanel } from "./UserActionsPanel";
+import { UserActionsPanel } from "./UsersActionsPanel";
 import { ROWS_PER_PAGE_OPTIONS, MIN_USERNAME_LEN } from "../../utils/constants";
 import PropTypes from "prop-types";
 import "../Table.scss";
 
-export const UserPanel = (props) => {
+export const UsersPanel = (props) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(ROWS_PER_PAGE_OPTIONS[0]);
   const handleChangePage = (e, newPage) => {
@@ -20,13 +20,11 @@ export const UserPanel = (props) => {
 
   const handleChangeUsername = (e) => setSearchUsername(e.target.value);
 
-  const filteredUsers = props.users
-    .filter((user) =>
-      searchUsername.length >= MIN_USERNAME_LEN
-        ? user.username.toLowerCase().includes(searchUsername.toLowerCase())
-        : true
-    )
-    .sort((a, b) => a.username.localeCompare(b.username));
+  const filteredUsers = props.users.filter((user) =>
+    searchUsername.length >= MIN_USERNAME_LEN
+      ? user.username.toLowerCase().includes(searchUsername.toLowerCase())
+      : true
+  ).sort((a, b) => a.username.localeCompare(b.username))
 
   return (
     <Grid container>
@@ -58,7 +56,7 @@ export const UserPanel = (props) => {
   );
 };
 
-UserPanel.propTypes = {
+UsersPanel.propTypes = {
   users: PropTypes.array,
   setUsers: PropTypes.func,
 };

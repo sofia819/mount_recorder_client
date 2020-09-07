@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { UserPanel } from "./Users/UserPanel";
+import { UsersPanel } from "./Users/UsersPanel";
 import { MountsPanel } from "./Mounts/MountsPanel";
 import { UserMountsPanel } from "./UserMounts/UserMountsPanel";
 import { getMountsService } from "../services/mountServices";
@@ -85,7 +85,7 @@ export const NavigationBar = () => {
           />
         </Route>
         <Route path="/users" exact>
-          <UserPanel
+          <UsersPanel
             users={users}
             setUsers={setUsers}
             setSelectedTab={setSelectedTab}

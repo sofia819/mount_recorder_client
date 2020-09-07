@@ -21,14 +21,14 @@ export const EditUserButton = (props) => {
     if (
       username.length >= MIN_USERNAME_LEN &&
       props.username !== username &&
-      !props.users.map((user) => user.username).includes(username)
+      !props.users.find((user) => user.username === username)
     ) {
       updateUserService(props.userId, username)
         .then((res) => {
           if (res.length > 0) {
             props.setUsers((prevState) => [
               ...prevState.filter((user) => user.user_id !== props.userId),
-              res,
+              res[0],
             ]);
           }
           setIsModalOpen(false);
