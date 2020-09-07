@@ -6,7 +6,7 @@ import {
   USERNAME_TEXT,
 } from "../../../utils/constants";
 import PropTypes from "prop-types";
-import "./AddUserForm.scss";
+import "../../ModalForm.scss";
 
 export const AddUserForm = forwardRef((props, ref) => (
   <Card ref={ref} tabIndex={-1} className="form">

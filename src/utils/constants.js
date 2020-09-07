@@ -20,6 +20,8 @@ export const EDIT_COLUMN = "Edit";
 
 export const EDIT_BUTTON = "Edit";
 
+export const UPDATE_BUTTON = "Update";
+
 export const CLOSE_BUTTON = "Close";
 
 export const MIN_USERNAME_LEN = 3;

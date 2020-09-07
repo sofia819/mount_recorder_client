@@ -2,14 +2,14 @@ import React, { forwardRef } from "react";
 import { Card, TextField, Button } from "@material-ui/core";
 import {
   EDIT_NAME_HEADING,
-  EDIT_BUTTON,
+  UPDATE_BUTTON,
   CLOSE_BUTTON,
 } from "../../../utils/constants";
 import PropTypes from "prop-types";
-import "./EditUserForm.scss";
+import "../../ModalForm.scss";
 
 export const EditUserForm = forwardRef((props, ref) => (
-  <Card tabIndex={-1} className="modal" ref={ref}>
+  <Card tabIndex={-1} className="form" ref={ref}>
     <h2 id="simple-modal-title">{EDIT_NAME_HEADING}</h2>
     <TextField
       variant="outlined"
@@ -21,7 +21,7 @@ export const EditUserForm = forwardRef((props, ref) => (
       color="primary"
       onClick={props.onUpdateUsername}
     >
-      {EDIT_BUTTON}
+      {UPDATE_BUTTON}
     </Button>
     <Button variant="contained" color="default" onClick={props.onCloseModal}>
       {CLOSE_BUTTON}

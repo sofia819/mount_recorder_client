@@ -22,17 +22,17 @@ export const MountsTable = (props) => {
       <Table className="table" aria-label="customized table">
         <TableHead className="table-head">
           <TableRow>
-            <TableCell>{MOUNT_COLUMN}</TableCell>
-            <TableCell>{EXPANSION_COLUMN}</TableCell>
+            <TableCell align="center">{MOUNT_COLUMN}</TableCell>
+            <TableCell align="center">{EXPANSION_COLUMN}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {props.mounts.map((row) => (
             <TableRow key={row.mount_id} className="table-row">
-              <TableCell component="th" scope="row" className="table-cell">
+              <TableCell align="center" component="th" scope="row">
                 {row.mount_name}
               </TableCell>
-              <TableCell component="th" scope="row">
+              <TableCell align="center" component="th" scope="row">
                 {EXPANSION_MAP[row.expansion]}
               </TableCell>
             </TableRow>
