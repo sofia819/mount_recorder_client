@@ -38,5 +38,13 @@ export const UserActionsPanel = (props) => (
 );
 
 UserActionsPanel.propTypes = {
+  searchUsername: PropTypes.func,
+  onChangeSearchUsername: PropTypes.func,
   count: PropTypes.number,
+  rowsPerPage: PropTypes.number,
+  page: PropTypes.number,
+  onChangePage: PropTypes.func,
+  onChangeRowsPerPage: PropTypes.func,
+  users: PropTypes.array,
+  setUsers: PropTypes.func,
 };

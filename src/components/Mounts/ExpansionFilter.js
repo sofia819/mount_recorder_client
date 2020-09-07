@@ -1,6 +1,7 @@
 import React from "react";
 import { Checkbox, FormControlLabel, Box } from "@material-ui/core";
 import { EXPANSION_MAP } from "../../utils/constants";
+import PropTypes from "prop-types";
 
 export const ExpansionFilter = (props) => {
   return (
@@ -21,4 +22,9 @@ export const ExpansionFilter = (props) => {
       })}
     </Box>
   );
+};
+
+ExpansionFilter.propTypes = {
+  checkedExpansions: PropTypes.number,
+  onChangeCheckbox: PropTypes.func,
 };
