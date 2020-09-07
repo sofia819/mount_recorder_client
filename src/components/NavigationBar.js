@@ -77,10 +77,11 @@ export const NavigationBar = () => {
       </AppBar>
       <Switch>
         <Route path="/" exact>
-          <UserMountsPanel 
-          userMounts={userMounts}
-          users={users}
-          mounts={mounts}
+          <UserMountsPanel
+            userMounts={userMounts}
+            users={users}
+            mounts={mounts}
+            setUserMounts={setUserMounts}
           />
         </Route>
         <Route path="/users" exact>

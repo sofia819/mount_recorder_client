@@ -1,4 +1,4 @@
-import React, { useState, createRef } from "react";
+import React from "react";
 import {
   Table,
   TableBody,
@@ -7,21 +7,15 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Button,
-  Modal,
 } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
 import ClearIcon from "@material-ui/icons/Clear";
 import { USER_COLUMN } from "../../utils/constants";
-import { EditUserMountsForm } from "./EditUserMounts/EditUserMountsForm";
+import { EditUserMountsButton } from "./EditUserMounts/EditUserMountsButton";
+import PropTypes from "prop-types";
 import "../Table.scss";
 
 export const UserMountsTable = (props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
-
   return (
     <TableContainer component={Paper}>
       <Table className="table" aria-label="customized table">
@@ -45,20 +39,14 @@ export const UserMountsTable = (props) => {
               return (
                 <TableRow key={row.user_id} className="table-row">
                   <TableCell align="center" component="th" scope="row">
-                    <Button onClick={handleOpenModal}>
-                      {row.username}
-                      <Modal
-                        open={isModalOpen}
-                        onClose={handleCloseModal}
-                        aria-labelledby="simple-modal-title"
-                        aria-describedby="simple-modal-description"
-                      >
-                        <EditUserMountsForm
-                          ref={createRef()}
-                          userMounts={filteredUserMounts}
-                        />
-                      </Modal>
-                    </Button>
+                    <EditUserMountsButton
+                      userId={row.user_id}
+                      allUserMounts={props.allUserMounts}
+                      userMounts={filteredUserMounts}
+                      username={row.username}
+                      setUserMounts={props.setUserMounts}
+                      expansion={props.expansion}
+                    />
                   </TableCell>
                   {filteredUserMounts.map((userMount) => (
                     <TableCell align="center" key={userMount.mount_id}>
@@ -76,4 +64,9 @@ export const UserMountsTable = (props) => {
       </Table>
     </TableContainer>
   );
+};
+
+UserMountsTable.propTypes = {
+  setUserMounts: PropTypes.func,
+  users: PropTypes.array,
 };
