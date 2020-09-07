@@ -1,5 +1,6 @@
 import React from "react";
 import { UserMountsTablePanel } from "./UserMountsTablePanel";
+import PropTypes from "prop-types";
 
 export const UserMountsPanel = (props) => {
   return (
@@ -10,4 +11,11 @@ export const UserMountsPanel = (props) => {
       setUserMounts={props.setUserMounts}
     />
   );
+};
+
+UserMountsPanel.propTypes = {
+  users: PropTypes.array,
+  mounts: PropTypes.array,
+  userMounts: PropTypes.array,
+  setUserMounts: PropTypes.func,
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { ExpansionFilter } from "./ExpansionFilter";
 import { TablePagination, Grid, Box } from "@material-ui/core";
 import { ROWS_PER_PAGE_OPTIONS } from "../../utils/constants";
+import PropTypes from "prop-types";
 
 export const MountsActionsPanel = (props) => (
   <Box m={1}>
@@ -26,3 +27,13 @@ export const MountsActionsPanel = (props) => (
     </Grid>
   </Box>
 );
+
+MountsActionsPanel.propTypes = {
+  checkedExpansions: PropTypes.number,
+  onChangeCheckbox: PropTypes.func,
+  count: PropTypes.number,
+  rowsPerPage: PropTypes.number,
+  page: PropTypes.number,
+  onChangePage: PropTypes.func,
+  onChangeRowsPerPage: PropTypes.func,
+};

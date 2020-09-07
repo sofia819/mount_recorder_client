@@ -54,6 +54,7 @@ export const AddUserButton = (props) => {
 };
 
 AddUserButton.propTypes = {
+  username: PropTypes.string,
   users: PropTypes.array,
   setUsers: PropTypes.func,
 };

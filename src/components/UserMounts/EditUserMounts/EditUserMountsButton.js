@@ -70,10 +70,10 @@ export const EditUserMountsButton = (props) => {
 };
 
 EditUserMountsButton.propTypes = {
-  updateUserMounts: PropTypes.func,
   userMounts: PropTypes.array,
-  setOpenedModal: PropTypes.func,
   userId: PropTypes.number,
-  username: PropTypes.string,
+  setUserMounts: PropTypes.func,
+  allUserMounts: PropTypes.array,
   expansion: PropTypes.number,
+  username: PropTypes.string,
 };

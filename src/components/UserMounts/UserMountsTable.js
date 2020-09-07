@@ -67,6 +67,10 @@ export const UserMountsTable = (props) => {
 };
 
 UserMountsTable.propTypes = {
-  setUserMounts: PropTypes.func,
+  mounts: PropTypes.array,
   users: PropTypes.array,
+  userMounts: PropTypes.array,
+  allUserMounts: PropTypes.array,
+  setUserMounts: PropTypes.func,
+  expansion: PropTypes.number,
 };

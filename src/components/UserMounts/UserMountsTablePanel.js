@@ -7,6 +7,7 @@ import {
 } from "../../utils/constants";
 import { Tabs, Tab } from "@material-ui/core";
 import { UserMountsActionPanel } from "./UserMountsActionsPanel";
+import PropTypes from "prop-types";
 
 export const UserMountsTablePanel = (props) => {
   const [selectedExpansion, setSelectedExpansion] = useState(0);
@@ -99,4 +100,12 @@ export const UserMountsTablePanel = (props) => {
       />
     </>
   );
+};
+
+UserMountsTablePanel.propTypes = {
+  userMounts: PropTypes.array,
+  users: PropTypes.array,
+  mounts: PropTypes.array,
+  setUserMounts: PropTypes.func,
+  setUsers: PropTypes.func,
 };

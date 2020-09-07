@@ -1,6 +1,7 @@
 import React from "react";
 import { TablePagination, Grid, Box, TextField } from "@material-ui/core";
 import { ROWS_PER_PAGE_OPTIONS, USERNAME_TEXT } from "../../utils/constants";
+import PropTypes from "prop-types";
 
 export const UserMountsActionPanel = (props) => (
   <Box m={1}>
@@ -29,3 +30,13 @@ export const UserMountsActionPanel = (props) => (
     </Grid>
   </Box>
 );
+
+UserMountsActionPanel.propTypes = {
+  searchUsername: PropTypes.func,
+  onChangeSearchUsername: PropTypes.func,
+  count: PropTypes.number,
+  rowsPerPage: PropTypes.number,
+  page: PropTypes.number,
+  onChangePage: PropTypes.func,
+  onChangeRowsPerPage: PropTypes.func,
+};
