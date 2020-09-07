@@ -25,10 +25,12 @@ export const EditUserButton = (props) => {
     ) {
       updateUserService(props.userId, username)
         .then((res) => {
-          props.setUsers((prevState) => [
-            ...prevState.filter((user) => user.user_id !== props.userId),
-            res,
-          ]);
+          if (res.length > 0) {
+            props.setUsers((prevState) => [
+              ...prevState.filter((user) => user.user_id !== props.userId),
+              res,
+            ]);
+          }
           setIsModalOpen(false);
         })
         .catch((err) => {

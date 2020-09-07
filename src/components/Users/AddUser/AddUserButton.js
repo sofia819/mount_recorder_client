@@ -22,9 +22,11 @@ export const AddUserButton = (props) => {
     ) {
       inputUserService(username)
         .then((res) => {
-          handleCloseModal();
-          props.setUsers([...props.users, res]);
-          setUsername("");
+          if (res.length > 0) {
+            handleCloseModal();
+            props.setUsers([...props.users, res]);
+            setUsername("");
+          }
         })
         .catch((err) => console.log(err));
     } else {
