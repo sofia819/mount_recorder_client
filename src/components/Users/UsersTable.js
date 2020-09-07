@@ -29,6 +29,7 @@ export const UsersTable = (props) => (
             </TableCell>
             <TableCell align="center">
               <EditUserButton
+                users={props.users}
                 username={row.username}
                 userId={row.user_id}
                 setUsers={props.setUsers}

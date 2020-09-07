@@ -12,11 +12,14 @@ export const AddUserButton = (props) => {
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    setUsername(props.username);
+    setUsername("");
   };
 
   const handleAddUser = () => {
-    if (username.length >= MIN_USERNAME_LEN) {
+    if (
+      username.length >= MIN_USERNAME_LEN &&
+      !props.users.map((user) => user.username).includes(username)
+    ) {
       inputUserService(username)
         .then((res) => {
           handleCloseModal();
@@ -24,6 +27,8 @@ export const AddUserButton = (props) => {
           setUsername("");
         })
         .catch((err) => console.log(err));
+    } else {
+      handleCloseModal();
     }
   };
 

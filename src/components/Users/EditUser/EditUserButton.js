@@ -18,7 +18,11 @@ export const EditUserButton = (props) => {
 
   // Edit username
   const updateUser = () => {
-    if (username.length >= MIN_USERNAME_LEN && props.username !== username) {
+    if (
+      username.length >= MIN_USERNAME_LEN &&
+      props.username !== username &&
+      !props.users.map((user) => user.username).includes(username)
+    ) {
       updateUserService(props.userId, username)
         .then((res) => {
           props.setUsers((prevState) => [
@@ -66,7 +70,8 @@ export const EditUserButton = (props) => {
 };
 
 EditUserButton.propTypes = {
+  users: PropTypes.array,
   username: PropTypes.string,
   userId: PropTypes.number,
-  setUsers: PropTypes.func
+  setUsers: PropTypes.func,
 };
