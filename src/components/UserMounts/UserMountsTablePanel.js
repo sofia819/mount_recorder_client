@@ -36,14 +36,14 @@ export const UserMountsTablePanel = (props) => {
     )
     .sort((a, b) => a.username.localeCompare(b.username));
 
-  const filteredMounts = props.mounts.filter(selectedExpansion !== 1 ? (
+  const filteredMounts = props.mounts.filter(selectedExpansion !== -1 ? (
     (mount) => mount.expansion === selectedExpansion
     ) : (
       (mount) => mount
     )
   );
 
-  const filteredUserMounts = props.userMounts.filter(selectedExpansion !== 1 ? (
+  const filteredUserMounts = props.userMounts.filter(selectedExpansion !== -1 ? (
     (userMount) => userMount.expansion === selectedExpansion
     ) : (
       (userMount) => userMount
@@ -60,14 +60,14 @@ export const UserMountsTablePanel = (props) => {
         centered
       >
         <Tab
+          onClick={() => changeSelectedTab(-1)}
+          label={EXPANSION_MAP["-1"]}
+          value={-1}
+        />
+        <Tab
           onClick={() => changeSelectedTab(0)}
           label={EXPANSION_MAP[0]}
           value={0}
-        />
-        <Tab
-          onClick={() => changeSelectedTab(1)}
-          label={EXPANSION_MAP[1]}
-          value={1}
         />
         <Tab
           onClick={() => changeSelectedTab(2)}
