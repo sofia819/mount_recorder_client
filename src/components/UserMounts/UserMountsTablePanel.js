@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import { UserMountsTable } from "./UserMountsTable";
-<<<<<<< HEAD
-import { EXPANSION_MAP } from "../../utils/constants";
-import { Tabs, Tab } from "@material-ui/core";
-=======
 import {
   EXPANSION_MAP,
   ROWS_PER_PAGE_OPTIONS,
@@ -12,7 +8,6 @@ import {
 import { Tabs, Tab } from "@material-ui/core";
 import { UserMountsActionPanel } from "./UserMountsActionsPanel";
 import PropTypes from "prop-types";
->>>>>>> 3ff4214b63ff928f2f65a8f5ca613898da1098c0
 
 export const UserMountsTablePanel = (props) => {
   const [selectedExpansion, setSelectedExpansion] = useState(0);
@@ -24,11 +19,6 @@ export const UserMountsTablePanel = (props) => {
     (userMount) => userMount.expansion === selectedExpansion
   );
 
-<<<<<<< HEAD
-  const filteredMounts = props.mounts.filter(
-    (mount) => mount.expansion === selectedTab
-  ); 
-=======
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(ROWS_PER_PAGE_OPTIONS[0]);
   const handleChangePage = (e, newPage) => {
@@ -49,7 +39,6 @@ export const UserMountsTablePanel = (props) => {
         : true
     )
     .sort((a, b) => a.username.localeCompare(b.username));
->>>>>>> 3ff4214b63ff928f2f65a8f5ca613898da1098c0
 
   return (
     <>
@@ -87,16 +76,11 @@ export const UserMountsTablePanel = (props) => {
         />
       </Tabs>
       <UserMountsTable
-<<<<<<< HEAD
-        mounts={filteredMounts}
-        users={props.users}
-=======
         mounts={props.mounts.filter(
           (mount) => mount.expansion === selectedExpansion
         )}
         users={filteredUsers}
         allUserMounts={props.userMounts}
->>>>>>> 3ff4214b63ff928f2f65a8f5ca613898da1098c0
         userMounts={filteredUserMounts}
         setUserMounts={props.setUserMounts}
         expansion={selectedExpansion}
