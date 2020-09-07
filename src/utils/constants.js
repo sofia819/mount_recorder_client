@@ -8,7 +8,7 @@ export const PAGES_NAV = {
   MOUNTS_NAV: "Mounts",
 };
 
-export const EDIT_NAME_HEADING = "Editing Mode";
+export const EDIT_NAME_HEADING = "Edit Username";
 
 export const INPUT_USER_HEADING = "Input User";
 
@@ -54,4 +54,7 @@ export const ROWS_PER_PAGE_OPTIONS = [5, 10, 15];
 
 // Heroku https://mount-recorder-server.herokuapp.com
 // Local http://localhost:5000
-export const END_POINT_URL = "http://localhost:5000/";
+export const END_POINT_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:5000"
+    : "https://mount-recorder-server.herokuapp.com";

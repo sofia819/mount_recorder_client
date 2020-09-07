@@ -49,6 +49,7 @@ export const EditUserButton = (props) => {
       <Modal
         open={isModalOpen}
         onClose={handleCloseModal}
+        disableBackdropClick
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >

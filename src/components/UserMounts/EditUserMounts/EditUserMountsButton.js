@@ -25,12 +25,20 @@ export const EditUserMountsButton = (props) => {
   };
 
   const updateUserMounts = () => {
-    updateUserMountsService(
-      props.userId,
-      userMounts
+    const userOwnedMounts = props.allUserMounts
+      .filter(
+        (userMount) =>
+          userMount.user_id === props.userId &&
+          userMount.expansion !== props.expansion &&
+          userMount.owned
+      )
+      .map((userMount) => userMount.mount_id);
+    updateUserMountsService(props.userId, [
+      ...userOwnedMounts,
+      ...userMounts
         .filter((userMount) => userMount.owned)
-        .map((userMount) => userMount.mount_id)
-    )
+        .map((userMount) => userMount.mount_id),
+    ])
       .then(({ response }) => {
         if (response) {
           props.setUserMounts([
@@ -59,6 +67,7 @@ export const EditUserMountsButton = (props) => {
         aria-describedby="simple-modal-description"
       >
         <EditUserMountsForm
+          username={props.username}
           ref={createRef()}
           updateUserMounts={updateUserMounts}
           userMounts={userMounts}

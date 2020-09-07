@@ -29,7 +29,7 @@ export const MountsActionsPanel = (props) => (
 );
 
 MountsActionsPanel.propTypes = {
-  checkedExpansions: PropTypes.number,
+  checkedExpansions: PropTypes.array,
   onChangeCheckbox: PropTypes.func,
   count: PropTypes.number,
   rowsPerPage: PropTypes.number,

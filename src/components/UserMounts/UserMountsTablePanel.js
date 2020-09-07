@@ -79,7 +79,10 @@ export const UserMountsTablePanel = (props) => {
         mounts={props.mounts.filter(
           (mount) => mount.expansion === selectedExpansion
         )}
-        users={filteredUsers}
+        users={filteredUsers.slice(
+          page * rowsPerPage,
+          page * rowsPerPage + rowsPerPage
+        )}
         allUserMounts={props.userMounts}
         userMounts={filteredUserMounts}
         setUserMounts={props.setUserMounts}

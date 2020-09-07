@@ -25,6 +25,6 @@ export const ExpansionFilter = (props) => {
 };
 
 ExpansionFilter.propTypes = {
-  checkedExpansions: PropTypes.number,
+  checkedExpansions: PropTypes.array,
   onChangeCheckbox: PropTypes.func,
 };

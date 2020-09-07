@@ -40,6 +40,7 @@ export const AddUserButton = (props) => {
       <Modal
         open={isModalOpen}
         onClose={handleCloseModal}
+        disableBackdropClick
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
@@ -47,6 +48,7 @@ export const AddUserButton = (props) => {
           ref={createRef()}
           onAddUser={handleAddUser}
           setUsername={setUsername}
+          onCloseModal={handleCloseModal}
         />
       </Modal>
     </Box>

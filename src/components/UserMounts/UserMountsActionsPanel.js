@@ -32,7 +32,7 @@ export const UserMountsActionPanel = (props) => (
 );
 
 UserMountsActionPanel.propTypes = {
-  searchUsername: PropTypes.func,
+  searchUsername: PropTypes.string,
   onChangeSearchUsername: PropTypes.func,
   count: PropTypes.number,
   rowsPerPage: PropTypes.number,
