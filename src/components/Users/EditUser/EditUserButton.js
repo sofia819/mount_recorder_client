@@ -1,7 +1,7 @@
 import React, { useState, createRef } from "react";
 import { Modal, Button } from "@material-ui/core";
 import { updateUserService } from "../../../services/userServices";
-import { EDIT_BUTTON, MIN_USERNAME_LEN } from "../../../utils/constants";
+import { MIN_USERNAME_LEN } from "../../../utils/constants";
 import { EditUserForm } from "./EditUserForm";
 import PropTypes from "prop-types";
 
@@ -47,10 +47,10 @@ export const EditUserButton = (props) => {
       <Button
         type="button"
         onClick={handleOpenModal}
-        variant="contained"
+        variant="outlined"
         color="primary"
       >
-        {EDIT_BUTTON}
+        {props.username}
       </Button>
       <Modal
         open={isModalOpen}
