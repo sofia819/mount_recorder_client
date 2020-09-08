@@ -26,6 +26,18 @@ export const AddUserButton = (props) => {
             handleCloseModal();
             props.setUsers([...props.users, res[0]]);
             setUsername("");
+            props.setUserMounts((prevState) => [
+              ...prevState,
+              ...props.mounts.map((mount) => {
+                return {
+                  expansion: mount.expansion,
+                  mount_id: mount.mount_id,
+                  mount_name: mount.mount_name,
+                  owned: false,
+                  ...res[0],
+                };
+              }),
+            ]);
           }
         })
         .catch((err) => console.log(err));
@@ -66,4 +78,6 @@ AddUserButton.propTypes = {
   username: PropTypes.string,
   users: PropTypes.array,
   setUsers: PropTypes.func,
+  mounts: PropTypes.array,
+  setUserMounts: PropTypes.func,
 };

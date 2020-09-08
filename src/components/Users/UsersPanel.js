@@ -20,11 +20,13 @@ export const UsersPanel = (props) => {
 
   const handleChangeUsername = (e) => setSearchUsername(e.target.value);
 
-  const filteredUsers = props.users.filter((user) =>
-    searchUsername.length >= MIN_USERNAME_LEN
-      ? user.username.toLowerCase().includes(searchUsername.toLowerCase())
-      : true
-  ).sort((a, b) => a.username.localeCompare(b.username))
+  const filteredUsers = props.users
+    .filter((user) =>
+      searchUsername.length >= MIN_USERNAME_LEN
+        ? user.username.toLowerCase().includes(searchUsername.toLowerCase())
+        : true
+    )
+    .sort((a, b) => a.username.localeCompare(b.username));
 
   return (
     <Grid container>
@@ -50,6 +52,8 @@ export const UsersPanel = (props) => {
           onChangeRowsPerPage={handleChangeRowsPerPage}
           onChangeSearchUsername={handleChangeUsername}
           searchUsername={searchUsername}
+          mounts={props.mounts}
+          setUserMounts={props.setUserMounts}
         />
       </Grid>
     </Grid>
@@ -59,4 +63,6 @@ export const UsersPanel = (props) => {
 UsersPanel.propTypes = {
   users: PropTypes.array,
   setUsers: PropTypes.func,
+  mounts: PropTypes.array,
+  setUserMounts: PropTypes.func,
 };
