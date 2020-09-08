@@ -43,9 +43,8 @@ export const ADD_USER_BUTTON = "Add User";
 export const EXPANSION_COLUMN = "Expansion";
 
 export const EXPANSION_MAP = {
-  "-1": "all",
+  "-1": "All",
   0: "Misc.",
-  1: "All",
   2: "A Realm Reborn",
   3: "Heavensward",
   4: "Stormblood",
