@@ -1,4 +1,5 @@
 .form {
+  overflow: auto !important;
   position: relative;
   top: 50%;
   left: 50%;
@@ -6,4 +7,5 @@
   background-color: #ffffff;
   padding: 1%;
   max-width: 30vw;
+  max-height: 70vh;
 }

@@ -10,7 +10,7 @@ import { UserMountsActionPanel } from "./UserMountsActionsPanel";
 import PropTypes from "prop-types";
 
 export const UserMountsTablePanel = (props) => {
-  const [selectedExpansion, setSelectedExpansion] = useState(0);
+  const [selectedExpansion, setSelectedExpansion] = useState(-1);
   const changeSelectedTab = (expansion) => {
     setSelectedExpansion(expansion);
   };
