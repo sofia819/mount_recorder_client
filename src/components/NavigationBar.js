@@ -88,7 +88,8 @@ export const NavigationBar = () => {
           <UsersPanel
             users={users}
             setUsers={setUsers}
-            setSelectedTab={setSelectedTab}
+            mounts={mounts}
+            setUserMounts={setUserMounts}
           />
         </Route>
         <Route path="/mounts" exact>

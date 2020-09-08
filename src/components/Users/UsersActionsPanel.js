@@ -1,6 +1,12 @@
 import React from "react";
 import { ROWS_PER_PAGE_OPTIONS, SEARCH_USER } from "../../utils/constants";
-import { Grid, TablePagination, TextField, Box, Tooltip } from "@material-ui/core";
+import {
+  Grid,
+  TablePagination,
+  TextField,
+  Box,
+  Tooltip,
+} from "@material-ui/core";
 import { AddUserButton } from "./AddUser/AddUserButton";
 import PropTypes from "prop-types";
 
@@ -31,7 +37,12 @@ export const UserActionsPanel = (props) => (
         />
       </Grid>
       <Grid item xs={12}>
-        <AddUserButton users={props.users} setUsers={props.setUsers} />
+        <AddUserButton
+          mounts={props.mounts}
+          setUserMounts={props.setUserMounts}
+          users={props.users}
+          setUsers={props.setUsers}
+        />
       </Grid>
     </Grid>
   </Box>
@@ -47,4 +58,6 @@ UserActionsPanel.propTypes = {
   onChangeRowsPerPage: PropTypes.func,
   users: PropTypes.array,
   setUsers: PropTypes.func,
+  mounts: PropTypes.array,
+  setUserMounts: PropTypes.func,
 };
