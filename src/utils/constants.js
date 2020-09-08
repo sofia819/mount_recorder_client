@@ -42,13 +42,25 @@ export const ADD_USER_BUTTON = "Add User";
 
 export const EXPANSION_COLUMN = "Expansion";
 
+export const ALL_EXPANSIONS = -1;
+
+export const MISC_EXPANSION = 0;
+
+export const ARR_EXPANSION = 2;
+
+export const HW_EXPANSION = 3;
+
+export const SB_EXPANSION = 4;
+
+export const SHB_EXPANSION = 5;
+
 export const EXPANSION_MAP = {
-  "-1": "All",
-  0: "Misc.",
-  2: "A Realm Reborn",
-  3: "Heavensward",
-  4: "Stormblood",
-  5: "Shadowbringers",
+  [ALL_EXPANSIONS]: "All",
+  [MISC_EXPANSION]: "Misc.",
+  [ARR_EXPANSION]: "A Realm Reborn",
+  [HW_EXPANSION]: "Heavensward",
+  [SB_EXPANSION]: "Stormblood",
+  [SHB_EXPANSION]: "Shadowbringers",
 };
 
 export const ROWS_PER_PAGE_OPTIONS = [5, 10, 15];

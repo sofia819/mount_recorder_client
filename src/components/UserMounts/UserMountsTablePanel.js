@@ -4,6 +4,12 @@ import {
   EXPANSION_MAP,
   ROWS_PER_PAGE_OPTIONS,
   MIN_USERNAME_LEN,
+  ALL_EXPANSIONS,
+  MISC_EXPANSION,
+  ARR_EXPANSION,
+  HW_EXPANSION,
+  SB_EXPANSION,
+  SHB_EXPANSION,
 } from "../../utils/constants";
 import { Tabs, Tab } from "@material-ui/core";
 import { UserMountsActionPanel } from "./UserMountsActionsPanel";
@@ -37,13 +43,13 @@ export const UserMountsTablePanel = (props) => {
     .sort((a, b) => a.username.localeCompare(b.username));
 
   const filteredMounts = props.mounts.filter(
-    selectedExpansion === -1
+    selectedExpansion === ALL_EXPANSIONS
       ? (mount) => mount
       : (mount) => mount.expansion === selectedExpansion
   );
 
   const filteredUserMounts =
-    selectedExpansion === -1
+    selectedExpansion === ALL_EXPANSIONS
       ? props.userMounts
       : props.userMounts.filter(
           (userMount) => userMount.expansion === selectedExpansion
@@ -59,34 +65,34 @@ export const UserMountsTablePanel = (props) => {
         centered
       >
         <Tab
-          onClick={() => changeSelectedTab(-1)}
-          label={EXPANSION_MAP[-1]}
-          value={-1}
+          onClick={() => changeSelectedTab(ALL_EXPANSIONS)}
+          label={EXPANSION_MAP[ALL_EXPANSIONS]}
+          value={ALL_EXPANSIONS}
         />
         <Tab
-          onClick={() => changeSelectedTab(0)}
-          label={EXPANSION_MAP[0]}
-          value={0}
+          onClick={() => changeSelectedTab(MISC_EXPANSION)}
+          label={EXPANSION_MAP[MISC_EXPANSION]}
+          value={MISC_EXPANSION}
         />
         <Tab
-          onClick={() => changeSelectedTab(2)}
-          label={EXPANSION_MAP[2]}
-          value={2}
+          onClick={() => changeSelectedTab(ARR_EXPANSION)}
+          label={EXPANSION_MAP[ARR_EXPANSION]}
+          value={ARR_EXPANSION}
         />
         <Tab
-          onClick={() => changeSelectedTab(3)}
-          label={EXPANSION_MAP[3]}
-          value={3}
+          onClick={() => changeSelectedTab(HW_EXPANSION)}
+          label={EXPANSION_MAP[HW_EXPANSION]}
+          value={HW_EXPANSION}
         />
         <Tab
-          onClick={() => changeSelectedTab(4)}
-          label={EXPANSION_MAP[4]}
-          value={4}
+          onClick={() => changeSelectedTab(SB_EXPANSION)}
+          label={EXPANSION_MAP[SB_EXPANSION]}
+          value={SB_EXPANSION}
         />
         <Tab
-          onClick={() => changeSelectedTab(5)}
-          label={EXPANSION_MAP[5]}
-          value={5}
+          onClick={() => changeSelectedTab(SHB_EXPANSION)}
+          label={EXPANSION_MAP[SHB_EXPANSION]}
+          value={SHB_EXPANSION}
         />
       </Tabs>
       <UserMountsTable
