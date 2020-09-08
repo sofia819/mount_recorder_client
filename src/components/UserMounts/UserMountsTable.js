@@ -33,12 +33,17 @@ export const UserMountsTable = (props) => {
           {props.users
             .sort((a, b) => a.username.localeCompare(b.username))
             .map((row) => {
-              const filteredUserMounts = props.userMounts.filter(
-                (userMount) => userMount.user_id === row.user_id
-              );
+              const filteredUserMounts = props.userMounts
+                .filter((userMount) => userMount.user_id === row.user_id)
+                .sort((a, b) => a.mount_id - b.mount_id);
               return (
                 <TableRow key={row.user_id} className="table-row">
-                  <TableCell width="10%" align="center" component="th" scope="row">
+                  <TableCell
+                    width="10%"
+                    align="center"
+                    component="th"
+                    scope="row"
+                  >
                     <EditUserMountsButton
                       userId={row.user_id}
                       allUserMounts={props.allUserMounts}
@@ -49,7 +54,11 @@ export const UserMountsTable = (props) => {
                     />
                   </TableCell>
                   {filteredUserMounts.map((userMount) => (
-                    <TableCell width="5%" align="center" key={userMount.mount_id}>
+                    <TableCell
+                      width="5%"
+                      align="center"
+                      key={`${props.userId}_${props.expansion}_${userMount.mount_id}`}
+                    >
                       {userMount.owned ? (
                         <CheckIcon color="primary" />
                       ) : (

@@ -25,14 +25,17 @@ export const EditUserMountsButton = (props) => {
   };
 
   const updateUserMounts = () => {
-    const userOwnedMounts = props.allUserMounts
-      .filter(
-        (userMount) =>
-          userMount.user_id === props.userId &&
-          userMount.expansion !== props.expansion &&
-          userMount.owned
-      )
-      .map((userMount) => userMount.mount_id);
+    const userOwnedMounts =
+      props.expansion === -1
+        ? []
+        : props.allUserMounts
+            .filter(
+              (userMount) =>
+                userMount.user_id === props.userId &&
+                userMount.expansion !== props.expansion &&
+                userMount.owned
+            )
+            .map((userMount) => userMount.mount_id);
     updateUserMountsService(props.userId, [
       ...userOwnedMounts,
       ...userMounts
@@ -41,14 +44,17 @@ export const EditUserMountsButton = (props) => {
     ])
       .then(({ response }) => {
         if (response) {
-          props.setUserMounts([
-            ...props.allUserMounts.filter(
-              (userMount) =>
-                userMount.user_id !== props.userId ||
-                userMount.expansion !== props.expansion
-            ),
-            ...userMounts,
-          ]);
+          const updatedUserMounts =
+            props.expansion === -1
+              ? props.allUserMounts.filter(
+                  (userMount) => userMount.user_id !== props.userId
+                )
+              : props.allUserMounts.filter(
+                  (userMount) =>
+                    userMount.user_id !== props.userId ||
+                    userMount.expansion !== props.expansion
+                );
+          props.setUserMounts([...updatedUserMounts, ...userMounts]);
         }
         setIsModalOpen(false);
       })
@@ -58,9 +64,7 @@ export const EditUserMountsButton = (props) => {
   useEffect(() => setUserMounts(props.userMounts), [props.userMounts]);
 
   return (
-    <Button variant="outlined"
-    color="primary"
-    onClick={handleOpenModal}>
+    <Button variant="outlined" color="primary" onClick={handleOpenModal}>
       {props.username}
       <Modal
         open={isModalOpen}
