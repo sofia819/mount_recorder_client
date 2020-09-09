@@ -14,23 +14,10 @@ import {
   Redirect,
 } from "react-router-dom";
 import { UserMountsActionPanel } from "./UserMountsActionsPanel";
-import { UserMountsNavBar } from "./UserMountsNavBar";
+import { UserMountsNavBar } from "./UserMountsNavigationBar";
 import PropTypes from "prop-types";
 
 export const UserMountsPanel = (props) => {
-  // const [selectedExpansion, setSelectedExpansion] = useState(() => {
-  //   const currentPage = Object.keys(EXPANSION_MAP).find((page) =>
-  //     window.location.pathname.includes(EXPANSION_MAP[page])
-  //   );
-  //   return currentPage !== undefined
-  //     ? parseInt(currentPage, 10)
-  //     : ALL_EXPANSIONS;
-  // });
-
-  // const changeSelectedExpansion = (expansion) => {
-  //   setSelectedExpansion(expansion);
-  // };
-
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(ROWS_PER_PAGE_OPTIONS[0]);
   const handleChangePage = (e, newPage) => {
