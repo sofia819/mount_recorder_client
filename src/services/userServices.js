@@ -10,8 +10,5 @@ export const inputUserService = (userdata) =>
 export const getUsersService = () =>
   wretch(`${END_POINT_URL}/users`).get().json();
 
-export const updateUserService = (id, userdata) =>
-  wretch(`${END_POINT_URL}/users/${id}`)
-    .json({ username: userdata })
-    .put()
-    .json();
+export const updateUserService = (id, username) =>
+  wretch(`${END_POINT_URL}/users/${id}`).json({ username }).put().json();
