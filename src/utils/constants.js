@@ -2,8 +2,16 @@ export const DELETE_COLUMN = "Delete";
 
 export const DELETE_BUTTON = "Delete";
 
-export const PAGES_NAV = {
+export const USER_MOUNTS_NAV_KEY = "USER_MOUNTS_NAV"
+
+export const PAGES_TAB_NAMES = {
   USER_MOUNTS_NAV: "User Mounts",
+  USERS_NAV: "Users",
+  MOUNTS_NAV: "Mounts",
+};
+
+export const PAGES_NAV = {
+  USER_MOUNTS_NAV: "UserMounts",
   USERS_NAV: "Users",
   MOUNTS_NAV: "Mounts",
 };
@@ -42,6 +50,7 @@ export const ADD_USER_BUTTON = "Add User";
 
 export const EXPANSION_COLUMN = "Expansion";
 
+// Must be the smallest number
 export const ALL_EXPANSIONS = -1;
 
 export const MISC_EXPANSION = 0;
@@ -55,6 +64,15 @@ export const SB_EXPANSION = 4;
 export const SHB_EXPANSION = 5;
 
 export const EXPANSION_MAP = {
+  [ALL_EXPANSIONS]: "All",
+  [MISC_EXPANSION]: "Misc",
+  [ARR_EXPANSION]: "ARealmReborn",
+  [HW_EXPANSION]: "Heavensward",
+  [SB_EXPANSION]: "Stormblood",
+  [SHB_EXPANSION]: "Shadowbringers",
+};
+
+export const EXPANSION_TAB_NAMES = {
   [ALL_EXPANSIONS]: "All",
   [MISC_EXPANSION]: "Misc.",
   [ARR_EXPANSION]: "A Realm Reborn",
