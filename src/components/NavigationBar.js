@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 import { UsersPanel } from "./Users/UsersPanel";
 import { MountsPanel } from "./Mounts/MountsPanel";
 import { UserMountsPanel } from "./UserMounts/UserMountsPanel";
@@ -7,7 +13,13 @@ import { getMountsService } from "../services/mountServices";
 import { getUsersService } from "../services/userServices";
 import { getUserMountsService } from "../services/userMountsServices";
 import { Tabs, Tab, AppBar, Paper } from "@material-ui/core/";
-import { PAGES_NAV } from "../utils/constants";
+import {
+  PAGES_NAV,
+  PAGES_TAB_NAMES,
+  EXPANSION_MAP,
+  ALL_EXPANSIONS,
+  USER_MOUNTS_NAV_KEY,
+} from "../utils/constants";
 import "./NaviagtionBar.scss";
 
 export const NavigationBar = () => {
@@ -20,6 +32,28 @@ export const NavigationBar = () => {
     );
     return currentPage ? PAGES_NAV[currentPage] : PAGES_NAV.USER_MOUNTS_NAV;
   });
+
+  const [selectedExpansion, setSelectedExpansion] = useState(() => {
+    const currentPage = Object.keys(EXPANSION_MAP).find((page) =>
+      window.location.pathname.includes(EXPANSION_MAP[page])
+    );
+    return currentPage !== undefined
+      ? parseInt(currentPage, 10)
+      : ALL_EXPANSIONS;
+  });
+
+  const handleChangeSelectedExpansion = (expansion) => {
+    setSelectedExpansion(expansion);
+  };
+
+  const handleSelectTab = (tab) => {
+    if (tab === USER_MOUNTS_NAV_KEY) {
+      setSelectedTab(PAGES_NAV[tab]);
+      handleChangeSelectedExpansion(selectedExpansion);
+    } else {
+      setSelectedTab(PAGES_NAV[tab]);
+    }
+  };
 
   useEffect(() => {
     getMountsService()
@@ -39,8 +73,6 @@ export const NavigationBar = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  const onSelectTab = (tabName) => setSelectedTab(tabName);
-
   return (
     <Router>
       <AppBar position="static" component={Paper}>
@@ -52,39 +84,29 @@ export const NavigationBar = () => {
           value={selectedTab}
           className="tabs"
         >
-          <Tab
-            label={PAGES_NAV.USER_MOUNTS_NAV}
-            component={Link}
-            to={`/`}
-            value={PAGES_NAV.USER_MOUNTS_NAV}
-            onClick={() => onSelectTab(PAGES_NAV.USER_MOUNTS_NAV)}
-          />
-          <Tab
-            label={PAGES_NAV.USERS_NAV}
-            component={Link}
-            to={`/${PAGES_NAV.USERS_NAV}`}
-            value={PAGES_NAV.USERS_NAV}
-            onClick={() => onSelectTab(PAGES_NAV.USERS_NAV)}
-          />
-          <Tab
-            label={PAGES_NAV.MOUNTS_NAV}
-            component={Link}
-            to={`/${PAGES_NAV.MOUNTS_NAV}`}
-            value={PAGES_NAV.MOUNTS_NAV}
-            onClick={() => onSelectTab(PAGES_NAV.MOUNTS_NAV)}
-          />
+          {Object.keys(PAGES_NAV).map((page) => (
+            <Tab
+              key={page}
+              label={PAGES_TAB_NAMES[page]}
+              component={Link}
+              to={`/${PAGES_NAV[page]}/${
+                page === USER_MOUNTS_NAV_KEY
+                  ? EXPANSION_MAP[selectedExpansion]
+                  : ""
+              }`}
+              value={PAGES_NAV[page]}
+              onClick={() => handleSelectTab(page)}
+            />
+          ))}
         </Tabs>
       </AppBar>
       <Switch>
-        <Route path="/" exact>
-          <UserMountsPanel
-            userMounts={userMounts}
-            users={users}
-            mounts={mounts}
-            setUserMounts={setUserMounts}
-          />
-        </Route>
-        <Route path="/users" exact>
+        <Redirect
+          exact
+          from={`/`}
+          to={`/${PAGES_NAV.USER_MOUNTS_NAV}/${EXPANSION_MAP[ALL_EXPANSIONS]}`}
+        />
+        <Route path={`/${PAGES_NAV.USERS_NAV}`} exact>
           <UsersPanel
             users={users}
             setUsers={setUsers}
@@ -92,8 +114,18 @@ export const NavigationBar = () => {
             setUserMounts={setUserMounts}
           />
         </Route>
-        <Route path="/mounts" exact>
+        <Route path={`/${PAGES_NAV.MOUNTS_NAV}`} exact>
           <MountsPanel mounts={mounts} setSelectedTab={setSelectedTab} />
+        </Route>
+        <Route path={`/${PAGES_NAV.USER_MOUNTS_NAV}`}>
+          <UserMountsPanel
+            userMounts={userMounts}
+            users={users}
+            mounts={mounts}
+            setUserMounts={setUserMounts}
+            onChangeSelectedExpansion={handleChangeSelectedExpansion}
+            selectedExpansion={selectedExpansion}
+          />
         </Route>
       </Switch>
     </Router>
