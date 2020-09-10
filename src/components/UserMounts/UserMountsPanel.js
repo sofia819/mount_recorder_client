@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import { UserMountsTable } from "./UserMountsTable";
+import React, { useState } from 'react';
+import { UserMountsTable } from 'components/UserMounts/UserMountsTable';
 import {
   ROWS_PER_PAGE_OPTIONS,
   MIN_USERNAME_LEN,
   ALL_EXPANSIONS,
   EXPANSION_MAP,
   PAGES_NAV,
-} from "../../utils/constants";
+} from 'utils/constants';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
-} from "react-router-dom";
-import { UserMountsActionPanel } from "./UserMountsActionsPanel";
-import { UserMountsNavBar } from "./UserMountsNavigationBar";
-import PropTypes from "prop-types";
+} from 'react-router-dom';
+import { UserMountsActionPanel } from 'components/UserMounts/UserMountsActionsPanel';
+import { UserMountsNavBar } from 'components/UserMounts/UserMountsNavigationBar';
+import PropTypes from 'prop-types';
 
 export const UserMountsPanel = (props) => {
   const [page, setPage] = useState(0);
@@ -24,10 +24,10 @@ export const UserMountsPanel = (props) => {
     setPage(newPage);
   };
   const handleChangeRowsPerPage = (e) => {
-    setRowsPerPage(parseInt(e.target.value, 10));
+    setRowsPerPage(parseInt(e.target.value));
     setPage(0);
   };
-  const [searchUsername, setSearchUsername] = useState("");
+  const [searchUsername, setSearchUsername] = useState('');
 
   const handleChangeUsername = (e) => setSearchUsername(e.target.value);
 
@@ -84,7 +84,7 @@ export const UserMountsPanel = (props) => {
             users={props.users}
             setUsers={props.setUsers}
             rowsPerPageOptions={ROWS_PER_PAGE_OPTIONS}
-            component="div"
+            component='div'
             count={filteredUsers.length}
             rowsPerPage={rowsPerPage}
             page={page}
@@ -100,6 +100,7 @@ export const UserMountsPanel = (props) => {
 };
 
 UserMountsPanel.propTypes = {
+  setUsers: PropTypes.func,
   users: PropTypes.array,
   mounts: PropTypes.array,
   userMounts: PropTypes.array,

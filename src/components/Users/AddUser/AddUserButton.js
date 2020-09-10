@@ -1,18 +1,18 @@
-import React, { useState, createRef } from "react";
-import { Modal, Button, Box } from "@material-ui/core";
-import { AddUserForm } from "./AddUserForm";
-import PropTypes from "prop-types";
-import { inputUserService } from "../../../services/userServices";
-import { MIN_USERNAME_LEN, ADD_USER_BUTTON } from "../../../utils/constants";
+import React, { useState, createRef } from 'react';
+import { Modal, Button, Box } from '@material-ui/core';
+import { AddUserForm } from 'components/Users/AddUser/AddUserForm';
+import PropTypes from 'prop-types';
+import { inputUserService } from 'services/UserServices';
+import { MIN_USERNAME_LEN, ADD_USER_BUTTON } from 'utils/constants';
 
 export const AddUserButton = (props) => {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    setUsername("");
+    setUsername('');
   };
 
   const handleAddUser = () => {
@@ -25,7 +25,7 @@ export const AddUserButton = (props) => {
           if (res.length > 0) {
             handleCloseModal();
             props.setUsers([...props.users, res[0]]);
-            setUsername("");
+            setUsername('');
             props.setUserMounts((prevState) => [
               ...prevState,
               ...props.mounts.map((mount) => {
@@ -49,10 +49,10 @@ export const AddUserButton = (props) => {
   return (
     <Box m={1}>
       <Button
-        type="button"
+        type='button'
         onClick={handleOpenModal}
-        variant="contained"
-        color="primary"
+        variant='contained'
+        color='primary'
       >
         {ADD_USER_BUTTON}
       </Button>
@@ -60,8 +60,8 @@ export const AddUserButton = (props) => {
         open={isModalOpen}
         onClose={handleCloseModal}
         disableBackdropClick
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
+        aria-labelledby='simple-modal-title'
+        aria-describedby='simple-modal-description'
       >
         <AddUserForm
           ref={createRef()}

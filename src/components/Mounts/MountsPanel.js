@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Grid } from "@material-ui/core";
-import { MountsTable } from "./MountsTable";
-import PropTypes from "prop-types";
-import { ROWS_PER_PAGE_OPTIONS, EXPANSION_MAP } from "../../utils/constants";
-import { MountsActionsPanel } from "./MountsActionsPanel";
+import React, { useState } from 'react';
+import { Grid } from '@material-ui/core';
+import { MountsTable } from 'components/Mounts/MountsTable';
+import PropTypes from 'prop-types';
+import { ROWS_PER_PAGE_OPTIONS, EXPANSION_MAP } from 'utils/constants';
+import { MountsActionsPanel } from 'components/Mounts/MountsActionsPanel';
 
 export const MountsPanel = (props) => {
   const [page, setPage] = useState(0);
@@ -12,7 +12,7 @@ export const MountsPanel = (props) => {
     setPage(newPage);
   };
   const handleChangeRowsPerPage = (e) => {
-    setRowsPerPage(parseInt(e.target.value, 10));
+    setRowsPerPage(parseInt(e.target.value));
     setPage(0);
   };
 
@@ -43,7 +43,7 @@ export const MountsPanel = (props) => {
           )}
         />
       </Grid>
-      <Grid item xs={12} align="center">
+      <Grid item xs={12} align='center'>
         <MountsActionsPanel
           checkedExpansions={checkedExpansions}
           onChangeCheckbox={handleChangeCheckbox}
