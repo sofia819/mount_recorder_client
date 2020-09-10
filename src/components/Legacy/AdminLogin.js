@@ -1,5 +1,5 @@
 import React, { useState, forwardRef } from "react";
-import { USERNAME_TEXT, LOGIN_BUTTON, PASSWORD_TEXT } from "../utils/constants";
+import { USERNAME_TEXT, LOGIN_BUTTON, PASSWORD_TEXT } from "utils/constants";
 import {
   Button,
   TextField,
@@ -9,7 +9,7 @@ import {
   Grid,
 } from "@material-ui/core";
 import PropTypes from "prop-types";
-import "./AdminLogin.scss";
+import "components/Shared/AdminLogin.scss";
 
 export const AdminLogin = forwardRef((props, ref) => {
   const [username, setUsername] = useState("");
@@ -20,7 +20,7 @@ export const AdminLogin = forwardRef((props, ref) => {
   };
 
   return (
-    <Card tabIndex={-1} ref={ref} className="modal" outlined="true">
+    <Card tabIndex={-1} ref={ref} className='modal' outlined='true'>
       <CardContent>
         <Grid container>
           <Grid item>
@@ -32,20 +32,22 @@ export const AdminLogin = forwardRef((props, ref) => {
           <Grid item>
             <TextField
               label={PASSWORD_TEXT}
-              type="password"
+              type='password'
               onChange={(e) => setPassword(e.target.value)}
             />
           </Grid>
         </Grid>
       </CardContent>
-      <CardActions className="card-action">
-        <Button variant="contained" onClick={handleLogin}>
+      <CardActions className='card-action'>
+        <Button variant='contained' onClick={handleLogin}>
           {LOGIN_BUTTON}
         </Button>
       </CardActions>
     </Card>
   );
 });
+
+AdminLogin.displayName = "AdminLogin";
 
 AdminLogin.propTypes = {
   deleteUser: PropTypes.func,

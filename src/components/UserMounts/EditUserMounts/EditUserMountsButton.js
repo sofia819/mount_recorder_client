@@ -1,8 +1,8 @@
-import React, { createRef, useState, useEffect } from "react";
-import { Button, Modal } from "@material-ui/core";
-import { EditUserMountsForm } from "./EditUserMountsForm";
-import { updateUserMountsService } from "../../../services/userMountsServices";
-import PropTypes from "prop-types";
+import React, { createRef, useState, useEffect } from 'react';
+import { Button, Modal } from '@material-ui/core';
+import { EditUserMountsForm } from 'components/UserMounts/EditUserMounts/EditUserMountsForm';
+import { updateUserMountsService } from 'services/UserMountsServices';
+import PropTypes from 'prop-types';
 
 export const EditUserMountsButton = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -64,13 +64,13 @@ export const EditUserMountsButton = (props) => {
   useEffect(() => setUserMounts(props.userMounts), [props.userMounts]);
 
   return (
-    <Button variant="outlined" color="primary" onClick={handleOpenModal}>
+    <Button variant='outlined' color='primary' onClick={handleOpenModal}>
       {props.username}
       <Modal
         open={isModalOpen}
         onClose={handleCloseModal}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
+        aria-labelledby='simple-modal-title'
+        aria-describedby='simple-modal-description'
       >
         <EditUserMountsForm
           username={props.username}

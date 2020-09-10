@@ -1,54 +1,54 @@
-export const DELETE_COLUMN = "Delete";
+export const DELETE_COLUMN = 'Delete';
 
-export const DELETE_BUTTON = "Delete";
+export const DELETE_BUTTON = 'Delete';
 
-export const USER_MOUNTS_NAV_KEY = "USER_MOUNTS_NAV"
+export const USER_MOUNTS_NAV_KEY = 'USER_MOUNTS_NAV'
 
 export const PAGES_TAB_NAMES = {
-  USER_MOUNTS_NAV: "User Mounts",
-  USERS_NAV: "Users",
-  MOUNTS_NAV: "Mounts",
+  USER_MOUNTS_NAV: 'User Mounts',
+  USERS_NAV: 'Users',
+  MOUNTS_NAV: 'Mounts',
 };
 
 export const PAGES_NAV = {
-  USER_MOUNTS_NAV: "UserMounts",
-  USERS_NAV: "Users",
-  MOUNTS_NAV: "Mounts",
+  USER_MOUNTS_NAV: 'UserMounts',
+  USERS_NAV: 'Users',
+  MOUNTS_NAV: 'Mounts',
 };
 
-export const EDIT_NAME_HEADING = "Edit Username";
+export const EDIT_NAME_HEADING = 'Edit Username';
 
-export const INPUT_USER_HEADING = "Input User";
+export const INPUT_USER_HEADING = 'Input User';
 
-export const ADD_BUTTON = "Add";
+export const ADD_BUTTON = 'Add';
 
-export const USER_COLUMN = "User";
+export const USER_COLUMN = 'User';
 
-export const EDIT_COLUMN = "Edit";
+export const EDIT_COLUMN = 'Edit';
 
-export const EDIT_BUTTON = "Edit";
+export const EDIT_BUTTON = 'Edit';
 
-export const UPDATE_BUTTON = "Update";
+export const UPDATE_BUTTON = 'Update';
 
-export const CLOSE_BUTTON = "Close";
+export const CLOSE_BUTTON = 'Close';
 
 export const MIN_USERNAME_LEN = 3;
 
 export const MIN_PASSWORD_LEN = 3;
 
-export const MOUNT_COLUMN = "Mount";
+export const MOUNT_COLUMN = 'Mount';
 
-export const USERNAME_TEXT = "Username";
+export const USERNAME_TEXT = 'Username';
 
-export const SEARCH_USER = "Search";
+export const SEARCH_USER = 'Search';
 
-export const PASSWORD_TEXT = "Password";
+export const PASSWORD_TEXT = 'Password';
 
-export const LOGIN_BUTTON = "Login";
+export const LOGIN_BUTTON = 'Login';
 
-export const ADD_USER_BUTTON = "Add User";
+export const ADD_USER_BUTTON = 'Add User';
 
-export const EXPANSION_COLUMN = "Expansion";
+export const EXPANSION_COLUMN = 'Expansion';
 
 // Must be the smallest number
 export const ALL_EXPANSIONS = -1;
@@ -64,21 +64,21 @@ export const SB_EXPANSION = 4;
 export const SHB_EXPANSION = 5;
 
 export const EXPANSION_MAP = {
-  [ALL_EXPANSIONS]: "All",
-  [MISC_EXPANSION]: "Misc",
-  [ARR_EXPANSION]: "ARealmReborn",
-  [HW_EXPANSION]: "Heavensward",
-  [SB_EXPANSION]: "Stormblood",
-  [SHB_EXPANSION]: "Shadowbringers",
+  [ALL_EXPANSIONS]: 'All',
+  [MISC_EXPANSION]: 'Misc',
+  [ARR_EXPANSION]: 'ARealmReborn',
+  [HW_EXPANSION]: 'Heavensward',
+  [SB_EXPANSION]: 'Stormblood',
+  [SHB_EXPANSION]: 'Shadowbringers',
 };
 
 export const EXPANSION_TAB_NAMES = {
-  [ALL_EXPANSIONS]: "All",
-  [MISC_EXPANSION]: "Misc.",
-  [ARR_EXPANSION]: "A Realm Reborn",
-  [HW_EXPANSION]: "Heavensward",
-  [SB_EXPANSION]: "Stormblood",
-  [SHB_EXPANSION]: "Shadowbringers",
+  [ALL_EXPANSIONS]: 'All',
+  [MISC_EXPANSION]: 'Misc.',
+  [ARR_EXPANSION]: 'A Realm Reborn',
+  [HW_EXPANSION]: 'Heavensward',
+  [SB_EXPANSION]: 'Stormblood',
+  [SHB_EXPANSION]: 'Shadowbringers',
 };
 
 export const ROWS_PER_PAGE_OPTIONS = [5, 10, 15];
@@ -86,6 +86,6 @@ export const ROWS_PER_PAGE_OPTIONS = [5, 10, 15];
 // Heroku https://mount-recorder-server.herokuapp.com
 // Local http://localhost:5000
 export const END_POINT_URL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:5000"
-    : "https://mount-recorder-server.herokuapp.com";
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:5000'
+    : 'https://mount-recorder-server.herokuapp.com';

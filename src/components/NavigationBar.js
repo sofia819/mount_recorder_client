@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
   Redirect,
-} from "react-router-dom";
-import { UsersPanel } from "./Users/UsersPanel";
-import { MountsPanel } from "./Mounts/MountsPanel";
-import { UserMountsPanel } from "./UserMounts/UserMountsPanel";
-import { getMountsService } from "../services/mountServices";
-import { getUsersService } from "../services/userServices";
-import { getUserMountsService } from "../services/userMountsServices";
-import { Tabs, Tab, AppBar, Paper } from "@material-ui/core/";
+} from 'react-router-dom';
+import { UsersPanel } from 'components/Users/UsersPanel';
+import { MountsPanel } from 'components/Mounts/MountsPanel';
+import { UserMountsPanel } from 'components/UserMounts/UserMountsPanel';
+import { getMountsService } from 'services/MountServices';
+import { getUsersService } from 'services/UserServices';
+import { getUserMountsService } from 'services/UserMountsServices';
+import { Tabs, Tab, AppBar, Paper } from '@material-ui/core/';
 import {
   PAGES_NAV,
   PAGES_TAB_NAMES,
   EXPANSION_MAP,
   ALL_EXPANSIONS,
   USER_MOUNTS_NAV_KEY,
-} from "../utils/constants";
-import "./NaviagtionBar.scss";
+} from 'utils/constants';
+import 'components/Shared/NaviagtionBar.scss';
 
 export const NavigationBar = () => {
   const [users, setUsers] = useState([]);
@@ -38,7 +38,7 @@ export const NavigationBar = () => {
       window.location.pathname.includes(EXPANSION_MAP[page])
     );
     return currentPage !== undefined
-      ? parseInt(currentPage, 10)
+      ? parseInt(currentPage)
       : ALL_EXPANSIONS;
   });
 
@@ -75,14 +75,14 @@ export const NavigationBar = () => {
 
   return (
     <Router>
-      <AppBar position="static" component={Paper}>
+      <AppBar position='static' component={Paper}>
         <Tabs
-          variant="fullWidth"
-          indicatorColor="primary"
-          textColor="primary"
+          variant='fullWidth'
+          indicatorColor='primary'
+          textColor='primary'
           centered
           value={selectedTab}
-          className="tabs"
+          className='tabs'
         >
           {Object.keys(PAGES_NAV).map((page) => (
             <Tab
@@ -92,7 +92,7 @@ export const NavigationBar = () => {
               to={`/${PAGES_NAV[page]}/${
                 page === USER_MOUNTS_NAV_KEY
                   ? EXPANSION_MAP[selectedExpansion]
-                  : ""
+                  : ''
               }`}
               value={PAGES_NAV[page]}
               onClick={() => handleSelectTab(page)}

@@ -1,13 +1,13 @@
-import React, { useState, createRef } from "react";
-import { Button, Modal } from "@material-ui/core";
+import React, { useState, createRef } from 'react';
+import { Button, Modal } from '@material-ui/core';
 import {
   DELETE_BUTTON,
   MIN_USERNAME_LEN,
   MIN_PASSWORD_LEN,
-} from "../utils/constants";
-import { AdminLogin } from "./AdminLogin";
-import { deleteUserService } from "../services/userServices";
-import PropTypes from "prop-types";
+} from 'utils/constants';
+import { AdminLogin } from 'components/Legacy/AdminLogin';
+import { deleteUserService } from 'services/UserServices';
+import PropTypes from 'prop-types';
 
 export const DeleteUserButton = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,14 +42,14 @@ export const DeleteUserButton = (props) => {
 
   return (
     <>
-      <Button variant="contained" color="secondary" onClick={handleOpenModal}>
+      <Button variant='contained' color='secondary' onClick={handleOpenModal}>
         {DELETE_BUTTON}
       </Button>
       <Modal
         open={isModalOpen}
         onClose={handleCloseModal}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
+        aria-labelledby='simple-modal-title'
+        aria-describedby='simple-modal-description'
       >
         <AdminLogin
           ref={createRef()}
