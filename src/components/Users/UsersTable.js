@@ -1,5 +1,5 @@
-import React from 'react';
-import { USER_COLUMN } from 'utils/constants';
+import React from "react";
+import { USER_COLUMN } from "../../utils/constants";
 import {
   Table,
   TableBody,
@@ -8,22 +8,22 @@ import {
   TableHead,
   TableRow,
   Paper,
-} from '@material-ui/core';
-import { EditUserButton } from 'components/Users/EditUser/EditUserButton';
-import PropTypes from 'prop-types';
+} from "@material-ui/core";
+import { EditUserButton } from "./EditUser/EditUserButton";
+import PropTypes from "prop-types";
 
 export const UsersTable = (props) => (
   <TableContainer component={Paper}>
-    <Table className='table' aria-label='customized table'>
-      <TableHead className='table-head'>
+    <Table className="table" aria-label="customized table">
+      <TableHead className="table-head">
         <TableRow>
-          <TableCell align='center'>{USER_COLUMN}</TableCell>
+          <TableCell align="center">{USER_COLUMN}</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
         {props.users.map((row) => (
-          <TableRow key={row.user_id} className='table-row'>
-            <TableCell align='center' component='th' scope='row'>
+          <TableRow key={row.user_id} className="table-row">
+            <TableCell align="center" component="th" scope="row">
               <EditUserButton
                 users={props.users}
                 username={row.username}
