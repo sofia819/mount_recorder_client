@@ -5,8 +5,8 @@ import {
   MIN_USERNAME_LEN,
   MIN_PASSWORD_LEN,
 } from "../utils/constants";
-import { AdminLogin } from "./AdminLogin";
-import { deleteUserService } from "../services/userServices";
+import { AdminLogin } from "components/Legacy/AdminLogin";
+import { deleteUserService } from "services/userServices";
 import PropTypes from "prop-types";
 
 export const DeleteUserButton = (props) => {

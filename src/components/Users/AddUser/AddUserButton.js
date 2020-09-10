@@ -1,9 +1,9 @@
 import React, { useState, createRef } from "react";
 import { Modal, Button, Box } from "@material-ui/core";
-import { AddUserForm } from "./AddUserForm";
+import { AddUserForm } from "components/Users/AddUser/AddUserForm";
 import PropTypes from "prop-types";
-import { inputUserService } from "../../../services/userServices";
-import { MIN_USERNAME_LEN, ADD_USER_BUTTON } from "../../../utils/constants";
+import { inputUserService } from "services/userServices";
+import { MIN_USERNAME_LEN, ADD_USER_BUTTON } from "utils/constants";
 
 export const AddUserButton = (props) => {
   const [username, setUsername] = useState("");

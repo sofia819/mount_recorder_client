@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Grid } from "@material-ui/core";
-import { MountsTable } from "./MountsTable";
+import { MountsTable } from "components/Mounts/MountsTable";
 import PropTypes from "prop-types";
-import { ROWS_PER_PAGE_OPTIONS, EXPANSION_MAP } from "../../utils/constants";
-import { MountsActionsPanel } from "./MountsActionsPanel";
+import { ROWS_PER_PAGE_OPTIONS, EXPANSION_MAP } from "utils/constants";
+import { MountsActionsPanel } from "components/Mounts/MountsActionsPanel";
 
 export const MountsPanel = (props) => {
   const [page, setPage] = useState(0);

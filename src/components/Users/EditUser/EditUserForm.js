@@ -1,31 +1,38 @@
-import React, { forwardRef } from "react";
-import { Card, TextField, Button, Grid, Typography, Box } from "@material-ui/core";
+import React, { forwardRef } from 'react';
+import {
+  Card,
+  TextField,
+  Button,
+  Grid,
+  Typography,
+  Box,
+} from '@material-ui/core';
 import {
   EDIT_NAME_HEADING,
   UPDATE_BUTTON,
   CLOSE_BUTTON,
-} from "../../../utils/constants";
-import PropTypes from "prop-types";
-import "../../ModalForm.scss";
+} from 'utils/constants';
+import PropTypes from 'prop-types';
+import 'components/ModalForm.scss';
 
 export const EditUserForm = forwardRef((props, ref) => (
-  <Card tabIndex={-1} className="form" ref={ref}>
+  <Card tabIndex={-1} className='form' ref={ref}>
     <Box mt={2} mb={2}>
-      <Grid container spacing={2} align="center">
+      <Grid container spacing={2} align='center'>
         <Grid item xs={12}>
           <Typography>{EDIT_NAME_HEADING}</Typography>
         </Grid>
         <Grid item xs={12}>
           <TextField
-            variant="outlined"
+            variant='outlined'
             defaultValue={props.username}
             onChange={props.onChangeInput}
           />
         </Grid>
         <Grid item xs={6}>
           <Button
-            variant="contained"
-            color="primary"
+            variant='contained'
+            color='primary'
             onClick={props.onUpdateUsername}
           >
             {UPDATE_BUTTON}
@@ -33,8 +40,8 @@ export const EditUserForm = forwardRef((props, ref) => (
         </Grid>
         <Grid item xs={6}>
           <Button
-            variant="contained"
-            color="default"
+            variant='contained'
+            color='default'
             onClick={props.onCloseModal}
           >
             {CLOSE_BUTTON}

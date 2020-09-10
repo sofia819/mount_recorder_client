@@ -1,7 +1,7 @@
 import React from "react";
-import { ExpansionFilter } from "./ExpansionFilter";
+import { ExpansionFilter } from "components/Mounts/ExpansionFilter";
 import { TablePagination, Grid, Box } from "@material-ui/core";
-import { ROWS_PER_PAGE_OPTIONS } from "../../utils/constants";
+import { ROWS_PER_PAGE_OPTIONS } from "utils/constants";
 import PropTypes from "prop-types";
 
 export const MountsActionsPanel = (props) => (

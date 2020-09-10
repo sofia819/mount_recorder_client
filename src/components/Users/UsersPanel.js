@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Grid } from "@material-ui/core";
-import { UsersTable } from "./UsersTable";
-import { UserActionsPanel } from "./UsersActionsPanel";
-import { ROWS_PER_PAGE_OPTIONS, MIN_USERNAME_LEN } from "../../utils/constants";
-import PropTypes from "prop-types";
-import "../Table.scss";
+import React, { useState } from 'react';
+import { Grid } from '@material-ui/core';
+import { UsersTable } from 'components/Users/UsersTable';
+import { UserActionsPanel } from 'components/Users/UsersActionsPanel';
+import { ROWS_PER_PAGE_OPTIONS, MIN_USERNAME_LEN } from 'utils/constants';
+import PropTypes from 'prop-types';
+import 'components/Table.scss';
 
 export const UsersPanel = (props) => {
   const [page, setPage] = useState(0);
@@ -16,7 +16,7 @@ export const UsersPanel = (props) => {
     setRowsPerPage(parseInt(e.target.value, 10));
     setPage(0);
   };
-  const [searchUsername, setSearchUsername] = useState("");
+  const [searchUsername, setSearchUsername] = useState('');
 
   const handleChangeUsername = (e) => setSearchUsername(e.target.value);
 
@@ -39,12 +39,12 @@ export const UsersPanel = (props) => {
           setUsers={props.setUsers}
         />
       </Grid>
-      <Grid item xs={12} align="center">
+      <Grid item xs={12} align='center'>
         <UserActionsPanel
           users={props.users}
           setUsers={props.setUsers}
           rowsPerPageOptions={ROWS_PER_PAGE_OPTIONS}
-          component="div"
+          component='div'
           count={filteredUsers.length}
           rowsPerPage={rowsPerPage}
           page={page}
