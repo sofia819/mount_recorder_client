@@ -1,21 +1,21 @@
-import React from 'react';
-import { ROWS_PER_PAGE_OPTIONS, SEARCH_USER } from 'utils/constants';
+import React from "react";
+import { ROWS_PER_PAGE_OPTIONS, SEARCH_USER } from "../../utils/constants";
 import {
   Grid,
   TablePagination,
   TextField,
   Box,
   Tooltip,
-} from '@material-ui/core';
-import { AddUserButton } from 'components/Users/AddUser/AddUserButton';
-import PropTypes from 'prop-types';
+} from "@material-ui/core";
+import { AddUserButton } from "./AddUser/AddUserButton";
+import PropTypes from "prop-types";
 
 export const UserActionsPanel = (props) => (
   <Box m={1}>
-    <Grid container align='center'>
+    <Grid container align="center">
       <Grid item xs={1} />
-      <Grid item xs={5} align='center'>
-        <Tooltip title='Min 3 chars'>
+      <Grid item xs={5} align="center">
+        <Tooltip title="Min 3 chars">
           <TextField
             value={props.searchUsername}
             label={SEARCH_USER}
@@ -28,7 +28,7 @@ export const UserActionsPanel = (props) => (
       <Grid item xs={5}>
         <TablePagination
           rowsPerPageOptions={ROWS_PER_PAGE_OPTIONS}
-          component='div'
+          component="div"
           count={props.count}
           rowsPerPage={props.rowsPerPage}
           page={props.page}

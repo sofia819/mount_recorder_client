@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef } from "react";
 import {
   Card,
   Button,
@@ -7,20 +7,20 @@ import {
   FormControlLabel,
   Typography,
   Box,
-} from '@material-ui/core';
-import { UPDATE_BUTTON, CLOSE_BUTTON } from 'utils/constants';
-import PropTypes from 'prop-types';
-import 'components/Shared/ModalForm.scss';
+} from "@material-ui/core";
+import { UPDATE_BUTTON, CLOSE_BUTTON } from "../../../utils/constants";
+import PropTypes from "prop-types";
+import "../../ModalForm.scss";
 
 export const EditUserMountsForm = forwardRef((props, ref) => {
   return (
-    <Card ref={ref} tabIndex={-1} className='form'>
+    <Card ref={ref} tabIndex={-1} className="form">
       <Box mt={2} mb={2}>
-        <Grid container align='center' spacing={2}>
+        <Grid container align="center" spacing={2}>
           <Grid item xs={12}>
             <Typography>{props.username}</Typography>
           </Grid>
-          <Grid container align='left'>
+          <Grid container align="left">
             <Box ml={4} mr={4} mt={1} mb={2}>
               {props.userMounts
                 .sort((a, b) => a.mount_id - b.mount_id)
@@ -42,14 +42,14 @@ export const EditUserMountsForm = forwardRef((props, ref) => {
           <Grid item xs={6}>
             <Button
               onClick={props.updateUserMounts}
-              color='primary'
-              variant='contained'
+              color="primary"
+              variant="contained"
             >
               {UPDATE_BUTTON}
             </Button>
           </Grid>
           <Grid item xs={6}>
-            <Button variant='contained' onClick={props.updateUserMounts}>
+            <Button variant="contained" onClick={props.updateUserMounts}>
               {CLOSE_BUTTON}
             </Button>
           </Grid>
@@ -59,10 +59,7 @@ export const EditUserMountsForm = forwardRef((props, ref) => {
   );
 });
 
-EditUserMountsForm.displayName = 'EditUserMountsForm';
-
 EditUserMountsForm.propTypes = {
-  username: PropTypes.string,
   onChangeSelection: PropTypes.func,
   userMounts: PropTypes.array,
   updateUserMounts: PropTypes.func,

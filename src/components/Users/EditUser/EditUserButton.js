@@ -1,9 +1,9 @@
-import React, { useState, createRef } from 'react';
-import { Modal, Button } from '@material-ui/core';
-import { updateUserService } from 'services/UserServices';
-import { MIN_USERNAME_LEN } from 'utils/constants';
-import { EditUserForm } from 'components/Users/EditUser/EditUserForm';
-import PropTypes from 'prop-types';
+import React, { useState, createRef } from "react";
+import { Modal, Button } from "@material-ui/core";
+import { updateUserService } from "../../../services/userServices";
+import { MIN_USERNAME_LEN } from "../../../utils/constants";
+import { EditUserForm } from "./EditUserForm";
+import PropTypes from "prop-types";
 
 export const EditUserButton = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,10 +45,10 @@ export const EditUserButton = (props) => {
   return (
     <>
       <Button
-        type='button'
+        type="button"
         onClick={handleOpenModal}
-        variant='outlined'
-        color='primary'
+        variant="outlined"
+        color="primary"
       >
         {props.username}
       </Button>
@@ -56,8 +56,8 @@ export const EditUserButton = (props) => {
         open={isModalOpen}
         onClose={handleCloseModal}
         disableBackdropClick
-        aria-labelledby='simple-modal-title'
-        aria-describedby='simple-modal-description'
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
       >
         <EditUserForm
           username={username}
