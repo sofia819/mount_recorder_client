@@ -1,5 +1,5 @@
 import React, { useState, forwardRef } from "react";
-import { USERNAME_TEXT, LOGIN_BUTTON, PASSWORD_TEXT } from "../utils/constants";
+import { USERNAME_TEXT, LOGIN_BUTTON, PASSWORD_TEXT } from "utils/constants";
 import {
   Button,
   TextField,
@@ -9,7 +9,7 @@ import {
   Grid,
 } from "@material-ui/core";
 import PropTypes from "prop-types";
-import "./AdminLogin.scss";
+import "components/Legacy/AdminLogin.scss";
 
 export const AdminLogin = forwardRef((props, ref) => {
   const [username, setUsername] = useState("");

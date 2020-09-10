@@ -5,7 +5,7 @@ import {
   EXPANSION_MAP,
   PAGES_NAV,
   EXPANSION_TAB_NAMES,
-} from "../../utils/constants";
+} from "utils/constants";
 import PropTypes from "prop-types";
 
 export const UserMountsNavBar = (props) => (

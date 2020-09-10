@@ -10,10 +10,10 @@ import {
 } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
 import ClearIcon from "@material-ui/icons/Clear";
-import { USER_COLUMN } from "../../utils/constants";
-import { EditUserMountsButton } from "./EditUserMounts/EditUserMountsButton";
+import { USER_COLUMN } from "utils/constants";
+import { EditUserMountsButton } from "components/UserMounts/EditUserMounts/EditUserMountsButton";
 import PropTypes from "prop-types";
-import "../Table.scss";
+import "components/Table.scss";
 
 export const UserMountsTable = (props) => {
   return (

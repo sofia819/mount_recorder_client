@@ -1,7 +1,7 @@
 import React, { createRef, useState, useEffect } from "react";
 import { Button, Modal } from "@material-ui/core";
-import { EditUserMountsForm } from "./EditUserMountsForm";
-import { updateUserMountsService } from "../../../services/userMountsServices";
+import { EditUserMountsForm } from "components/UserMounts/EditUserMounts/EditUserMountsForm";
+import { updateUserMountsService } from "services/userMountsServices";
 import PropTypes from "prop-types";
 
 export const EditUserMountsButton = (props) => {

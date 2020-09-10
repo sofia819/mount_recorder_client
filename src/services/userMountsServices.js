@@ -1,5 +1,5 @@
 import wretch from "wretch";
-import { END_POINT_URL } from "../utils/constants";
+import { END_POINT_URL } from "utils/constants";
 
 export const getUserMountsService = () =>
     wretch(`${END_POINT_URL}/user-mounts`).get().json();

@@ -1,6 +1,6 @@
 import React from "react";
 import { Checkbox, FormControlLabel, Box } from "@material-ui/core";
-import { EXPANSION_MAP } from "../../utils/constants";
+import { EXPANSION_MAP } from "utils/constants";
 import PropTypes from "prop-types";
 
 export const ExpansionFilter = (props) => {
