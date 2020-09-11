@@ -1,5 +1,5 @@
 import React from 'react';
-import { ROWS_PER_PAGE_OPTIONS, SEARCH_USER } from 'utils/constants';
+import { ROWS_PER_PAGE_OPTIONS, SEARCH_USER_TEXT } from 'utils/constants';
 import {
   Grid,
   TablePagination,
@@ -18,7 +18,7 @@ export const UserActionsPanel = (props) => (
         <Tooltip title='Min 3 chars'>
           <TextField
             value={props.searchUsername}
-            label={SEARCH_USER}
+            label={SEARCH_USER_TEXT}
             fullWidth
             onChange={props.onChangeSearchUsername}
           />

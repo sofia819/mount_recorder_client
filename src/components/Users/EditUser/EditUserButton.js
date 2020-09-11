@@ -1,9 +1,16 @@
-import React, { useState, createRef } from "react";
-import { Modal, Button } from "@material-ui/core";
-import { updateUserService } from "services/userServices";
-import { MIN_USERNAME_LEN } from "utils/constants";
-import { EditUserForm } from "components/Users/EditUser/EditUserForm";
-import PropTypes from "prop-types";
+import React, { useState, createRef } from 'react';
+import { Modal, Button } from '@material-ui/core';
+import { updateUserService } from 'services/userServices';
+import {
+  MIN_USERNAME_LEN,
+  ALERT_ERROR_SHORT_NAME,
+  ALERT_ERROR_DUPE_NAME,
+  ALERT_ERROR_UNEXPECTED,
+  ALERT_SUCCESS,
+  ALERT_WARNING_SAME_NAME,
+} from 'utils/constants';
+import { EditUserForm } from 'components/Users/EditUser/EditUserForm';
+import PropTypes from 'prop-types';
 
 export const EditUserButton = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,11 +25,13 @@ export const EditUserButton = (props) => {
 
   // Edit username
   const updateUser = () => {
-    if (
-      username.length >= MIN_USERNAME_LEN &&
-      props.username !== username &&
-      !props.users.find((user) => user.username === username)
-    ) {
+    const usernameHasMinLength = username.length >= MIN_USERNAME_LEN;
+    const hasDifferentUsername = props.username !== username;
+    const hasUniqueUsername = !props.users.find(
+      (user) => user.username === username
+    );
+
+    if (usernameHasMinLength && hasDifferentUsername && hasUniqueUsername) {
       updateUserService(props.userId, username)
         .then((res) => {
           if (res.length > 0) {
@@ -30,25 +39,34 @@ export const EditUserButton = (props) => {
               ...prevState.filter((user) => user.user_id !== props.userId),
               res[0],
             ]);
+            props.dispatchAlert({ type: ALERT_SUCCESS });
+          } else {
+            props.dispatchAlert({ type: ALERT_ERROR_UNEXPECTED });
           }
           setIsModalOpen(false);
         })
         .catch((err) => {
           console.log(err);
-          handleCloseModal();
+          props.dispatchAlert({ type: ALERT_ERROR_UNEXPECTED });
         });
     } else {
-      setIsModalOpen(false);
+      if (!usernameHasMinLength) {
+        props.dispatchAlert({ type: ALERT_ERROR_SHORT_NAME });
+      } else if (!hasDifferentUsername) {
+        props.dispatchAlert({ type: ALERT_WARNING_SAME_NAME });
+      } else if (!hasUniqueUsername) {
+        props.dispatchAlert({ type: ALERT_ERROR_DUPE_NAME });
+      }
     }
   };
 
   return (
     <>
       <Button
-        type="button"
+        type='button'
         onClick={handleOpenModal}
-        variant="outlined"
-        color="primary"
+        variant='outlined'
+        color='primary'
       >
         {props.username}
       </Button>
@@ -56,8 +74,8 @@ export const EditUserButton = (props) => {
         open={isModalOpen}
         onClose={handleCloseModal}
         disableBackdropClick
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
+        aria-labelledby='simple-modal-title'
+        aria-describedby='simple-modal-description'
       >
         <EditUserForm
           username={username}
@@ -76,4 +94,5 @@ EditUserButton.propTypes = {
   username: PropTypes.string,
   userId: PropTypes.number,
   setUsers: PropTypes.func,
+  dispatchAlert: PropTypes.func,
 };
