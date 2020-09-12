@@ -8,7 +8,11 @@ import {
   TableRow,
   Paper,
 } from '@material-ui/core';
-import { MOUNT_COLUMN, EXPANSION_COLUMN, EXPANSION_MAP } from 'utils/constants';
+import {
+  MOUNT_COLUMN,
+  EXPANSION_COLUMN,
+  EXPANSION_TAB_NAMES,
+} from 'utils/constants';
 import PropTypes from 'prop-types';
 import 'components/Table.scss';
 
@@ -29,7 +33,7 @@ export const MountsTable = (props) => {
                 {row.mount_name}
               </TableCell>
               <TableCell align='center' component='th' scope='row'>
-                {EXPANSION_MAP[row.expansion]}
+                {EXPANSION_TAB_NAMES[row.expansion]}
               </TableCell>
             </TableRow>
           ))}
