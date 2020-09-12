@@ -63,6 +63,7 @@ export const UsersPanel = (props) => {
           searchUsername={searchUsername}
           mounts={props.mounts}
           setUserMounts={props.setUserMounts}
+          dispatchAlert={dispatchAlert}
         />
       </Grid>
       <Snackbar
