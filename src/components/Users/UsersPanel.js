@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import { Grid } from '@material-ui/core';
+import React, { useState, useReducer } from 'react';
+import { Grid, Snackbar } from '@material-ui/core';
 import { UsersTable } from 'components/Users/UsersTable';
 import { UserActionsPanel } from 'components/Users/UsersActionsPanel';
 import { ROWS_PER_PAGE_OPTIONS, MIN_USERNAME_LEN } from 'utils/constants';
+import { alertReducer } from 'utils/reducers';
+import MuiAlert from '@material-ui/lab/Alert';
 import PropTypes from 'prop-types';
 import 'components/Table.scss';
 
@@ -28,6 +30,12 @@ export const UsersPanel = (props) => {
     )
     .sort((a, b) => a.username.localeCompare(b.username));
 
+  const [alert, dispatchAlert] = useReducer(alertReducer, {
+    isAlertOpen: false,
+    alertMessage: '',
+    alertSeverity: '',
+  });
+
   return (
     <Grid container>
       <Grid item xs={12}>
@@ -37,6 +45,7 @@ export const UsersPanel = (props) => {
             page * rowsPerPage + rowsPerPage
           )}
           setUsers={props.setUsers}
+          dispatchAlert={dispatchAlert}
         />
       </Grid>
       <Grid item xs={12} align='center'>
@@ -56,6 +65,15 @@ export const UsersPanel = (props) => {
           setUserMounts={props.setUserMounts}
         />
       </Grid>
+      <Snackbar
+        open={alert.isAlertOpen}
+        autoHideDuration={3000}
+        onClose={() => dispatchAlert({ type: 'Close' })}
+      >
+        <MuiAlert severity={alert.alertSeverity} variant='filled'>
+          {alert.alertMessage}
+        </MuiAlert>
+      </Snackbar>
     </Grid>
   );
 };

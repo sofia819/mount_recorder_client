@@ -1,6 +1,6 @@
 import React from "react";
 import { TablePagination, Grid, Box, TextField } from "@material-ui/core";
-import { ROWS_PER_PAGE_OPTIONS, SEARCH_USER } from "utils/constants";
+import { ROWS_PER_PAGE_OPTIONS, SEARCH_USER_TEXT } from "utils/constants";
 import PropTypes from "prop-types";
 
 export const UserMountsActionPanel = (props) => (
@@ -10,7 +10,7 @@ export const UserMountsActionPanel = (props) => (
       <Grid item xs={5} align="center">
         <TextField
           value={props.searchUsername}
-          label={SEARCH_USER}
+          label={SEARCH_USER_TEXT}
           fullWidth
           onChange={props.onChangeSearchUsername}
         />

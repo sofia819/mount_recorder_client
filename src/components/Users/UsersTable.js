@@ -29,6 +29,7 @@ export const UsersTable = (props) => (
                 username={row.username}
                 userId={row.user_id}
                 setUsers={props.setUsers}
+                dispatchAlert={props.dispatchAlert}
               />
             </TableCell>
           </TableRow>
@@ -41,4 +42,5 @@ export const UsersTable = (props) => (
 UsersTable.propTypes = {
   users: PropTypes.array,
   setUsers: PropTypes.func,
+  dispatchAlert: PropTypes.func,
 };
