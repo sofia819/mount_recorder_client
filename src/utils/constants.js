@@ -93,6 +93,8 @@ export const ALERT_WARNING_SEVERITY = 'warning';
 
 export const ALERT_ERROR_SEVERITY = 'error';
 
+export const ALERT_CLOSE = 'Close';
+
 export const ALERT_MESSAGE = {
   [ALERT_SUCCESS]: 'Success!',
   [ALERT_WARNING_SAME_NAME]: 'There was no change in your username.',
@@ -100,6 +102,8 @@ export const ALERT_MESSAGE = {
   [ALERT_ERROR_DUPE_NAME]: 'Usernames must be unique.',
   [ALERT_ERROR_UNEXPECTED]: 'Therer was an unexpected error.',
 };
+
+export const ALERT_MESSAGE_DURATION = 3000;
 
 // Heroku https://mount-recorder-server.herokuapp.com
 // Local http://localhost:5000
