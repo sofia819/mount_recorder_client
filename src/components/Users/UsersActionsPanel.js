@@ -42,6 +42,7 @@ export const UserActionsPanel = (props) => (
           setUserMounts={props.setUserMounts}
           users={props.users}
           setUsers={props.setUsers}
+          dispatchAlert={props.dispatchAlert}
         />
       </Grid>
     </Grid>
@@ -60,4 +61,5 @@ UserActionsPanel.propTypes = {
   setUsers: PropTypes.func,
   mounts: PropTypes.array,
   setUserMounts: PropTypes.func,
+  dispatchAlert: PropTypes.func,
 };

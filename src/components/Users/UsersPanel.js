@@ -2,7 +2,12 @@ import React, { useState, useReducer } from 'react';
 import { Grid, Snackbar } from '@material-ui/core';
 import { UsersTable } from 'components/Users/UsersTable';
 import { UserActionsPanel } from 'components/Users/UsersActionsPanel';
-import { ROWS_PER_PAGE_OPTIONS, MIN_USERNAME_LEN } from 'utils/constants';
+import {
+  ROWS_PER_PAGE_OPTIONS,
+  MIN_USERNAME_LEN,
+  ALERT_MESSAGE_DURATION,
+  ALERT_CLOSE,
+} from 'utils/constants';
 import { alertReducer } from 'utils/reducers';
 import MuiAlert from '@material-ui/lab/Alert';
 import PropTypes from 'prop-types';
@@ -63,12 +68,13 @@ export const UsersPanel = (props) => {
           searchUsername={searchUsername}
           mounts={props.mounts}
           setUserMounts={props.setUserMounts}
+          dispatchAlert={dispatchAlert}
         />
       </Grid>
       <Snackbar
         open={alert.isAlertOpen}
-        autoHideDuration={3000}
-        onClose={() => dispatchAlert({ type: 'Close' })}
+        autoHideDuration={ALERT_MESSAGE_DURATION}
+        onClose={() => dispatchAlert({ type: ALERT_CLOSE })}
       >
         <MuiAlert severity={alert.alertSeverity} variant='filled'>
           {alert.alertMessage}
