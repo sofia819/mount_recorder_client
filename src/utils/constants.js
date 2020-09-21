@@ -3,15 +3,17 @@ export const DELETE_BUTTON = 'Delete';
 export const USER_MOUNTS_NAV_KEY = 'USER_MOUNTS_NAV';
 
 export const PAGES_TAB_NAMES = {
-  USER_MOUNTS_NAV: 'User Mounts',
-  USERS_NAV: 'Users',
-  MOUNTS_NAV: 'Mounts',
+  USER_MOUNTS_NAV: "User Mounts",
+  USERS_NAV: "Users",
+  MOUNTS_NAV: "Mounts",
+  HELP_NAV: "Help",
 };
 
 export const PAGES_NAV = {
-  USER_MOUNTS_NAV: 'UserMounts',
-  USERS_NAV: 'Users',
-  MOUNTS_NAV: 'Mounts',
+  USER_MOUNTS_NAV: "UserMounts",
+  USERS_NAV: "Users",
+  MOUNTS_NAV: "Mounts",
+  HELP_NAV: "Help",
 };
 
 export const EDIT_NAME_HEADING = 'Edit Username';
@@ -77,33 +79,21 @@ export const EXPANSION_TAB_NAMES = {
 
 export const ROWS_PER_PAGE_OPTIONS = [5, 10, 15];
 
-export const ALERT_SUCCESS = 'Success';
+export const USER_MOUNTS_STEPPER_STEPS = [
+  "Selecting a user",
+  "Editing owned mounts",
+  "Saving or discarding changes",
+  "Selecting an expansion",
+  "Searching for a user",
+];
 
-export const ALERT_WARNING_SAME_NAME = 'Same name';
-
-export const ALERT_ERROR_SHORT_NAME = 'Short Name';
-
-export const ALERT_ERROR_DUPE_NAME = 'Duplicate Name';
-
-export const ALERT_ERROR_UNEXPECTED = 'Unexpected Error';
-
-export const ALERT_SUCCESS_SEVERITY = 'success';
-
-export const ALERT_WARNING_SEVERITY = 'warning';
-
-export const ALERT_ERROR_SEVERITY = 'error';
-
-export const ALERT_CLOSE = 'Close';
-
-export const ALERT_MESSAGE = {
-  [ALERT_SUCCESS]: 'Success!',
-  [ALERT_WARNING_SAME_NAME]: 'There was no change in your username.',
-  [ALERT_ERROR_SHORT_NAME]: `The username must be at least ${MIN_USERNAME_LEN} characters long.`,
-  [ALERT_ERROR_DUPE_NAME]: 'Usernames must be unique.',
-  [ALERT_ERROR_UNEXPECTED]: 'Therer was an unexpected error.',
+export const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
+  0: "",
+  1: "",
+  2: "",
+  3: "",
+  4: "",
 };
-
-export const ALERT_MESSAGE_DURATION = 3000;
 
 // Heroku https://mount-recorder-server.herokuapp.com
 // Local http://localhost:5000
