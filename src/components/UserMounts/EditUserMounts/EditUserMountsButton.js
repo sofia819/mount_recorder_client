@@ -1,14 +1,17 @@
-import React, { createRef, useState, useEffect } from "react";
-import { Button, Modal } from "@material-ui/core";
-import { EditUserMountsForm } from "components/UserMounts/EditUserMounts/EditUserMountsForm";
-import { updateUserMountsService } from "services/userMountsServices";
-import PropTypes from "prop-types";
+import React, { createRef, useState, useEffect } from 'react';
+import { Button, Modal } from '@material-ui/core';
+import { EditUserMountsForm } from 'components/UserMounts/EditUserMounts/EditUserMountsForm';
+import { updateUserMountsService } from 'services/userMountsServices';
+import PropTypes from 'prop-types';
 
 export const EditUserMountsButton = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
+  const handleCloseModal = () => {
+    setUserMounts(props.userMounts);
+    setIsModalOpen(false);
+  };
 
   const [userMounts, setUserMounts] = useState(props.userMounts);
 
@@ -64,13 +67,16 @@ export const EditUserMountsButton = (props) => {
   useEffect(() => setUserMounts(props.userMounts), [props.userMounts]);
 
   return (
-    <Button variant="outlined" color="primary" onClick={handleOpenModal}>
-      {props.username}
+    <>
+      <Button variant='outlined' color='primary' onClick={handleOpenModal}>
+        {props.username}
+      </Button>
       <Modal
         open={isModalOpen}
         onClose={handleCloseModal}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
+        disableBackdropClick
+        aria-labelledby='simple-modal-title'
+        aria-describedby='simple-modal-description'
       >
         <EditUserMountsForm
           username={props.username}
@@ -78,9 +84,10 @@ export const EditUserMountsButton = (props) => {
           updateUserMounts={updateUserMounts}
           userMounts={userMounts}
           onChangeSelection={handleChangeSelection}
+          onCloseModal={handleCloseModal}
         />
       </Modal>
-    </Button>
+    </>
   );
 };
 

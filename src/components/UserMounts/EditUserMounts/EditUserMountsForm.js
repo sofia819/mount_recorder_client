@@ -49,7 +49,7 @@ export const EditUserMountsForm = forwardRef((props, ref) => {
             </Button>
           </Grid>
           <Grid item xs={6}>
-            <Button variant='contained' onClick={props.updateUserMounts}>
+            <Button variant='contained' onClick={props.onCloseModal}>
               {CLOSE_BUTTON}
             </Button>
           </Grid>
@@ -63,4 +63,5 @@ EditUserMountsForm.propTypes = {
   onChangeSelection: PropTypes.func,
   userMounts: PropTypes.array,
   updateUserMounts: PropTypes.func,
+  onCloseModal: PropTypes.func,
 };
