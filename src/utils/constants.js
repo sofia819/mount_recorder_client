@@ -3,17 +3,17 @@ export const DELETE_BUTTON = 'Delete';
 export const USER_MOUNTS_NAV_KEY = 'USER_MOUNTS_NAV';
 
 export const PAGES_TAB_NAMES = {
-  USER_MOUNTS_NAV: "User Mounts",
-  USERS_NAV: "Users",
-  MOUNTS_NAV: "Mounts",
-  HELP_NAV: "Help",
+  USER_MOUNTS_NAV: 'User Mounts',
+  USERS_NAV: 'Users',
+  MOUNTS_NAV: 'Mounts',
+  HELP_NAV: 'Help',
 };
 
 export const PAGES_NAV = {
-  USER_MOUNTS_NAV: "UserMounts",
-  USERS_NAV: "Users",
-  MOUNTS_NAV: "Mounts",
-  HELP_NAV: "Help",
+  USER_MOUNTS_NAV: 'UserMounts',
+  USERS_NAV: 'Users',
+  MOUNTS_NAV: 'Mounts',
+  HELP_NAV: 'Help',
 };
 
 export const EDIT_NAME_HEADING = 'Edit Username';
@@ -102,8 +102,10 @@ export const ALERT_MESSAGE = {
   [ALERT_WARNING_SAME_NAME]: 'There was no change in your username.',
   [ALERT_ERROR_SHORT_NAME]: `The username must be at least ${MIN_USERNAME_LEN} characters long.`,
   [ALERT_ERROR_DUPE_NAME]: 'Usernames must be unique.',
-  [ALERT_ERROR_UNEXPECTED]: 'Therer was an unexpected error.',
+  [ALERT_ERROR_UNEXPECTED]: 'There was an unexpected error.',
 };
+
+export const ALERT_MESSAGE_DURATION = 3000;
 
 export const USER_MOUNTS_STEPPER_STEPS = [
   "Selecting a user",
@@ -119,6 +121,34 @@ export const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
   2: "",
   3: "",
   4: "",
+};
+
+export const USERS_STEPPER_STEPS = [
+  "Selecting a user",
+  "Editing owned mounts",
+  "Saving or discarding changes",
+  "Adding a user",
+  "Searching for a user",
+];
+
+export const USERS_STEPPER_INSTRUCTIONS = {
+  0: "",
+  1: "",
+  2: "",
+  3: "",
+  4: "",
+};
+
+export const MOUNTS_STEPPER_STEPS = [
+  "Changing pages",
+  "Changing rows",
+  "Filtering mounts",
+];
+
+export const MOUNTS_STEPPER_INSTRUCTIONS = {
+  0: "",
+  1: "",
+  2: "",
 };
 
 // Heroku https://mount-recorder-server.herokuapp.com

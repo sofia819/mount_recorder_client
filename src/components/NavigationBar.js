@@ -5,15 +5,15 @@ import {
   Route,
   Link,
   Redirect,
-} from "react-router-dom";
-import { UsersPanel } from "./Users/UsersPanel";
-import { MountsPanel } from "./Mounts/MountsPanel";
-import { UserMountsPanel } from "./UserMounts/UserMountsPanel";
-import { HelpPanel } from "./Help/HelpPanel";
-import { getMountsService } from "../services/mountServices";
-import { getUsersService } from "../services/userServices";
-import { getUserMountsService } from "../services/userMountsServices";
-import { Tabs, Tab, AppBar, Paper } from "@material-ui/core/";
+} from 'react-router-dom';
+import { UsersPanel } from 'components/Users/UsersPanel';
+import { MountsPanel } from 'components/Mounts/MountsPanel';
+import { UserMountsPanel } from 'components/UserMounts/UserMountsPanel';
+import { getMountsService } from 'services/mountServices';
+import { HelpPanel } from "components/Help/HelpPanel";
+import { getUsersService } from 'services/userServices';
+import { getUserMountsService } from 'services/userMountsServices';
+import { Tabs, Tab, AppBar, Paper } from '@material-ui/core/';
 import {
   PAGES_NAV,
   PAGES_TAB_NAMES,

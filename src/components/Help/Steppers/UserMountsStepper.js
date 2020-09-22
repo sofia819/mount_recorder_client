@@ -8,48 +8,49 @@ import {
 } from '@material-ui/core';
 import { USER_MOUNTS_STEPPER_STEPS, USER_MOUNTS_STEPPER_INSTRUCTIONS } from 'utils/constants';
 import 'components/Help/Steppers/Stepper.scss';
-import UserMountsInstructionsSelectUser from 'utils/Assets/UserMountsInstructionsSelectUser.gif';
-import UserMountsInstructionsChangeOwned from 'utils/Assets/UserMountsInstructionsChangeOwned.gif';
-import UserMountsInstructionsConfirmChanges from 'utils/Assets/UserMountsInstructionsConfirmChanges.gif';
-import UserMountsInstructionsExpansionFilter from 'utils/Assets/UserMountsInstructionsExpansionFilter.gif';
+import UserMountsInstructionsSelectUser from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsSelectUser.gif';
+import UserMountsInstructionsChangeOwned from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsChangeOwned.gif';
+import UserMountsInstructionsConfirmChanges from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsConfirmChanges.gif';
+import UserMountsInstructionsExpansionFilter from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsExpansionFilter.gif';
+import UserMountsInstructionsSearchUser from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsSearchUser.gif';
 
-function getStepContent(stepIndex) {
+const getStepContent = (stepIndex) => {
     switch (stepIndex) {
         case 0:
         return (
-            <div>
+            <>
                 <Typography>{USER_MOUNTS_STEPPER_INSTRUCTIONS[0]}</Typography>
                 <div className='box'><img src={UserMountsInstructionsSelectUser} alt="How to select."/></div>
-            </div>
+            </>
             
         );
         case 1:
         return (
-            <div>
+            <>
                 <Typography>{USER_MOUNTS_STEPPER_INSTRUCTIONS[1]}</Typography>
                 <div className='box'><img src={UserMountsInstructionsChangeOwned} alt="How to edit."/></div>
-            </div>
+            </>
         );
         case 2:
         return (
-            <div>
+            <>
                 <Typography>{USER_MOUNTS_STEPPER_INSTRUCTIONS[2]}</Typography>
-                <div className='box'><img src={UserMountsInstructionsConfirmChanges} alt="How to edit."/></div>
-            </div>
+                <div className='box'><img src={UserMountsInstructionsConfirmChanges} alt="How to save or discard edit."/></div>
+            </>
         );
         case 3:
         return (
-            <div>
+            <>
                 <Typography>{USER_MOUNTS_STEPPER_INSTRUCTIONS[3]}</Typography>
                 <div className='box'><img src={UserMountsInstructionsExpansionFilter} alt="How to change expansion."/></div>
-            </div>
+            </>
         );
         case 4:
         return (
-            <div>
+            <>
                 <Typography>{USER_MOUNTS_STEPPER_INSTRUCTIONS[4]}</Typography>
-                <div className='box'><img src={UserMountsInstructionsExpansionFilter} alt="How to search."/></div>
-            </div>
+                <div className='box'><img src={UserMountsInstructionsSearchUser} alt="How to search."/></div>
+            </>
         );
         default:
         return 'Unknown stepIndex';
@@ -57,52 +58,50 @@ function getStepContent(stepIndex) {
 }
 
 export const UserMountsStepper = () => {
+  const [activeStep, setActiveStep] = React.useState(0);
+  const steps = USER_MOUNTS_STEPPER_STEPS;
 
-
-const [activeStep, setActiveStep] = React.useState(0);
-const steps = USER_MOUNTS_STEPPER_STEPS;
-
-const handleNext = () => {
+  const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-};
+  };
 
-const handleBack = () => {
+  const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-};
+  };
 
-const handleReset = () => {
+  const handleReset = () => {
     setActiveStep(0);
-};
+  };
 
-return (
-  <div>
-    <Stepper activeStep={activeStep} alternativeLabel>
-      {steps.map((label) => (
-        <Step key={label}>
-          <StepLabel>{label}</StepLabel>
-        </Step>
-      ))}
-    </Stepper>
+  return (
     <div>
-      {activeStep === steps.length ? (
-        <div>
-          <Typography>All steps completed</Typography>
-          <Button onClick={handleReset}>Reset</Button>
-        </div>
-      ) : (
-        <div>
-          {getStepContent(activeStep)}
-          <div>
-            <Button disabled={activeStep === 0} onClick={handleBack}>
-              Back
-            </Button>
-            <Button variant='contained' color='primary' onClick={handleNext}>
-              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-            </Button>
-          </div>
-        </div>
-      )}
+      <Stepper activeStep={activeStep} alternativeLabel>
+        {steps.map((label) => (
+          <Step key={label}>
+            <StepLabel>{label}</StepLabel>
+          </Step>
+        ))}
+      </Stepper>
+      <>
+        {activeStep === steps.length ? (
+          <>
+            <Typography>All steps completed</Typography>
+            <Button onClick={handleReset}>Reset</Button>
+          </>
+        ) : (
+          <>
+            {getStepContent(activeStep)}
+            <>
+              <Button disabled={activeStep === 0} onClick={handleBack}>
+                Back
+              </Button>
+              <Button variant='contained' color='primary' onClick={handleNext}>
+                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+              </Button>
+            </>
+          </>
+        )}
+      </>
     </div>
-  </div>
-);
+  );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Accordion,
   AccordionDetails,
@@ -7,9 +7,11 @@ import {
 } from '@material-ui/core';
 import { PAGES_TAB_NAMES } from 'utils/constants';
 import { UserMountsStepper } from 'components/Help/Steppers/UserMountsStepper';
+import { UsersStepper } from 'components/Help/Steppers/UsersStepper';
+import { MountsStepper } from 'components/Help/Steppers/MountsStepper';
 
 export const HelpPanel = () => {
-        const [expanded, setExpanded] = React.useState(false);
+        const [expanded, setExpanded] = useState(false);
       
         const handleChange = (panel) => (event, isExpanded) => {
           setExpanded(isExpanded ? panel : false);
@@ -17,7 +19,9 @@ export const HelpPanel = () => {
 
     return (
       <div>
-        <h1 align='center'>{PAGES_TAB_NAMES.HELP_NAV}</h1>
+        <Typography variant="h1" component="h2" gutterBottom align="center">
+        {PAGES_TAB_NAMES.HELP_NAV}
+        </Typography>
         <Accordion
           expanded={expanded === 'panelUserMounts'}
           onChange={handleChange('panelUserMounts')}
@@ -43,10 +47,7 @@ export const HelpPanel = () => {
             <Typography>{PAGES_TAB_NAMES.USERS_NAV}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Users tab shows a list of all players registered in the app.
-              Clicking a name lets you edit that players name.
-            </Typography>
+            <UsersStepper />
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -60,9 +61,7 @@ export const HelpPanel = () => {
             <Typography>{PAGES_TAB_NAMES.MOUNTS_NAV}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Mounts tab shows all mounts that Updog plans on farming.
-            </Typography>
+            <MountsStepper />
           </AccordionDetails>
         </Accordion>
       </div>
