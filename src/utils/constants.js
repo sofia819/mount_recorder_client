@@ -107,50 +107,6 @@ export const ALERT_MESSAGE = {
 
 export const ALERT_MESSAGE_DURATION = 3000;
 
-export const USER_MOUNTS_STEPPER_STEPS = [
-  "Selecting a user",
-  "Editing owned mounts",
-  "Saving or discarding changes",
-  "Selecting an expansion",
-  "Searching for a user",
-];
-
-export const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
-  0: "",
-  1: "",
-  2: "",
-  3: "",
-  4: "",
-};
-
-export const USERS_STEPPER_STEPS = [
-  "Selecting a user",
-  "Editing owned mounts",
-  "Saving or discarding changes",
-  "Adding a user",
-  "Searching for a user",
-];
-
-export const USERS_STEPPER_INSTRUCTIONS = {
-  0: "",
-  1: "",
-  2: "",
-  3: "",
-  4: "",
-};
-
-export const MOUNTS_STEPPER_STEPS = [
-  "Changing pages",
-  "Changing rows",
-  "Filtering mounts",
-];
-
-export const MOUNTS_STEPPER_INSTRUCTIONS = {
-  0: "",
-  1: "",
-  2: "",
-};
-
 // Heroku https://mount-recorder-server.herokuapp.com
 // Local http://localhost:5000
 export const END_POINT_URL =

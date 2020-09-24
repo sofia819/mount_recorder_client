@@ -19,9 +19,6 @@ export const HelpPanel = () => {
 
     return (
       <div>
-        <Typography variant="h1" component="h2" gutterBottom align="center">
-        {PAGES_TAB_NAMES.HELP_NAV}
-        </Typography>
         <Accordion
           expanded={expanded === 'panelUserMounts'}
           onChange={handleChange('panelUserMounts')}

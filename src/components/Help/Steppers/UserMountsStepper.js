@@ -6,55 +6,70 @@ import {
     Typography,
     Button,
 } from '@material-ui/core';
-import { USER_MOUNTS_STEPPER_STEPS, USER_MOUNTS_STEPPER_INSTRUCTIONS } from 'utils/constants';
+import {
+  BACK_BUTTON,
+  NEXT_BUTTON,
+  FINISH_BUTTON,
+  RESET_BUTTON,
+  UNKNOWN_STEP,
+  USER_MOUNTS_STEPPER_STEPS,
+  USER_MOUNTS_STEPPER_INSTRUCTIONS,
+} from 'components/Help/HelpConstants';
 import 'components/Help/Steppers/Stepper.scss';
-import UserMountsInstructionsSelectUser from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsSelectUser.gif';
-import UserMountsInstructionsChangeOwned from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsChangeOwned.gif';
-import UserMountsInstructionsConfirmChanges from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsConfirmChanges.gif';
-import UserMountsInstructionsExpansionFilter from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsExpansionFilter.gif';
-import UserMountsInstructionsSearchUser from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsSearchUser.gif';
 
 const getStepContent = (stepIndex) => {
-    switch (stepIndex) {
-        case 0:
-        return (
-            <>
-                <Typography>{USER_MOUNTS_STEPPER_INSTRUCTIONS[0]}</Typography>
-                <div className='box'><img src={UserMountsInstructionsSelectUser} alt="How to select."/></div>
-            </>
-            
-        );
-        case 1:
-        return (
-            <>
-                <Typography>{USER_MOUNTS_STEPPER_INSTRUCTIONS[1]}</Typography>
-                <div className='box'><img src={UserMountsInstructionsChangeOwned} alt="How to edit."/></div>
-            </>
-        );
-        case 2:
-        return (
-            <>
-                <Typography>{USER_MOUNTS_STEPPER_INSTRUCTIONS[2]}</Typography>
-                <div className='box'><img src={UserMountsInstructionsConfirmChanges} alt="How to save or discard edit."/></div>
-            </>
-        );
-        case 3:
-        return (
-            <>
-                <Typography>{USER_MOUNTS_STEPPER_INSTRUCTIONS[3]}</Typography>
-                <div className='box'><img src={UserMountsInstructionsExpansionFilter} alt="How to change expansion."/></div>
-            </>
-        );
-        case 4:
-        return (
-            <>
-                <Typography>{USER_MOUNTS_STEPPER_INSTRUCTIONS[4]}</Typography>
-                <div className='box'><img src={UserMountsInstructionsSearchUser} alt="How to search."/></div>
-            </>
-        );
-        default:
-        return 'Unknown stepIndex';
-    }
+  const imagePaths = Object.keys(USER_MOUNTS_STEPPER_INSTRUCTIONS).map(
+    (key) => USER_MOUNTS_STEPPER_INSTRUCTIONS[key].imagePath
+  );
+
+  const altTexts = Object.keys(USER_MOUNTS_STEPPER_INSTRUCTIONS).map(
+    (key) => USER_MOUNTS_STEPPER_INSTRUCTIONS[key].altText
+  );
+
+  switch (stepIndex) {
+    case 0:
+      return (
+        <>
+          <div className='box'>
+            <img src={imagePaths[stepIndex]} alt={altTexts[stepIndex]} />
+          </div>
+        </>
+      );
+    case 1:
+      return (
+        <>
+          <div className='box'>
+            <img src={imagePaths[stepIndex]} alt={altTexts[stepIndex]} />
+          </div>
+        </>
+      );
+    case 2:
+      return (
+        <>
+          <div className='box'>
+            <img src={imagePaths[stepIndex]} alt={altTexts[stepIndex]} />
+          </div>
+        </>
+      );
+    case 3:
+      return (
+        <>
+          <div className='box'>
+            <img src={imagePaths[stepIndex]} alt={altTexts[stepIndex]} />
+          </div>
+        </>
+      );
+    case 4:
+      return (
+        <>
+          <div className='box'>
+            <img src={imagePaths[stepIndex]} alt={altTexts[stepIndex]} />
+          </div>
+        </>
+      );
+    default:
+      return UNKNOWN_STEP;
+  }
 }
 
 export const UserMountsStepper = () => {
@@ -86,17 +101,17 @@ export const UserMountsStepper = () => {
         {activeStep === steps.length ? (
           <>
             <Typography>All steps completed</Typography>
-            <Button onClick={handleReset}>Reset</Button>
+            <Button onClick={handleReset}>{RESET_BUTTON}</Button>
           </>
         ) : (
           <>
             {getStepContent(activeStep)}
             <>
               <Button disabled={activeStep === 0} onClick={handleBack}>
-                Back
+                {BACK_BUTTON}
               </Button>
               <Button variant='contained' color='primary' onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                {activeStep === steps.length - 1 ? FINISH_BUTTON : NEXT_BUTTON}
               </Button>
             </>
           </>

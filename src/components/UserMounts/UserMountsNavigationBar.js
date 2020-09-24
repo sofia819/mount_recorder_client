@@ -6,6 +6,7 @@ import {
   PAGES_NAV,
   EXPANSION_TAB_NAMES,
 } from "utils/constants";
+import "components/UserMounts/UserMountsNavigationBar.scss";
 import PropTypes from "prop-types";
 
 export const UserMountsNavBar = (props) => (
@@ -15,6 +16,7 @@ export const UserMountsNavBar = (props) => (
     textColor="primary"
     value={props.selectedExpansion}
     centered
+    className="tabs"
   >
     {Object.keys(EXPANSION_MAP)
       .sort()

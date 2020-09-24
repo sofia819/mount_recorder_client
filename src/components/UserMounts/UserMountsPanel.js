@@ -69,6 +69,7 @@ export const UserMountsPanel = (props) => {
             EXPANSION_MAP[props.selectedExpansion]
           }`}
         >
+          <br />
           <UserMountsTable
             mounts={filteredMounts}
             users={filteredUsers.slice(

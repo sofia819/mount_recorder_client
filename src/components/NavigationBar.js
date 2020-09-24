@@ -21,7 +21,7 @@ import {
   ALL_EXPANSIONS,
   USER_MOUNTS_NAV_KEY,
 } from 'utils/constants';
-import 'components/NaviagtionBar.scss';
+import 'components/NavigationBar.scss';
 
 export const NavigationBar = () => {
   const [users, setUsers] = useState([]);
@@ -108,6 +108,7 @@ export const NavigationBar = () => {
           to={`/${PAGES_NAV.USER_MOUNTS_NAV}/${EXPANSION_MAP[ALL_EXPANSIONS]}`}
         />
         <Route path={`/${PAGES_NAV.USERS_NAV}`} exact>
+          <br />
           <UsersPanel
             users={users}
             setUsers={setUsers}
@@ -116,9 +117,11 @@ export const NavigationBar = () => {
           />
         </Route>
         <Route path={`/${PAGES_NAV.MOUNTS_NAV}`} exact>
+          <br />
           <MountsPanel mounts={mounts} setSelectedTab={setSelectedTab} />
         </Route>
         <Route path={`/${PAGES_NAV.USER_MOUNTS_NAV}`}>
+          <br />
           <UserMountsPanel
             userMounts={userMounts}
             users={users}
@@ -129,6 +132,7 @@ export const NavigationBar = () => {
           />
         </Route>
         <Route path={`/${PAGES_NAV.HELP_NAV}`} exact>
+          <br />
           <HelpPanel setSelectedTab={setSelectedTab} />
         </Route>
       </Switch>
