@@ -1,108 +1,77 @@
-import UserMountsInstructionsSelectUser from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsSelectUser.gif';
-import UserMountsInstructionsChangeOwned from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsChangeOwned.gif';
-import UserMountsInstructionsConfirmChanges from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsConfirmChanges.gif';
-import UserMountsInstructionsExpansionFilter from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsExpansionFilter.gif';
-import UserMountsInstructionsSearchUser from 'utils/Assets/UserMountsInstructions/UserMountsInstructionsSearchUser.gif';
-
-import UsersInstructionsSelectUser from 'utils/Assets/UsersInstructions/UsersInstructionsSelectUser.gif';
-import UsersInstructionsEditUsername from 'utils/Assets/UsersInstructions/UsersInstructionsEditUsername.gif';
-import UsersInstructionsConfirmChanges from 'utils/Assets/UsersInstructions/UsersInstructionsConfirmChanges.gif';
-import UsersInstructionsAddUser from 'utils/Assets/UsersInstructions/UsersInstructionsAddUser.gif';
-import UsersInstructionsSearchUser from 'utils/Assets/UsersInstructions/UsersInstructionsSearchUser.gif';
-
-import MountsInstructionsChangePage from 'utils/Assets/MountsInstructions/MountsInstructionsChangePage.gif';
-import MountsInstructionsChangeRow from 'utils/Assets/MountsInstructions/MountsInstructionsChangeRow.gif';
-import MountsInstructionsExpansionFilter from 'utils/Assets/MountsInstructions/MountsInstructionsExpansionFilter.gif';
-
 export const BACK_BUTTON = 'Back';
 
 export const NEXT_BUTTON = 'Next';
 
-export const FINISH_BUTTON = 'Finish';
-
-export const RESET_BUTTON = 'Reset';
-
-export const UNKNOWN_STEP = 'Unknown stepIndex';
-
-export const USER_MOUNTS_STEPPER_STEPS = [
-  'Selecting a user',
-  'Editing owned mounts',
-  'Saving or discarding changes',
-  'Selecting an expansion',
-  'Searching for a user',
-];
-
 export const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
   0: {
-    imagePath: UserMountsInstructionsSelectUser,
+    step: 'Selecting a user',
+    imagePath: '/Assets/UserMountsInstructions/UserMountsInstructionsSelectUser.gif',
     altText: 'How to select',
   },
   1: {
-    imagePath: UserMountsInstructionsChangeOwned,
+    step: 'Editing owned mounts',
+    imagePath: '/Assets/UserMountsInstructions/UserMountsInstructionsChangeOwned.gif',
     altText: 'How to edit',
   },
   2: {
-    imagePath: UserMountsInstructionsConfirmChanges,
+    step: 'Saving or discarding changes',
+    imagePath: '/Assets/UserMountsInstructions/UserMountsInstructionsConfirmChanges.gif',
     altText: "How to save or discard edit.",
   },
   3: {
-    imagePath: UserMountsInstructionsExpansionFilter,
+    step: 'Selecting an expansion',
+    imagePath: '/Assets/UserMountsInstructions/UserMountsInstructionsExpansionFilter.gif',
     altText: 'How to change expansion.',
   },
   4: {
-    imagePath: UserMountsInstructionsSearchUser,
+    step: 'Searching for a user',
+    imagePath: '/Assets/UserMountsInstructions/UserMountsInstructionsSearchUser.gif',
     altText: 'How to search.',
   },
 };
 
-export const USERS_STEPPER_STEPS = [
-  'Selecting a user',
-  'Editing owned mounts',
-  'Saving or discarding changes',
-  'Adding a user',
-  'Searching for a user',
-];
-
-export const USERS_STEPPER_INSTRUCTIONS = {
+  export const USERS_STEPPER_INSTRUCTIONS = {
   0: {
-    imagePath: UsersInstructionsSelectUser,
+    step: 'Selecting a user',
+    imagePath: '/Assets/UsersInstructions/UsersInstructionsSelectUser.gif',
     altText: 'How to select',
   },
   1: {
-    imagePath: UsersInstructionsEditUsername,
+    step: 'Editing user name',
+    imagePath: '/Assets/UsersInstructions/UsersInstructionsEditUsername.gif',
     altText: 'How to edit.',
   },
   2: {
-    imagePath: UsersInstructionsConfirmChanges,
+    step: 'Saving or discarding changes',
+    imagePath: '/Assets/UsersInstructions/UsersInstructionsConfirmChanges.gif',
     altText: 'How to save or discard edit.',
   },
   3: {
-    imagePath: UsersInstructionsAddUser,
+    step: 'Adding a user',
+    imagePath: '/Assets/UsersInstructions/UsersInstructionsAddUser.gif',
     altText: 'How to add user.',
   },
   4: {
-    imagePath: UsersInstructionsSearchUser,
+    step: 'Searching for a user',
+    imagePath: '/Assets/UsersInstructions/UsersInstructionsSearchUser.gif',
     altText: 'How to search.',
   },
 };
 
-export const MOUNTS_STEPPER_STEPS = [
-  'Changing pages',
-  'Changing rows',
-  'Filtering mounts',
-];
-
-export const MOUNTS_STEPPER_INSTRUCTIONS = {
+  export const MOUNTS_STEPPER_INSTRUCTIONS = {
   0: {
-    imagePath: MountsInstructionsChangePage,
+    step: 'Changing pages',
+    imagePath: '/Assets/MountsInstructions/MountsInstructionsChangePage.gif',
     altText: 'How to change pages',
   },
   1: {
-    imagePath: MountsInstructionsChangeRow,
+    step: 'Changing rows',
+    imagePath: '/Assets/MountsInstructions/MountsInstructionsChangeRow.gif',
     altText: 'How to change rows',
   },
   2: {
-    imagePath: MountsInstructionsExpansionFilter,
+    step: 'Filtering mounts',
+    imagePath: '/Assets/MountsInstructions/MountsInstructionsExpansionFilter.gif',
     altText: "How to filter by expansion.",
   },
 };

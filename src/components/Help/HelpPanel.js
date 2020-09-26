@@ -1,66 +1,72 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Typography,
+  Button,
+  Grid,
 } from '@material-ui/core';
 import { PAGES_TAB_NAMES } from 'utils/constants';
-import { UserMountsStepper } from 'components/Help/Steppers/UserMountsStepper';
-import { UsersStepper } from 'components/Help/Steppers/UsersStepper';
-import { MountsStepper } from 'components/Help/Steppers/MountsStepper';
+import { HelpStepper } from 'components/Help/HelpStepper';
+import {
+  USER_MOUNTS_STEPPER_INSTRUCTIONS,
+  USERS_STEPPER_INSTRUCTIONS,
+  MOUNTS_STEPPER_INSTRUCTIONS,
+} from 'components/Help/HelpConstants';
 
 export const HelpPanel = () => {
-        const [expanded, setExpanded] = useState(false);
-      
-        const handleChange = (panel) => (event, isExpanded) => {
-          setExpanded(isExpanded ? panel : false);
-        };
+  const [stepperCase, setStepperCase] = useState(0);
 
-    return (
-      <div>
-        <Accordion
-          expanded={expanded === 'panelUserMounts'}
-          onChange={handleChange('panelUserMounts')}
-        >
-          <AccordionSummary
-            aria-controls='panelUserMountsbh-content'
-            id='panelUserMountsbh-header'
+  const handleOpenUserMountsStepper = () => {
+    setStepperCase(0);
+  }
+
+  const handleOpenUsersStepper = () => {
+    setStepperCase(1);
+  }
+
+  const handleOpenMountsStepper = () => {
+    setStepperCase(2);
+  }
+
+  return (
+    <>
+      <Grid container direction='row' justify='space-evenly' alignItems='center'>
+        <Grid item xs={3}>
+          <Button
+            variant='contained'
+            color='primary'
+            fullWidth={true}
+            onClick={handleOpenUserMountsStepper}
+            disabled={stepperCase === 0}
           >
-            <Typography>{PAGES_TAB_NAMES.USER_MOUNTS_NAV}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <UserMountsStepper />
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded === 'panelUsers'}
-          onChange={handleChange('panelUsers')}
-        >
-          <AccordionSummary
-            aria-controls='panelUsersbh-content'
-            id='panelUsersbh-header'
+            {PAGES_TAB_NAMES.USER_MOUNTS_NAV}
+          </Button>
+        </Grid>
+        <Grid item xs={3}>
+          <Button
+            variant='contained'
+            color='primary'
+            fullWidth={true}
+            onClick={handleOpenUsersStepper}
+            disabled={stepperCase === 1}
           >
-            <Typography>{PAGES_TAB_NAMES.USERS_NAV}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <UsersStepper />
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded === 'panelMounts'}
-          onChange={handleChange('panelMounts')}
-        >
-          <AccordionSummary
-            aria-controls='panelMountsbh-content'
-            id='panelMountsbh-header'
+            {PAGES_TAB_NAMES.USERS_NAV}
+          </Button>
+        </Grid>
+        <Grid item xs={3}>
+          <Button
+            variant='contained'
+            color='primary'
+            fullWidth={true}
+            onClick={handleOpenMountsStepper}
+            disabled={stepperCase === 2}
           >
-            <Typography>{PAGES_TAB_NAMES.MOUNTS_NAV}</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <MountsStepper />
-          </AccordionDetails>
-        </Accordion>
-      </div>
-    );
+            {PAGES_TAB_NAMES.MOUNTS_NAV}
+          </Button>
+        </Grid>
+      </Grid>
+      <br />
+      {stepperCase === 0 && <HelpStepper instructions={USER_MOUNTS_STEPPER_INSTRUCTIONS}/>}
+      {stepperCase === 1 && <HelpStepper instructions={USERS_STEPPER_INSTRUCTIONS}/>}
+      {stepperCase === 2 && <HelpStepper instructions={MOUNTS_STEPPER_INSTRUCTIONS}/>}
+    </>
+  );
 };
