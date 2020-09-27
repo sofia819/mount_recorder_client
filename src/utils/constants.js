@@ -44,6 +44,8 @@ export const LOGIN_BUTTON = 'Login';
 
 export const ADD_USER_BUTTON = 'Add User';
 
+export const COLUMN_WIDTH = '10%';
+
 export const EXPANSION_COLUMN = 'Expansion';
 
 // Must be the smallest number
