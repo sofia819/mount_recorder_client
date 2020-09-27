@@ -15,6 +15,7 @@ export const UserMountsNavBar = (props) => (
     textColor="primary"
     value={props.selectedExpansion}
     centered
+    className="tabs"
   >
     {Object.keys(EXPANSION_MAP)
       .sort()

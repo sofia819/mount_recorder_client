@@ -6,12 +6,14 @@ export const PAGES_TAB_NAMES = {
   USER_MOUNTS_NAV: 'User Mounts',
   USERS_NAV: 'Users',
   MOUNTS_NAV: 'Mounts',
+  HELP_NAV: 'Help',
 };
 
 export const PAGES_NAV = {
   USER_MOUNTS_NAV: 'UserMounts',
   USERS_NAV: 'Users',
   MOUNTS_NAV: 'Mounts',
+  HELP_NAV: 'Help',
 };
 
 export const EDIT_NAME_HEADING = 'Edit Username';
@@ -100,7 +102,7 @@ export const ALERT_MESSAGE = {
   [ALERT_WARNING_SAME_NAME]: 'There was no change in your username.',
   [ALERT_ERROR_SHORT_NAME]: `The username must be at least ${MIN_USERNAME_LEN} characters long.`,
   [ALERT_ERROR_DUPE_NAME]: 'Usernames must be unique.',
-  [ALERT_ERROR_UNEXPECTED]: 'Therer was an unexpected error.',
+  [ALERT_ERROR_UNEXPECTED]: 'There was an unexpected error.',
 };
 
 export const ALERT_MESSAGE_DURATION = 3000;

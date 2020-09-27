@@ -1,5 +1,5 @@
-import wretch from "wretch";
-import { END_POINT_URL } from "utils/constants";
+import wretch from 'wretch';
+import { END_POINT_URL } from 'utils/constants';
 
 export const deleteUserService = (id, auth) =>
   wretch(`${END_POINT_URL}/users/${id}`).post(auth).json();
