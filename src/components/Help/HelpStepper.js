@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Stepper, Step, StepButton, Button, Grid } from '@material-ui/core';
 import { BACK_BUTTON, NEXT_BUTTON } from 'components/Help/HelpConstants';
 import 'components/Help/Stepper.scss';
@@ -45,7 +45,7 @@ export const HelpStepper = (props) => {
           <Button
             disabled={props.activeStep === 0}
             onClick={handleBack}
-            fullWidth={true}
+            fullWidth
           >
             {BACK_BUTTON}
           </Button>
@@ -55,7 +55,7 @@ export const HelpStepper = (props) => {
             variant='contained'
             color='primary'
             onClick={handleNext}
-            fullWidth={true}
+            fullWidth
           >
             {NEXT_BUTTON}
           </Button>
