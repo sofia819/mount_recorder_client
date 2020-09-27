@@ -2,6 +2,7 @@ import React from 'react';
 import { Stepper, Step, StepButton, Button, Grid } from '@material-ui/core';
 import { BACK_BUTTON, NEXT_BUTTON } from 'components/Help/HelpConstants';
 import 'components/Help/Stepper.scss';
+import PropTypes from 'prop-types';
 
 export const HelpStepper = (props) => {
   const steps = Object.keys(props.instructions).map(
@@ -63,4 +64,9 @@ export const HelpStepper = (props) => {
       </Grid>
     </>
   );
+};
+
+HelpStepper.propTypes = {
+  activeStep: PropTypes.number,
+  setActiveStep: PropTypes.func,
 };
