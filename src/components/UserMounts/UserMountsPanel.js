@@ -13,6 +13,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
+import { Box } from '@material-ui/core';
 import { UserMountsActionPanel } from 'components/UserMounts/UserMountsActionsPanel';
 import { UserMountsNavBar } from 'components/UserMounts/UserMountsNavigationBar';
 import PropTypes from 'prop-types';
@@ -54,10 +55,12 @@ export const UserMountsPanel = (props) => {
 
   return (
     <Router>
-      <UserMountsNavBar
-        selectedExpansion={props.selectedExpansion}
-        onChangeSelectedExpansion={props.onChangeSelectedExpansion}
-      />
+      <Box m={1}>
+        <UserMountsNavBar
+          selectedExpansion={props.selectedExpansion}
+          onChangeSelectedExpansion={props.onChangeSelectedExpansion}
+        />
+      </Box>
       <Switch>
         <Redirect
           exact
@@ -69,7 +72,6 @@ export const UserMountsPanel = (props) => {
             EXPANSION_MAP[props.selectedExpansion]
           }`}
         >
-          <br />
           <UserMountsTable
             mounts={filteredMounts}
             users={filteredUsers.slice(

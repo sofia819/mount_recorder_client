@@ -13,7 +13,7 @@ import { getMountsService } from 'services/mountServices';
 import { HelpPanel } from "components/Help/HelpPanel";
 import { getUsersService } from 'services/userServices';
 import { getUserMountsService } from 'services/userMountsServices';
-import { Tabs, Tab, AppBar, Paper } from '@material-ui/core/';
+import { Tabs, Tab, AppBar, Paper, Box } from '@material-ui/core/';
 import {
   PAGES_NAV,
   PAGES_TAB_NAMES,
@@ -76,6 +76,7 @@ export const NavigationBar = () => {
 
   return (
     <Router>
+      <Box m={1}>
       <AppBar position='static' component={Paper}>
         <Tabs
           variant='fullWidth'
@@ -101,6 +102,7 @@ export const NavigationBar = () => {
           ))}
         </Tabs>
       </AppBar>
+      </Box>
       <Switch>
         <Redirect
           exact
@@ -108,32 +110,28 @@ export const NavigationBar = () => {
           to={`/${PAGES_NAV.USER_MOUNTS_NAV}/${EXPANSION_MAP[ALL_EXPANSIONS]}`}
         />
         <Route path={`/${PAGES_NAV.USERS_NAV}`} exact>
-          <br />
-          <UsersPanel
-            users={users}
-            setUsers={setUsers}
-            mounts={mounts}
-            setUserMounts={setUserMounts}
-          />
+            <UsersPanel
+              users={users}
+              setUsers={setUsers}
+              mounts={mounts}
+              setUserMounts={setUserMounts}
+            />
         </Route>
         <Route path={`/${PAGES_NAV.MOUNTS_NAV}`} exact>
-          <br />
-          <MountsPanel mounts={mounts} setSelectedTab={setSelectedTab} />
+            <MountsPanel mounts={mounts} setSelectedTab={setSelectedTab} />
         </Route>
         <Route path={`/${PAGES_NAV.USER_MOUNTS_NAV}`}>
-          <br />
-          <UserMountsPanel
-            userMounts={userMounts}
-            users={users}
-            mounts={mounts}
-            setUserMounts={setUserMounts}
-            onChangeSelectedExpansion={handleChangeSelectedExpansion}
-            selectedExpansion={selectedExpansion}
-          />
+            <UserMountsPanel
+              userMounts={userMounts}
+              users={users}
+              mounts={mounts}
+              setUserMounts={setUserMounts}
+              onChangeSelectedExpansion={handleChangeSelectedExpansion}
+              selectedExpansion={selectedExpansion}
+            />
         </Route>
         <Route path={`/${PAGES_NAV.HELP_NAV}`} exact>
-          <br />
-          <HelpPanel setSelectedTab={setSelectedTab} />
+            <HelpPanel setSelectedTab={setSelectedTab} />
         </Route>
       </Switch>
     </Router>

@@ -30,7 +30,7 @@ export const HelpStepper = (props) => {
           </Step>
         ))}
       </Stepper>
-      <div className='box'>
+      <div className='gifContainer'>
         <img
           src={props.instructions[props.activeStep].imagePath}
           alt={props.instructions[props.activeStep].altText}
