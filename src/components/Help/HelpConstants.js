@@ -5,32 +5,37 @@ export const NEXT_BUTTON = 'Next';
 export const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
   0: {
     step: 'Selecting a user',
-    imagePath: '/Assets/UserMountsInstructions/UserMountsInstructionsSelectUser.gif',
+    imagePath:
+      '/Assets/UserMountsInstructions/UserMountsInstructionsSelectUser.gif',
     altText: 'How to select',
   },
   1: {
     step: 'Editing owned mounts',
-    imagePath: '/Assets/UserMountsInstructions/UserMountsInstructionsChangeOwned.gif',
+    imagePath:
+      '/Assets/UserMountsInstructions/UserMountsInstructionsChangeOwned.gif',
     altText: 'How to edit',
   },
   2: {
     step: 'Saving or discarding changes',
-    imagePath: '/Assets/UserMountsInstructions/UserMountsInstructionsConfirmChanges.gif',
-    altText: "How to save or discard edit.",
+    imagePath:
+      '/Assets/UserMountsInstructions/UserMountsInstructionsConfirmChanges.gif',
+    altText: 'How to save or discard edit.',
   },
   3: {
     step: 'Selecting an expansion',
-    imagePath: '/Assets/UserMountsInstructions/UserMountsInstructionsExpansionFilter.gif',
+    imagePath:
+      '/Assets/UserMountsInstructions/UserMountsInstructionsExpansionFilter.gif',
     altText: 'How to change expansion.',
   },
   4: {
     step: 'Searching for a user',
-    imagePath: '/Assets/UserMountsInstructions/UserMountsInstructionsSearchUser.gif',
+    imagePath:
+      '/Assets/UserMountsInstructions/UserMountsInstructionsSearchUser.gif',
     altText: 'How to search.',
   },
 };
 
-  export const USERS_STEPPER_INSTRUCTIONS = {
+export const USERS_STEPPER_INSTRUCTIONS = {
   0: {
     step: 'Selecting a user',
     imagePath: '/Assets/UsersInstructions/UsersInstructionsSelectUser.gif',
@@ -58,7 +63,7 @@ export const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
   },
 };
 
-  export const MOUNTS_STEPPER_INSTRUCTIONS = {
+export const MOUNTS_STEPPER_INSTRUCTIONS = {
   0: {
     step: 'Changing pages',
     imagePath: '/Assets/MountsInstructions/MountsInstructionsChangePage.gif',
@@ -71,7 +76,23 @@ export const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
   },
   2: {
     step: 'Filtering mounts',
-    imagePath: '/Assets/MountsInstructions/MountsInstructionsExpansionFilter.gif',
-    altText: "How to filter by expansion.",
+    imagePath:
+      '/Assets/MountsInstructions/MountsInstructionsExpansionFilter.gif',
+    altText: 'How to filter by expansion.',
   },
 };
+
+export const HELP_CATEGORIES_INSTRUCTIONS = [
+  {
+    categoryName: 'User Mounts',
+    instructions: USER_MOUNTS_STEPPER_INSTRUCTIONS,
+  },
+  {
+    categoryName: 'Users',
+    instructions: USERS_STEPPER_INSTRUCTIONS,
+  },
+  {
+    categoryName: 'Mounts',
+    instructions: MOUNTS_STEPPER_INSTRUCTIONS,
+  },
+];
