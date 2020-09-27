@@ -10,7 +10,7 @@ import { UsersPanel } from 'components/Users/UsersPanel';
 import { MountsPanel } from 'components/Mounts/MountsPanel';
 import { UserMountsPanel } from 'components/UserMounts/UserMountsPanel';
 import { getMountsService } from 'services/mountServices';
-import { HelpPanel } from "components/Help/HelpPanel";
+import { HelpPanel } from 'components/Help/HelpPanel';
 import { getUsersService } from 'services/userServices';
 import { getUserMountsService } from 'services/userMountsServices';
 import { Tabs, Tab, AppBar, Paper, Box } from '@material-ui/core/';
@@ -77,31 +77,31 @@ export const NavigationBar = () => {
   return (
     <Router>
       <Box m={1}>
-      <AppBar position='static' component={Paper}>
-        <Tabs
-          variant='fullWidth'
-          indicatorColor='primary'
-          textColor='primary'
-          centered
-          value={selectedTab}
-          className='tabs'
-        >
-          {Object.keys(PAGES_NAV).map((page) => (
-            <Tab
-              key={page}
-              label={PAGES_TAB_NAMES[page]}
-              component={Link}
-              to={`/${PAGES_NAV[page]}/${
-                page === USER_MOUNTS_NAV_KEY
-                  ? EXPANSION_MAP[selectedExpansion]
-                  : ''
-              }`}
-              value={PAGES_NAV[page]}
-              onClick={() => handleSelectTab(page)}
-            />
-          ))}
-        </Tabs>
-      </AppBar>
+        <AppBar position='static' component={Paper}>
+          <Tabs
+            variant='fullWidth'
+            indicatorColor='primary'
+            textColor='primary'
+            centered
+            value={selectedTab}
+            className='tabs'
+          >
+            {Object.keys(PAGES_NAV).map((page) => (
+              <Tab
+                key={page}
+                label={PAGES_TAB_NAMES[page]}
+                component={Link}
+                to={`/${PAGES_NAV[page]}/${
+                  page === USER_MOUNTS_NAV_KEY
+                    ? EXPANSION_MAP[selectedExpansion]
+                    : ''
+                }`}
+                value={PAGES_NAV[page]}
+                onClick={() => handleSelectTab(page)}
+              />
+            ))}
+          </Tabs>
+        </AppBar>
       </Box>
       <Switch>
         <Redirect
@@ -110,28 +110,28 @@ export const NavigationBar = () => {
           to={`/${PAGES_NAV.USER_MOUNTS_NAV}/${EXPANSION_MAP[ALL_EXPANSIONS]}`}
         />
         <Route path={`/${PAGES_NAV.USERS_NAV}`} exact>
-            <UsersPanel
-              users={users}
-              setUsers={setUsers}
-              mounts={mounts}
-              setUserMounts={setUserMounts}
-            />
+          <UsersPanel
+            users={users}
+            setUsers={setUsers}
+            mounts={mounts}
+            setUserMounts={setUserMounts}
+          />
         </Route>
         <Route path={`/${PAGES_NAV.MOUNTS_NAV}`} exact>
-            <MountsPanel mounts={mounts} setSelectedTab={setSelectedTab} />
+          <MountsPanel mounts={mounts} setSelectedTab={setSelectedTab} />
         </Route>
         <Route path={`/${PAGES_NAV.USER_MOUNTS_NAV}`}>
-            <UserMountsPanel
-              userMounts={userMounts}
-              users={users}
-              mounts={mounts}
-              setUserMounts={setUserMounts}
-              onChangeSelectedExpansion={handleChangeSelectedExpansion}
-              selectedExpansion={selectedExpansion}
-            />
+          <UserMountsPanel
+            userMounts={userMounts}
+            users={users}
+            mounts={mounts}
+            setUserMounts={setUserMounts}
+            onChangeSelectedExpansion={handleChangeSelectedExpansion}
+            selectedExpansion={selectedExpansion}
+          />
         </Route>
         <Route path={`/${PAGES_NAV.HELP_NAV}`} exact>
-            <HelpPanel setSelectedTab={setSelectedTab} />
+          <HelpPanel setSelectedTab={setSelectedTab} />
         </Route>
       </Switch>
     </Router>

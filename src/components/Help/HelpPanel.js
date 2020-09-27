@@ -37,13 +37,13 @@ export const HelpPanel = () => {
           ))}
         </Grid>
       </Box>
-        <HelpStepper
-          instructions={
-            HELP_CATEGORIES_INSTRUCTIONS[selectedHelpCategory].instructions
-          }
-          activeStep={activeStep}
-          setActiveStep={setActiveStep}
-        />
+      <HelpStepper
+        instructions={
+          HELP_CATEGORIES_INSTRUCTIONS[selectedHelpCategory].instructions
+        }
+        activeStep={activeStep}
+        setActiveStep={setActiveStep}
+      />
     </>
   );
 };

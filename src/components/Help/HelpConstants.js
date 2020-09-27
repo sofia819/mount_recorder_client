@@ -5,14 +5,12 @@ export const NEXT_BUTTON = 'Next';
 export const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
   0: {
     step: 'Selecting a user',
-    imagePath:
-      '/assets/user-mounts-instructions/user-mounts-select-user.gif',
+    imagePath: '/assets/user-mounts-instructions/user-mounts-select-user.gif',
     altText: 'How to select',
   },
   1: {
     step: 'Editing owned mounts',
-    imagePath:
-      '/assets/user-mounts-instructions/user-mounts-change-owned.gif',
+    imagePath: '/assets/user-mounts-instructions/user-mounts-change-owned.gif',
     altText: 'How to edit',
   },
   2: {
@@ -29,8 +27,7 @@ export const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
   },
   4: {
     step: 'Searching for a user',
-    imagePath:
-      '/assets/user-mounts-instructions/user-mounts-search-user.gif',
+    imagePath: '/assets/user-mounts-instructions/user-mounts-search-user.gif',
     altText: 'How to search.',
   },
 };
@@ -76,8 +73,7 @@ export const MOUNTS_STEPPER_INSTRUCTIONS = {
   },
   2: {
     step: 'Filtering mounts',
-    imagePath:
-      '/assets/mounts-instructions/mounts-expansion-filter.gif',
+    imagePath: '/assets/mounts-instructions/mounts-expansion-filter.gif',
     altText: 'How to filter by expansion.',
   },
 };
