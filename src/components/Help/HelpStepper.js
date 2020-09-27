@@ -69,5 +69,5 @@ export const HelpStepper = (props) => {
 HelpStepper.propTypes = {
   activeStep: PropTypes.number,
   setActiveStep: PropTypes.func,
-  instructions: PropTypes.array,
+  instructions: PropTypes.object,
 };
