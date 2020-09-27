@@ -6,31 +6,31 @@ export const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
   0: {
     step: 'Selecting a user',
     imagePath:
-      '/Assets/UserMountsInstructions/UserMountsInstructionsSelectUser.gif',
+      '/assets/user-mounts-instructions/user-mounts-select-user.gif',
     altText: 'How to select',
   },
   1: {
     step: 'Editing owned mounts',
     imagePath:
-      '/Assets/UserMountsInstructions/UserMountsInstructionsChangeOwned.gif',
+      '/assets/user-mounts-instructions/user-mounts-change-owned.gif',
     altText: 'How to edit',
   },
   2: {
     step: 'Saving or discarding changes',
     imagePath:
-      '/Assets/UserMountsInstructions/UserMountsInstructionsConfirmChanges.gif',
+      '/assets/user-mounts-instructions/user-mounts-confirm-changes.gif',
     altText: 'How to save or discard edit.',
   },
   3: {
     step: 'Selecting an expansion',
     imagePath:
-      '/Assets/UserMountsInstructions/UserMountsInstructionsExpansionFilter.gif',
+      '/assets/user-mounts-instructions/user-mounts-expansion-filter.gif',
     altText: 'How to change expansion.',
   },
   4: {
     step: 'Searching for a user',
     imagePath:
-      '/Assets/UserMountsInstructions/UserMountsInstructionsSearchUser.gif',
+      '/assets/user-mounts-instructions/user-mounts-search-user.gif',
     altText: 'How to search.',
   },
 };
@@ -38,27 +38,27 @@ export const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
 export const USERS_STEPPER_INSTRUCTIONS = {
   0: {
     step: 'Selecting a user',
-    imagePath: '/Assets/UsersInstructions/UsersInstructionsSelectUser.gif',
+    imagePath: '/assets/users-instructions/users-select-user.gif',
     altText: 'How to select',
   },
   1: {
     step: 'Editing user name',
-    imagePath: '/Assets/UsersInstructions/UsersInstructionsEditUsername.gif',
+    imagePath: '/assets/users-instructions/users-edit-username.gif',
     altText: 'How to edit.',
   },
   2: {
     step: 'Saving or discarding changes',
-    imagePath: '/Assets/UsersInstructions/UsersInstructionsConfirmChanges.gif',
+    imagePath: '/assets/users-instructions/users-confirm-changes.gif',
     altText: 'How to save or discard edit.',
   },
   3: {
     step: 'Adding a user',
-    imagePath: '/Assets/UsersInstructions/UsersInstructionsAddUser.gif',
+    imagePath: '/assets/users-instructions/users-add-user.gif',
     altText: 'How to add user.',
   },
   4: {
     step: 'Searching for a user',
-    imagePath: '/Assets/UsersInstructions/UsersInstructionsSearchUser.gif',
+    imagePath: '/assets/users-instructions/users-search-user.gif',
     altText: 'How to search.',
   },
 };
@@ -66,18 +66,18 @@ export const USERS_STEPPER_INSTRUCTIONS = {
 export const MOUNTS_STEPPER_INSTRUCTIONS = {
   0: {
     step: 'Changing pages',
-    imagePath: '/Assets/MountsInstructions/MountsInstructionsChangePage.gif',
+    imagePath: '/assets/mounts-instructions/mounts-change-page.gif',
     altText: 'How to change pages',
   },
   1: {
     step: 'Changing rows',
-    imagePath: '/Assets/MountsInstructions/MountsInstructionsChangeRow.gif',
+    imagePath: '/assets/mounts-instructions/mounts-change-row.gif',
     altText: 'How to change rows',
   },
   2: {
     step: 'Filtering mounts',
     imagePath:
-      '/Assets/MountsInstructions/MountsInstructionsExpansionFilter.gif',
+      '/assets/mounts-instructions/mounts-expansion-filter.gif',
     altText: 'How to filter by expansion.',
   },
 };
