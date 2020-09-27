@@ -6,8 +6,12 @@ import { HELP_CATEGORIES_INSTRUCTIONS } from 'components/Help/HelpConstants';
 export const HelpPanel = () => {
   // User mounts instrcutions are selected by default
   const [selectedHelpCategory, setSelectedHelpCategory] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
 
-  const handleChangeCategory = (category) => setSelectedHelpCategory(category);
+  const handleChangeCategory = (category) => {
+    setSelectedHelpCategory(category);
+    setActiveStep(0);
+  };
 
   return (
     <>
@@ -36,6 +40,8 @@ export const HelpPanel = () => {
         instructions={
           HELP_CATEGORIES_INSTRUCTIONS[selectedHelpCategory].instructions
         }
+        activeStep={activeStep}
+        setActiveStep={setActiveStep}
       />
     </>
   );

@@ -4,24 +4,23 @@ import { BACK_BUTTON, NEXT_BUTTON } from 'components/Help/HelpConstants';
 import 'components/Help/Stepper.scss';
 
 export const HelpStepper = (props) => {
-  const [activeStep, setActiveStep] = useState(0);
   const steps = Object.keys(props.instructions).map(
     (key) => props.instructions[key].step
   );
 
   const handleNext = () =>
-    activeStep === steps.length - 1
-      ? setActiveStep(0)
-      : setActiveStep(activeStep + 1);
+    props.activeStep === steps.length - 1
+      ? props.setActiveStep(0)
+      : props.setActiveStep(props.activeStep + 1);
 
   const handleBack = () =>
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    props.setActiveStep((prevActiveStep) => prevActiveStep - 1);
 
-  const handleChangeStep = (step) => setActiveStep(step);
+  const handleChangeStep = (step) => props.setActiveStep(step);
 
   return (
     <>
-      <Stepper alternativeLabel nonLinear activeStep={activeStep}>
+      <Stepper alternativeLabel nonLinear activeStep={props.activeStep}>
         {steps.map((label, index) => (
           <Step key={label}>
             <StepButton onClick={() => handleChangeStep(index)}>
@@ -32,8 +31,8 @@ export const HelpStepper = (props) => {
       </Stepper>
       <div className='box'>
         <img
-          src={props.instructions[activeStep].imagePath}
-          alt={props.instructions[activeStep].altText}
+          src={props.instructions[props.activeStep].imagePath}
+          alt={props.instructions[props.activeStep].altText}
         />
       </div>
       <Grid
@@ -44,7 +43,7 @@ export const HelpStepper = (props) => {
       >
         <Grid item xs={2}>
           <Button
-            disabled={activeStep === 0}
+            disabled={props.activeStep === 0}
             onClick={handleBack}
             fullWidth={true}
           >
