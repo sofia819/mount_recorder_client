@@ -10,8 +10,9 @@ import {
 } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 import ClearIcon from '@material-ui/icons/Clear';
-import { COLUMN_WIDTH, USER_COLUMN } from 'utils/constants';
+import { USER_COLUMN } from 'utils/constants';
 import { EditUserMountsButton } from 'components/UserMounts/EditUserMounts/EditUserMountsButton';
+import { TableCellWrapper } from 'components/TableCellWrapper';
 import PropTypes from 'prop-types';
 import 'components/Table.scss';
 
@@ -38,19 +39,18 @@ export const UserMountsTable = (props) => {
                 .sort((a, b) => a.mount_id - b.mount_id);
               return (
                 <TableRow key={row.user_id} className='table-row'>
-                  <TableCell
-                    width={COLUMN_WIDTH}
-                    align='center'
-                    component='th'
-                    scope='row'
-                  >
-                    <EditUserMountsButton
-                      userId={row.user_id}
-                      allUserMounts={props.allUserMounts}
-                      userMounts={filteredUserMounts}
-                      username={row.username}
-                      setUserMounts={props.setUserMounts}
-                      expansion={props.expansion}
+                  <TableCell align='center' component='th' scope='row'>
+                    <TableCellWrapper
+                      content={
+                        <EditUserMountsButton
+                          userId={row.user_id}
+                          allUserMounts={props.allUserMounts}
+                          userMounts={filteredUserMounts}
+                          username={row.username}
+                          setUserMounts={props.setUserMounts}
+                          expansion={props.expansion}
+                        />
+                      }
                     />
                   </TableCell>
                   {filteredUserMounts.map((userMount) => (
@@ -59,11 +59,15 @@ export const UserMountsTable = (props) => {
                       className='table-cell'
                       key={`${props.userId}_${props.expansion}_${userMount.mount_id}`}
                     >
-                      {userMount.owned ? (
-                        <CheckIcon color='primary' />
-                      ) : (
-                        <ClearIcon color='error' />
-                      )}
+                      <TableCellWrapper
+                        content={
+                          userMount.owned ? (
+                            <CheckIcon color='primary' />
+                          ) : (
+                            <ClearIcon color='error' />
+                          )
+                        }
+                      />
                     </TableCell>
                   ))}
                 </TableRow>

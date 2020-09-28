@@ -12,8 +12,8 @@ import {
   MOUNT_COLUMN,
   EXPANSION_COLUMN,
   EXPANSION_TAB_NAMES,
-  COLUMN_WIDTH,
 } from 'utils/constants';
+import { TableCellWrapper } from 'components/TableCellWrapper';
 import PropTypes from 'prop-types';
 import 'components/Table.scss';
 
@@ -30,21 +30,13 @@ export const MountsTable = (props) => {
         <TableBody>
           {props.mounts.map((row) => (
             <TableRow key={row.mount_id} className='table-row'>
-              <TableCell
-                width={COLUMN_WIDTH}
-                align='center'
-                component='th'
-                scope='row'
-              >
-                {row.mount_name}
+              <TableCell align='center' component='th' scope='row'>
+                <TableCellWrapper content={row.mount_name} />
               </TableCell>
-              <TableCell
-                width={COLUMN_WIDTH}
-                align='center'
-                component='th'
-                scope='row'
-              >
-                {EXPANSION_TAB_NAMES[row.expansion]}
+              <TableCell align='center' component='th' scope='row'>
+                <TableCellWrapper
+                  content={EXPANSION_TAB_NAMES[row.expansion]}
+                />
               </TableCell>
             </TableRow>
           ))}
