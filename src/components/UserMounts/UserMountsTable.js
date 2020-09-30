@@ -10,12 +10,7 @@ import {
 } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 import ClearIcon from '@material-ui/icons/Clear';
-import {
-  USER_COLUMN,
-  TABLE_DIMENSIONS,
-  USER_CELL_DIMENSIONS,
-  MOUNT_CELL_DIMENSIONS,
-} from 'utils/constants';
+import { USER_COLUMN } from 'utils/constants';
 import { EditUserMountsButton } from 'components/UserMounts/EditUserMounts/EditUserMountsButton';
 import { TableCellWrapper } from 'components/TableCellWrapper';
 import PropTypes from 'prop-types';
@@ -45,9 +40,7 @@ export const UserMountsTable = (props) => {
               return (
                 <TableRow key={row.user_id} className='table-row'>
                   <TableCell align='center' component='th' scope='row'>
-                    <TableCellWrapper
-                      dimensions={TABLE_DIMENSIONS[USER_CELL_DIMENSIONS]}
-                    >
+                    <TableCellWrapper type='users'>
                       <EditUserMountsButton
                         userId={row.user_id}
                         allUserMounts={props.allUserMounts}
@@ -63,9 +56,7 @@ export const UserMountsTable = (props) => {
                       align='center'
                       key={`${props.userId}_${props.expansion}_${userMount.mount_id}`}
                     >
-                      <TableCellWrapper
-                        dimensions={TABLE_DIMENSIONS[MOUNT_CELL_DIMENSIONS]}
-                      >
+                      <TableCellWrapper type='mounts'>
                         {userMount.owned ? (
                           <CheckIcon color='primary' />
                         ) : (

@@ -1,12 +1,14 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { TABLE_DIMENSIONS } from 'utils/constants';
 
 export const TableCellWrapper = (props) => {
+  const { type } = props;
   return (
     <Box
-      width={props.dimensions.width}
-      height={props.dimensions.height}
+      width={TABLE_DIMENSIONS[type].width}
+      height={TABLE_DIMENSIONS[type].height}
       justifyContent='center'
       alignItems='center'
       overflow='hidden'

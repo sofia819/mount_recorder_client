@@ -48,22 +48,16 @@ export const ADD_USER_BUTTON = 'Add User';
 
 export const EXPANSION_COLUMN = 'Expansion';
 
-export const USER_CELL_DIMENSIONS = 0;
-
-export const MOUNT_CELL_DIMENSIONS = 1;
-
-export const EXPANSION_CELL_DIMENSIONS = 2;
-
 export const TABLE_DIMENSIONS = {
-  [USER_CELL_DIMENSIONS]: {
+  users: {
     height: 80,
     width: 100,
   },
-  [MOUNT_CELL_DIMENSIONS]: {
+  mounts: {
     height: '80px',
     width: '100px',
   },
-  [EXPANSION_CELL_DIMENSIONS]: {
+  expansions: {
     height: '80px',
     width: '120px',
   },
