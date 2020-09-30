@@ -38,15 +38,36 @@ export const USERNAME_TEXT = 'Username';
 
 export const SEARCH_USER_TEXT = 'Search';
 
+export const SEARCH_USER_TOOLTIP = 'Min ' + MIN_USERNAME_LEN + ' chars';
+
 export const PASSWORD_TEXT = 'Password';
 
 export const LOGIN_BUTTON = 'Login';
 
 export const ADD_USER_BUTTON = 'Add User';
 
-export const COLUMN_WIDTH = '10%';
-
 export const EXPANSION_COLUMN = 'Expansion';
+
+export const USER_CELL_DIMENSIONS = 0;
+
+export const MOUNT_CELL_DIMENSIONS = 1;
+
+export const EXPANSION_CELL_DIMENSIONS = 2;
+
+export const TABLE_DIMENSIONS = {
+  [USER_CELL_DIMENSIONS]: {
+    height: '80px',
+    width: '100px',
+  },
+  [MOUNT_CELL_DIMENSIONS]: {
+    height: '80px',
+    width: '100px',
+  },
+  [EXPANSION_CELL_DIMENSIONS]: {
+    height: '80px',
+    width: '120px',
+  },
+};
 
 // Must be the smallest number
 export const ALL_EXPANSIONS = -1;

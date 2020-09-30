@@ -3,10 +3,12 @@ import { Box } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 export const TableCellWrapper = (props) => {
+  console.log(props.children['height']);
+  console.log(props.children['width']);
   return (
     <Box
-      width='100px'
-      height='80px'
+      width={props.children['width']}
+      height={props.children['height']}
       justifyContent='center'
       alignItems='center'
       overflow='hidden'
@@ -20,4 +22,5 @@ export const TableCellWrapper = (props) => {
 
 TableCellWrapper.propTypes = {
   content: PropTypes.object,
+  children: PropTypes.node,
 };

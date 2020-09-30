@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 
 export const UsersTable = (props) => (
   <TableContainer component={Paper}>
-    <Table className='table' aria-label='customized table'>
+    <Table aria-label='customized table'>
       <TableHead className='table-head'>
         <TableRow>
           <TableCell align='center'>{USER_COLUMN}</TableCell>

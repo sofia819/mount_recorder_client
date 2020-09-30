@@ -10,7 +10,12 @@ import {
 } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 import ClearIcon from '@material-ui/icons/Clear';
-import { USER_COLUMN } from 'utils/constants';
+import {
+  USER_COLUMN,
+  TABLE_DIMENSIONS,
+  USER_CELL_DIMENSIONS,
+  MOUNT_CELL_DIMENSIONS,
+} from 'utils/constants';
 import { EditUserMountsButton } from 'components/UserMounts/EditUserMounts/EditUserMountsButton';
 import { TableCellWrapper } from 'components/TableCellWrapper';
 import PropTypes from 'prop-types';
@@ -19,7 +24,7 @@ import 'components/Table.scss';
 export const UserMountsTable = (props) => {
   return (
     <TableContainer component={Paper}>
-      <Table className='table' aria-label='customized table'>
+      <Table aria-label='customized table'>
         <TableHead className='table-head'>
           <TableRow>
             <TableCell align='center'>{USER_COLUMN}</TableCell>
@@ -41,6 +46,7 @@ export const UserMountsTable = (props) => {
                 <TableRow key={row.user_id} className='table-row'>
                   <TableCell align='center' component='th' scope='row'>
                     <TableCellWrapper
+                      children={TABLE_DIMENSIONS[USER_CELL_DIMENSIONS]}
                       content={
                         <EditUserMountsButton
                           userId={row.user_id}
@@ -56,10 +62,10 @@ export const UserMountsTable = (props) => {
                   {filteredUserMounts.map((userMount) => (
                     <TableCell
                       align='center'
-                      className='table-cell'
                       key={`${props.userId}_${props.expansion}_${userMount.mount_id}`}
                     >
                       <TableCellWrapper
+                        children={TABLE_DIMENSIONS[MOUNT_CELL_DIMENSIONS]}
                         content={
                           userMount.owned ? (
                             <CheckIcon color='primary' />

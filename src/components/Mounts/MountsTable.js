@@ -20,7 +20,7 @@ import 'components/Table.scss';
 export const MountsTable = (props) => {
   return (
     <TableContainer component={Paper}>
-      <Table className='table' aria-label='customized table'>
+      <Table aria-label='customized table'>
         <TableHead className='table-head'>
           <TableRow>
             <TableCell align='center'>{MOUNT_COLUMN}</TableCell>
