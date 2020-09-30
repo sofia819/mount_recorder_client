@@ -1,3 +1,6 @@
+//////////////////////////////////////////////
+///  Copyright Web Static initiative 2020  ///
+//////////////////////////////////////////////
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from 'App';

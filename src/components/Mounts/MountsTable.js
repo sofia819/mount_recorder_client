@@ -31,12 +31,14 @@ export const MountsTable = (props) => {
           {props.mounts.map((row) => (
             <TableRow key={row.mount_id} className='table-row'>
               <TableCell align='center' component='th' scope='row'>
-                <TableCellWrapper content={row.mount_name} />
+                <TableCellWrapper type='mounts'>
+                  {row.mount_name}
+                </TableCellWrapper>
               </TableCell>
               <TableCell align='center' component='th' scope='row'>
-                <TableCellWrapper
-                  content={EXPANSION_TAB_NAMES[row.expansion]}
-                />
+                <TableCellWrapper type='expansions'>
+                  {EXPANSION_TAB_NAMES[row.expansion]}
+                </TableCellWrapper>
               </TableCell>
             </TableRow>
           ))}

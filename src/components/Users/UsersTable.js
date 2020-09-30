@@ -10,6 +10,7 @@ import {
   Paper,
 } from '@material-ui/core';
 import { EditUserButton } from 'components/Users/EditUser/EditUserButton';
+import { TableCellWrapper } from 'components/TableCellWrapper';
 import PropTypes from 'prop-types';
 
 export const UsersTable = (props) => (
@@ -24,13 +25,15 @@ export const UsersTable = (props) => (
         {props.users.map((row) => (
           <TableRow key={row.user_id} className='table-row'>
             <TableCell align='center' component='th' scope='row'>
-              <EditUserButton
-                users={props.users}
-                username={row.username}
-                userId={row.user_id}
-                setUsers={props.setUsers}
-                dispatchAlert={props.dispatchAlert}
-              />
+              <TableCellWrapper type='users'>
+                <EditUserButton
+                  users={props.users}
+                  username={row.username}
+                  userId={row.user_id}
+                  setUsers={props.setUsers}
+                  dispatchAlert={props.dispatchAlert}
+                />
+              </TableCellWrapper>
             </TableCell>
           </TableRow>
         ))}
