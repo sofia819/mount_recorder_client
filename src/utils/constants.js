@@ -56,8 +56,8 @@ export const EXPANSION_CELL_DIMENSIONS = 2;
 
 export const TABLE_DIMENSIONS = {
   [USER_CELL_DIMENSIONS]: {
-    height: '80px',
-    width: '100px',
+    height: 80,
+    width: 100,
   },
   [MOUNT_CELL_DIMENSIONS]: {
     height: '80px',

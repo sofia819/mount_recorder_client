@@ -46,18 +46,17 @@ export const UserMountsTable = (props) => {
                 <TableRow key={row.user_id} className='table-row'>
                   <TableCell align='center' component='th' scope='row'>
                     <TableCellWrapper
-                      children={TABLE_DIMENSIONS[USER_CELL_DIMENSIONS]}
-                      content={
-                        <EditUserMountsButton
-                          userId={row.user_id}
-                          allUserMounts={props.allUserMounts}
-                          userMounts={filteredUserMounts}
-                          username={row.username}
-                          setUserMounts={props.setUserMounts}
-                          expansion={props.expansion}
-                        />
-                      }
-                    />
+                      dimensions={TABLE_DIMENSIONS[USER_CELL_DIMENSIONS]}
+                    >
+                      <EditUserMountsButton
+                        userId={row.user_id}
+                        allUserMounts={props.allUserMounts}
+                        userMounts={filteredUserMounts}
+                        username={row.username}
+                        setUserMounts={props.setUserMounts}
+                        expansion={props.expansion}
+                      />
+                    </TableCellWrapper>
                   </TableCell>
                   {filteredUserMounts.map((userMount) => (
                     <TableCell
@@ -65,15 +64,14 @@ export const UserMountsTable = (props) => {
                       key={`${props.userId}_${props.expansion}_${userMount.mount_id}`}
                     >
                       <TableCellWrapper
-                        children={TABLE_DIMENSIONS[MOUNT_CELL_DIMENSIONS]}
-                        content={
-                          userMount.owned ? (
-                            <CheckIcon color='primary' />
-                          ) : (
-                            <ClearIcon color='error' />
-                          )
-                        }
-                      />
+                        dimensions={TABLE_DIMENSIONS[MOUNT_CELL_DIMENSIONS]}
+                      >
+                        {userMount.owned ? (
+                          <CheckIcon color='primary' />
+                        ) : (
+                          <ClearIcon color='error' />
+                        )}
+                      </TableCellWrapper>
                     </TableCell>
                   ))}
                 </TableRow>

@@ -5,20 +5,20 @@ import PropTypes from 'prop-types';
 export const TableCellWrapper = (props) => {
   return (
     <Box
-      width={props.children['width']}
-      height={props.children['height']}
+      width={props.dimensions.width}
+      height={props.dimensions.height}
       justifyContent='center'
       alignItems='center'
       overflow='hidden'
       display='flex'
       margin='auto'
     >
-      {props.content}
+      {props.children}
     </Box>
   );
 };
 
 TableCellWrapper.propTypes = {
-  content: PropTypes.object,
+  dimensions: PropTypes.object,
   children: PropTypes.node,
 };
