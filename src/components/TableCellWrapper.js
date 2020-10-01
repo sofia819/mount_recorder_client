@@ -21,4 +21,5 @@ export const TableCellWrapper = (props) => {
 
 TableCellWrapper.propTypes = {
   children: PropTypes.node,
+  type: PropTypes.string,
 };

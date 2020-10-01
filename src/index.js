@@ -1,5 +1,5 @@
 //////////////////////////////////////////////
-///  Copyright Web Static initiative 2020  ///
+///  Copyright Web Static Initiative 2020  ///
 //////////////////////////////////////////////
 import React from 'react';
 import ReactDOM from 'react-dom';
