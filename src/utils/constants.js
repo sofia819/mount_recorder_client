@@ -38,6 +38,8 @@ export const USERNAME_TEXT = 'Username';
 
 export const SEARCH_USER_TEXT = 'Search';
 
+export const SEARCH_USER_TOOLTIP = 'Min ' + MIN_USERNAME_LEN + ' chars';
+
 export const PASSWORD_TEXT = 'Password';
 
 export const LOGIN_BUTTON = 'Login';
@@ -45,6 +47,21 @@ export const LOGIN_BUTTON = 'Login';
 export const ADD_USER_BUTTON = 'Add User';
 
 export const EXPANSION_COLUMN = 'Expansion';
+
+export const TABLE_DIMENSIONS = {
+  users: {
+    height: '80px',
+    width: '100px',
+  },
+  mounts: {
+    height: '80px',
+    width: '100px',
+  },
+  expansions: {
+    height: '80px',
+    width: '120px',
+  },
+};
 
 // Must be the smallest number
 export const ALL_EXPANSIONS = -1;

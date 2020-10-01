@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Table,
   TableBody,
@@ -7,23 +7,24 @@ import {
   TableHead,
   TableRow,
   Paper,
-} from "@material-ui/core";
-import CheckIcon from "@material-ui/icons/Check";
-import ClearIcon from "@material-ui/icons/Clear";
-import { USER_COLUMN } from "utils/constants";
-import { EditUserMountsButton } from "components/UserMounts/EditUserMounts/EditUserMountsButton";
-import PropTypes from "prop-types";
-import "components/Table.scss";
+} from '@material-ui/core';
+import CheckIcon from '@material-ui/icons/Check';
+import ClearIcon from '@material-ui/icons/Clear';
+import { USER_COLUMN } from 'utils/constants';
+import { EditUserMountsButton } from 'components/UserMounts/EditUserMounts/EditUserMountsButton';
+import { TableCellWrapper } from 'components/TableCellWrapper';
+import PropTypes from 'prop-types';
+import 'components/Table.scss';
 
 export const UserMountsTable = (props) => {
   return (
     <TableContainer component={Paper}>
-      <Table className="table" aria-label="customized table">
-        <TableHead className="table-head">
+      <Table aria-label='customized table'>
+        <TableHead className='table-head'>
           <TableRow>
-            <TableCell align="center">{USER_COLUMN}</TableCell>
+            <TableCell align='center'>{USER_COLUMN}</TableCell>
             {props.mounts.map((mount) => (
-              <TableCell align="center" key={mount.mount_name}>
+              <TableCell align='center' key={mount.mount_name}>
                 {mount.mount_name}
               </TableCell>
             ))}
@@ -37,33 +38,31 @@ export const UserMountsTable = (props) => {
                 .filter((userMount) => userMount.user_id === row.user_id)
                 .sort((a, b) => a.mount_id - b.mount_id);
               return (
-                <TableRow key={row.user_id} className="table-row">
-                  <TableCell
-                    width="10%"
-                    align="center"
-                    component="th"
-                    scope="row"
-                  >
-                    <EditUserMountsButton
-                      userId={row.user_id}
-                      allUserMounts={props.allUserMounts}
-                      userMounts={filteredUserMounts}
-                      username={row.username}
-                      setUserMounts={props.setUserMounts}
-                      expansion={props.expansion}
-                    />
+                <TableRow key={row.user_id} className='table-row'>
+                  <TableCell align='center' component='th' scope='row'>
+                    <TableCellWrapper type='users'>
+                      <EditUserMountsButton
+                        userId={row.user_id}
+                        allUserMounts={props.allUserMounts}
+                        userMounts={filteredUserMounts}
+                        username={row.username}
+                        setUserMounts={props.setUserMounts}
+                        expansion={props.expansion}
+                      />
+                    </TableCellWrapper>
                   </TableCell>
                   {filteredUserMounts.map((userMount) => (
                     <TableCell
-                      width="5%"
-                      align="center"
+                      align='center'
                       key={`${props.userId}_${props.expansion}_${userMount.mount_id}`}
                     >
-                      {userMount.owned ? (
-                        <CheckIcon color="primary" />
-                      ) : (
-                        <ClearIcon color="error" />
-                      )}
+                      <TableCellWrapper type='mounts'>
+                        {userMount.owned ? (
+                          <CheckIcon color='primary' />
+                        ) : (
+                          <ClearIcon color='error' />
+                        )}
+                      </TableCellWrapper>
                     </TableCell>
                   ))}
                 </TableRow>

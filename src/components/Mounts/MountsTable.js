@@ -13,13 +13,14 @@ import {
   EXPANSION_COLUMN,
   EXPANSION_TAB_NAMES,
 } from 'utils/constants';
+import { TableCellWrapper } from 'components/TableCellWrapper';
 import PropTypes from 'prop-types';
 import 'components/Table.scss';
 
 export const MountsTable = (props) => {
   return (
     <TableContainer component={Paper}>
-      <Table className='table' aria-label='customized table'>
+      <Table aria-label='customized table'>
         <TableHead className='table-head'>
           <TableRow>
             <TableCell align='center'>{MOUNT_COLUMN}</TableCell>
@@ -30,10 +31,14 @@ export const MountsTable = (props) => {
           {props.mounts.map((row) => (
             <TableRow key={row.mount_id} className='table-row'>
               <TableCell align='center' component='th' scope='row'>
-                {row.mount_name}
+                <TableCellWrapper type='mounts'>
+                  {row.mount_name}
+                </TableCellWrapper>
               </TableCell>
               <TableCell align='center' component='th' scope='row'>
-                {EXPANSION_TAB_NAMES[row.expansion]}
+                <TableCellWrapper type='expansions'>
+                  {EXPANSION_TAB_NAMES[row.expansion]}
+                </TableCellWrapper>
               </TableCell>
             </TableRow>
           ))}
