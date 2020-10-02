@@ -38,8 +38,8 @@ Libraries
 
 To run this project, install it locally using npm:
 
-- 1. Clone the repository
-- 2. Install dependencies using `npm install`
-- 3. Start the server using `npm start`
+1. Clone the repository
+2. Install dependencies using `npm install`
+3. Start the server using `npm start`
 
-This application requires a backend to function as intended, with the purpose built back end located in this repository: [Mount Recorder Server](https://github.com/sofia819/mount_recorder_server)
+This application requires a backend to function as intended, which is located in this repository: [Mount Recorder Server](https://github.com/sofia819/mount_recorder_server)
