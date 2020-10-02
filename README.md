@@ -30,7 +30,6 @@ Framework
 
 Libraries
 
-- npm
 - Material-UI
 - wretch
 
