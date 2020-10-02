@@ -23,25 +23,25 @@ Project is created with:
 
 Language
 
-- "JavaScript"
+- JavaScript
 
 Framework
 
-- "react": "^16.13.1"
+- React
 
 Libraries
 
-- "npm": "6.14.5"
-- "@material-ui/core": "^4.11.0"
-- "wretch": "^1.7.2"
+- npm
+- Material-ui
+- Wretch
 
 ## Setup
 
 To run this project, install it locally using npm:
 
 - 1. Clone the repository
-- 2. Install dependencies using npm install
-- 3. Start the server using npm start
+- 2. Install dependencies using `npm install`
+- 3. Start the server `using npm start`
 
 This application requires a backend to function as intended,
 with the purpose built back end located in this repository:
