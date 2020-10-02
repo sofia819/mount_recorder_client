@@ -32,8 +32,8 @@ Framework
 Libraries
 
 - npm
-- Material-ui
-- Wretch
+- Material-UI
+- wretch
 
 ## Setup
 
@@ -41,7 +41,7 @@ To run this project, install it locally using npm:
 
 - 1. Clone the repository
 - 2. Install dependencies using `npm install`
-- 3. Start the server `using npm start`
+- 3. Start the server using `npm start`
 
 This application requires a backend to function as intended,
 with the purpose built back end located in this repository:
