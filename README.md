@@ -26,12 +26,12 @@ Language
 
 Framework
 
-- React
+- [React](https://reactjs.org/)
 
 Libraries
 
-- Material-UI
-- wretch
+- [Material-UI](https://material-ui.com/)
+- [wretch](https://github.com/elbywan/wretch)
 
 ## Setup
 
