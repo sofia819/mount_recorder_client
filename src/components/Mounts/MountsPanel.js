@@ -42,6 +42,7 @@ export const MountsPanel = (props) => {
             page * rowsPerPage,
             page * rowsPerPage + rowsPerPage
           )}
+          userMounts={props.userMounts}
         />
       </Grid>
       <Grid item xs={12} align='center'>
@@ -60,4 +61,5 @@ export const MountsPanel = (props) => {
 };
 MountsPanel.propTypes = {
   mounts: PropTypes.array,
+  userMounts: PropTypes.array,
 };
