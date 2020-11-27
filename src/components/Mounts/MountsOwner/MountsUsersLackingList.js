@@ -1,16 +1,16 @@
 import React, { forwardRef } from 'react';
 import { Card, Button, Grid, Typography, Box } from '@material-ui/core';
-import { CLOSE_BUTTON, USERS_NOT_OWNED } from 'utils/constants';
+import { CLOSE_BUTTON, NOT_OWNED_BY_USERS } from 'utils/constants';
 import PropTypes from 'prop-types';
 import 'components/ModalForm.scss';
 
-export const MountOwnedUsersList = forwardRef((props, ref) => {
+export const MountsUsersLackingList = forwardRef((props, ref) => {
   return (
     <Card ref={ref} tabIndex={-1} className='form'>
       <Box mt={2} mb={2}>
         <Grid container align='center' spacing={2}>
           <Grid item xs={12}>
-            <Typography>{`${USERS_NOT_OWNED} ${props.mountName}`}</Typography>
+            <Typography>{`${NOT_OWNED_BY_USERS} ${props.mountName}`}</Typography>
           </Grid>
           <Grid container align='left'>
             <Box ml={4} mr={4} mt={1} mb={2}>
@@ -36,7 +36,7 @@ export const MountOwnedUsersList = forwardRef((props, ref) => {
   );
 });
 
-MountOwnedUsersList.propTypes = {
+MountsUsersLackingList.propTypes = {
   onChangeSelection: PropTypes.func,
   mountName: PropTypes.string,
   ownedUsers: PropTypes.array,

@@ -124,7 +124,7 @@ export const ALERT_MESSAGE = {
 
 export const ALERT_MESSAGE_DURATION = 3000;
 
-export const USERS_NOT_OWNED = 'Players who do not have';
+export const NOT_OWNED_BY_USERS = 'Users who do not have';
 
 // Heroku https://mount-recorder-server.herokuapp.com
 // Local http://localhost:5000
