@@ -118,7 +118,11 @@ export const NavigationBar = () => {
           />
         </Route>
         <Route path={`/${PAGES_NAV.MOUNTS_NAV}`} exact>
-          <MountsPanel mounts={mounts} setSelectedTab={setSelectedTab} />
+          <MountsPanel
+            mounts={mounts}
+            setSelectedTab={setSelectedTab}
+            userMounts={userMounts}
+          />
         </Route>
         <Route path={`/${PAGES_NAV.USER_MOUNTS_NAV}`}>
           <UserMountsPanel
