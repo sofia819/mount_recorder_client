@@ -9,10 +9,12 @@ import {
   Paper,
 } from '@material-ui/core';
 import {
+  IMAGE_COLUMN,
   MOUNT_COLUMN,
   EXPANSION_COLUMN,
   EXPANSION_TAB_NAMES,
 } from 'utils/constants';
+import { MountsImageButton } from 'components/Mounts/MountsImage/MountsImageButton';
 import { MountsUsersLackingButton } from 'components/Mounts/MountsOwner/MountsUsersLackingButton';
 import { TableCellWrapper } from 'components/TableCellWrapper';
 import PropTypes from 'prop-types';
@@ -24,6 +26,7 @@ export const MountsTable = (props) => {
       <Table aria-label='customized table'>
         <TableHead className='table-head'>
           <TableRow>
+            <TableCell align='center'>{IMAGE_COLUMN}</TableCell>
             <TableCell align='center'>{MOUNT_COLUMN}</TableCell>
             <TableCell align='center'>{EXPANSION_COLUMN}</TableCell>
           </TableRow>
@@ -31,6 +34,14 @@ export const MountsTable = (props) => {
         <TableBody>
           {props.mounts.map((row) => (
             <TableRow key={row.mount_id} className='table-row'>
+              <TableCell align='center' component='th' scope='row'>
+                <TableCellWrapper type='mounts'>
+                  <MountsImageButton
+                    mountName={row.mount_name}
+                    imageUrl={row.image_url}
+                  />
+                </TableCellWrapper>
+              </TableCell>
               <TableCell align='center' component='th' scope='row'>
                 <TableCellWrapper type='mounts'>
                   <MountsUsersLackingButton
