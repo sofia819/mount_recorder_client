@@ -1,5 +1,13 @@
 import React from 'react';
-import { Stepper, Step, StepButton, Button, Grid } from '@material-ui/core';
+import {
+  Stepper,
+  Step,
+  StepButton,
+  Button,
+  Grid,
+  Box,
+  Typography,
+} from '@material-ui/core';
 import { BACK_BUTTON, NEXT_BUTTON } from 'components/Help/HelpConstants';
 import 'components/Help/Stepper.scss';
 import PropTypes from 'prop-types';
@@ -30,38 +38,57 @@ export const HelpStepper = (props) => {
           </Step>
         ))}
       </Stepper>
-      <div className='gifContainer'>
-        <img
-          src={props.instructions[props.activeStep].imagePath}
-          alt={props.instructions[props.activeStep].altText}
-        />
-      </div>
-      <Grid
-        container
-        direction='row'
-        justify='space-evenly'
-        alignItems='center'
-      >
-        <Grid item xs={2}>
-          <Button
-            disabled={props.activeStep === 0}
-            onClick={handleBack}
-            fullWidth
-          >
-            {BACK_BUTTON}
-          </Button>
+      {props.instructions[props.activeStep]?.imagePath && (
+        <div className='gifContainer'>
+          <img
+            src={props.instructions[props.activeStep].imagePath}
+            alt={props.instructions[props.activeStep].altText}
+          />
+        </div>
+      )}
+      {props.instructions[props.activeStep]?.command && (
+        <Grid container align='center'>
+          <Grid item xs={12}>
+            <Typography>
+              {props.instructions[props.activeStep]?.altText}
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography>
+              {props.instructions[props.activeStep]?.command}
+            </Typography>
+          </Grid>
         </Grid>
-        <Grid item xs={2}>
-          <Button
-            variant='contained'
-            color='primary'
-            onClick={handleNext}
-            fullWidth
-          >
-            {NEXT_BUTTON}
-          </Button>
+      )}
+      <Box m={1}>
+        <Grid
+          container
+          direction='row'
+          justify='space-evenly'
+          alignItems='center'
+        >
+          <Grid item xs={2}>
+            <Button
+              disabled={props.activeStep === 0}
+              onClick={handleBack}
+              fullWidth
+              variant='contained'
+            >
+              {BACK_BUTTON}
+            </Button>
+          </Grid>
+          <Grid item xs={2}>
+            <Button
+              variant='contained'
+              color='primary'
+              onClick={handleNext}
+              fullWidth
+            >
+              {NEXT_BUTTON}
+            </Button>
+          </Grid>
         </Grid>
-      </Grid>
+      </Box>
     </>
   );
 };
