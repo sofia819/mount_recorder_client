@@ -23,11 +23,13 @@ export const UserMountsTable = (props) => {
         <TableHead className='table-head'>
           <TableRow>
             <TableCell align='center'>{USER_COLUMN}</TableCell>
-            {props.mounts.map((mount) => (
-              <TableCell align='center' key={mount.mount_name}>
-                {mount.mount_name}
-              </TableCell>
-            ))}
+            {props.mounts
+              .sort((a, b) => a.mount_id - b.mount_id)
+              .map((mount) => (
+                <TableCell align='center' key={mount.mount_name}>
+                  {mount.mount_name}
+                </TableCell>
+              ))}
           </TableRow>
         </TableHead>
         <TableBody>
