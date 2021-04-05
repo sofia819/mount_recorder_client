@@ -131,6 +131,6 @@ export const NOT_OWNED_BY_USERS = 'Users who do not have';
 // Heroku https://mount-recorder-server.herokuapp.com
 // Local http://localhost:5000
 export const END_POINT_URL =
-  process.env.NODE_ENV !== 'development'
+  process.env.NODE_ENV === 'development'
     ? 'http://localhost:5000'
     : 'https://mount-recorder-server.herokuapp.com';

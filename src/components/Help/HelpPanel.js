@@ -23,7 +23,7 @@ export const HelpPanel = () => {
           alignItems='center'
         >
           {HELP_CATEGORIES_INSTRUCTIONS.map((category, index) => (
-            <Grid item xs={2} key={category.categoryName}>
+            <Grid item xs={3} key={category.categoryName}>
               <Button
                 variant='contained'
                 color='primary'

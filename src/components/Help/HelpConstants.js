@@ -2,7 +2,7 @@ export const BACK_BUTTON = 'Back';
 
 export const NEXT_BUTTON = 'Next';
 
-const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
+export const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
   0: {
     step: 'Selecting a user',
     imagePath: '/assets/user-mounts-instructions/user-mounts-select-user.gif',
@@ -32,7 +32,7 @@ const USER_MOUNTS_STEPPER_INSTRUCTIONS = {
   },
 };
 
-const USERS_STEPPER_INSTRUCTIONS = {
+export const USERS_STEPPER_INSTRUCTIONS = {
   0: {
     step: 'Selecting a user',
     imagePath: '/assets/users-instructions/users-select-user.gif',
@@ -60,7 +60,7 @@ const USERS_STEPPER_INSTRUCTIONS = {
   },
 };
 
-const MOUNTS_STEPPER_INSTRUCTIONS = {
+export const MOUNTS_STEPPER_INSTRUCTIONS = {
   0: {
     step: 'Changing pages',
     imagePath: '/assets/mounts-instructions/mounts-change-page.gif',
@@ -78,24 +78,6 @@ const MOUNTS_STEPPER_INSTRUCTIONS = {
   },
 };
 
-const BOT_COMMANDS = {
-  0: {
-    step: 'Check mount',
-    command: '!mrmount mountName',
-    altText: 'Check who is missing a particular mount',
-  },
-  1: {
-    step: 'Check user',
-    command: '!mruser username',
-    altText: 'Check what mounts that a particular user is missing',
-  },
-  2: {
-    step: 'Add a new user',
-    command: '!mradd newUserName',
-    altText: 'Add a new user',
-  },
-};
-
 export const HELP_CATEGORIES_INSTRUCTIONS = [
   {
     categoryName: 'User Mounts',
@@ -108,9 +90,5 @@ export const HELP_CATEGORIES_INSTRUCTIONS = [
   {
     categoryName: 'Mounts',
     instructions: MOUNTS_STEPPER_INSTRUCTIONS,
-  },
-  {
-    categoryName: 'Bot Commands',
-    instructions: BOT_COMMANDS,
   },
 ];
