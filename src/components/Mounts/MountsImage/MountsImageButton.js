@@ -2,6 +2,7 @@ import React, { createRef, useState } from 'react';
 import { MountsImage } from 'components/Mounts/MountsImage/MountsImage';
 import { Button, Modal, Avatar } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { BACKUP_ICON } from 'utils/constants';
 
 export const MountsImageButton = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,7 +13,7 @@ export const MountsImageButton = (props) => {
   return (
     <>
       <Button variant='outlined' color='primary' onClick={handleOpenModal}>
-        <Avatar src={props.imageUrl} alt={props.mountName} />
+        <Avatar src={props.imageUrl || BACKUP_ICON} alt={props.mountName} />
       </Button>
       <Modal
         open={isModalOpen}

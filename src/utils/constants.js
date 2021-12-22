@@ -132,6 +132,8 @@ export const ALERT_MESSAGE_DURATION = 3000;
 
 export const NOT_OWNED_BY_USERS = 'Users who do not have';
 
+export const BACKUP_ICON = '/favicon.ico';
+
 // Heroku https://mount-recorder-server.herokuapp.com
 // Local http://localhost:5000
 export const END_POINT_URL =
