@@ -78,6 +78,8 @@ export const SB_EXPANSION = 4;
 
 export const SHB_EXPANSION = 5;
 
+export const EW_EXPANSION = 6;
+
 export const EXPANSION_MAP = {
   [ALL_EXPANSIONS]: 'All',
   [MISC_EXPANSION]: 'Misc',
@@ -85,6 +87,7 @@ export const EXPANSION_MAP = {
   [HW_EXPANSION]: 'Heavensward',
   [SB_EXPANSION]: 'Stormblood',
   [SHB_EXPANSION]: 'Shadowbringers',
+  [EW_EXPANSION]: 'Endwalker',
 };
 
 export const EXPANSION_TAB_NAMES = {
@@ -94,6 +97,7 @@ export const EXPANSION_TAB_NAMES = {
   [HW_EXPANSION]: 'Heavensward',
   [SB_EXPANSION]: 'Stormblood',
   [SHB_EXPANSION]: 'Shadowbringers',
+  [EW_EXPANSION]: 'Endwalker',
 };
 
 export const ROWS_PER_PAGE_OPTIONS = [5, 10, 15];
@@ -127,6 +131,8 @@ export const ALERT_MESSAGE = {
 export const ALERT_MESSAGE_DURATION = 3000;
 
 export const NOT_OWNED_BY_USERS = 'Users who do not have';
+
+export const BACKUP_ICON = '/favicon.ico';
 
 // Heroku https://mount-recorder-server.herokuapp.com
 // Local http://localhost:5000

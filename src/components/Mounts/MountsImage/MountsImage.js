@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { Card, Button, Grid, Typography, Box } from '@material-ui/core';
-import { CLOSE_BUTTON } from 'utils/constants';
+import { CLOSE_BUTTON, BACKUP_ICON } from 'utils/constants';
 import PropTypes from 'prop-types';
 import 'components/ModalForm.scss';
 
@@ -14,7 +14,7 @@ export const MountsImage = forwardRef((props, ref) => {
           </Grid>
           <Grid item xs={12}>
             <Box ml={4} mr={4} mt={1} mb={2} justifyContent='center'>
-              <img src={props.imageUrl} alt={props.mountName} />
+              <img src={props.imageUrl || BACKUP_ICON} alt={props.mountName} />
             </Box>
           </Grid>
           <Grid item xs={12}>
